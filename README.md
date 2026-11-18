@@ -6,6 +6,10 @@ Paddock is an unofficial Star Wars: Galactic Racer companion for planning builds
 
 Build plans and tour history are saved in the browser's IndexedDB. Use the in-app backup controls to move records between browsers or import an export from the Mac app. The hosted site uses manual tour entry. The watchlist and offer comparisons use the original Python rules in a browser worker.
 
+## Tour results
+
+Open **Results** to record all 12 drivers across five stages and a separate final race. Choose your row and the stage you joined. The standings are included in tour backups.
+
 ## Preview
 
 From the repository root, run `python3 -m http.server 8000`. Visit `http://localhost:8000/docs/` in a current browser. GitHub Pages serves `docs/` from the publishing branch.

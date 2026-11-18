@@ -1,4 +1,5 @@
 import {api} from './browser-api.js';
+import {resultsHTML, updateResults, readResults, resultInput} from './results.js';
 import {initBuilder,builderHTML,builderInput,builderChange,builderAction,builderSubmit,seedBuilder,setBuilderRoute,builderHash} from './builder.js';
 import {gameGlyph,abilityGlyph,partGlyph,gameText} from './game-assets.js';
 import {loadGuides, guidesHTML, selectGuideRoute, guideHash, setGuideQuery, toggleCompact, guideData} from './guides.js';
@@ -18,7 +19,7 @@ const today = () => new Date().toLocaleDateString('en-US', {month:'short',day:'n
 const date = value => new Date(value).toLocaleString('en-US', {month:'short',day:'numeric',hour:'numeric',minute:'2-digit'});
 const fields = ['Cornering','Afterburner','Resilience','Ramjet','Battery','Advanced handling'];
 let data, tours = [], tour = null, view = 'builder', offers = [], analysis = null, search = '', filter = 'all', busy = false, customTarget = null;
-let toastTimer, libraryPage=0;
+let toastTimer, libraryPage=0, standingsTourId;
 let watchlist = null, watchlistError = '';
 let assistantGeneration = 0, assistantInFlight = false, watchlistKey = '', assistantDeferred = false;
 const isActiveTour = () => Boolean(tour && tour.status !== 'completed');
@@ -49,11 +50,11 @@ function render() {
   document.body.classList.toggle('guide-view', view === 'guides');
   document.body.dataset.view=view;
   document.querySelectorAll('button[data-view]').forEach(b => { b.classList.toggle('active', b.dataset.view === view); b.setAttribute('aria-current', b.dataset.view === view ? 'page' : 'false'); });
-  const headings = {builder:['Build','Choose your racer. Make the build yours.'],guides:['Build guides','13 racers. Three distinct directions each.'],tour:['Tour','Your current run, from the first choice to the finish.'],library:['Parts & abilities','Find the pieces that make your build work.'],history:['Tour history','Your runs, decisions, and race-entry builds.'],research:['Research','The sources behind the recommendations.']};
+  const headings = {builder:['Build','Choose your racer. Make the build yours.'],guides:['Build guides','13 racers. Three distinct directions each.'],tour:['Tour','Your current run, from the first choice to the finish.'],results:['Results','Record stage and final-race finishes for all 12 drivers.'],library:['Parts & abilities','Find the pieces that make your build work.'],history:['Tour history','Your runs, decisions, and race-entry builds.'],research:['Research','The sources behind the recommendations.']};
   $('#page-title').textContent = headings[view][0]; $('#page-description').textContent = headings[view][1];
   $('#header-actions').innerHTML = view === 'tour' && tour ? button('New tour','new-tour','secondary') : '';
-  $('#content').innerHTML = view === 'builder' ? builderHTML() : view === 'guides' ? guidesHTML() : view === 'tour' ? (tour ? liveHTML() : startHTML()) : view === 'library' ? libraryHTML() : view === 'history' ? historyHTML() : researchHTML();
-  $('#coverage').textContent = ['guides','builder'].includes(view) ? '13 racers · 39 researched directions' : view==='library' ? `${referenceEntries().length} reference entries` : view==='history' ? `${tours.length} saved tour${tours.length===1?'':'s'}` : view==='tour' ? (tour?'Actual tour record':'Fresh tour setup') : 'Source claims · editorial recommendations';
+  $('#content').innerHTML = view === 'builder' ? builderHTML() : view === 'guides' ? guidesHTML() : view === 'tour' ? (tour ? liveHTML() : startHTML()) : view === 'library' ? libraryHTML() : view === 'history' ? historyHTML() : view === 'results' ? resultsHTML(tours.find(t => t.id === standingsTourId) || tour, tours) : researchHTML();
+  $('#coverage').textContent = ['guides','builder'].includes(view) ? '13 racers · 39 researched directions' : view==='library' ? `${referenceEntries().length} reference entries` : view==='history' ? `${tours.length} saved tour${tours.length===1?'':'s'}` : view==='tour' ? (tour?'Actual tour record':'Fresh tour setup') : view==='results' ? '' : 'Source claims · editorial recommendations';
   if (view === 'tour' && tour) queueMicrotask(refreshAssistant);
 }
 function foundationHTML() {
@@ -65,7 +66,7 @@ function startHTML() {
 }
 function liveHTML() {
   const b = tour.build; const names = installed().map(id => item(id));
-  return `<section class="context-strip"><div><h2>${esc(tour.name)}</h2><div class="context-meta"><span>${esc(tour.racer || 'Racer not recorded')}</span><span>${esc(tour.vehicle || 'Vehicle not recorded')}</span><span>Stage ${esc(tour.stage || 1)}</span><span>${esc(b.credits ?? 'Unknown')} credits</span><span>${esc(tour.status || 'active')}</span></div></div><div class="buttons">${button(tour.pending_race ? 'Race build saved' : 'Save race-entry build','lock-race',tour.pending_race ? 'secondary' : '',tour.pending_race ? 'disabled' : '')}${tour.status !== 'completed' ? button('End tour','end-tour','secondary small') : ''}</div></section>
+  return `<section class="context-strip"><div><h2>${esc(tour.name)}</h2><div class="context-meta"><span>${esc(tour.racer || 'Racer not recorded')}</span><span>${esc(tour.vehicle || 'Vehicle not recorded')}</span><span>Stage ${esc(tour.stage || 1)}</span><span>${esc(b.credits ?? 'Unknown')} credits</span><span>${esc(tour.status || 'active')}</span></div></div><div class="buttons">${button('Results','open-results','secondary small',`data-id="${esc(tour.id)}"`)}${button(tour.pending_race ? 'Race build saved' : 'Save race-entry build','lock-race',tour.pending_race ? 'secondary' : '',tour.pending_race ? 'disabled' : '')}${tour.status !== 'completed' ? button('End tour','end-tour','secondary small') : ''}</div></section>
   <details class="tour-assistant"><summary>Look for next</summary>${assistantHTML()}</details>
   <div class="tour-layout"><aside class="panel build-panel"><div class="section-head"><div><h2>Your current build</h2><p>${names.filter(i => i.kind === 'part').length} parts · ${names.filter(i => i.kind === 'ability').length} abilities</p></div></div>
   <ul class="equipment">${names.map(i => `<li><span class="tour-equipment-icon" aria-hidden="true">${referenceIcon(i)}</span><div><span class="name">${esc(i.name)}</span><span class="type">${esc(i.kind.replaceAll('_',' '))}${i.tier ? ` · Tier ${esc(i.tier)}` : ''}</span></div><button class="icon-button" data-action="remove-item" data-id="${esc(i.id)}" aria-label="Remove ${esc(i.name)}"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15"/></svg></button></li>`).join('') || '<li class="empty-line">Add the equipment currently fitted in your game.</li>'}</ul>
@@ -123,7 +124,7 @@ function libraryHTML() {
 }
 function historyHTML() {
   const races = tours.flatMap(t => t.races || []);
-  return `${races.length ? `<div class="research-intro"><h2>${races.length} recorded race${races.length === 1 ? '' : 's'} across ${tours.length} tour${tours.length === 1 ? '' : 's'}</h2><p>These are observations, not controlled build comparisons. Track, opponents, and driving all affect the result.</p></div>` : ''}<div class="history-list">${tours.length ? tours.map(t => `<article class="history-row"><div><h2>${esc(t.name || 'Untitled tour')}</h2><p>${esc(t.racer || 'Racer unknown')} · ${(t.races || []).length} race results · ${esc(t.status || 'active')}</p><small>Updated ${date(t.updated_at)} · Revision ${esc(t.revision)}</small></div><div class="buttons">${button('Open tour','open-tour','secondary',`data-id="${esc(t.id)}"`)}</div></article>`).join('') : `<div class="empty-history"><h2>Every run has a story.</h2><p>Start a tour, save the build before racing, and record the result. Your decisions and equipment changes will stay connected to the race they led into.</p>${button('Start a tour','new-tour')}</div>`}</div>`;
+  return `${races.length ? `<div class="research-intro"><h2>${races.length} recorded race${races.length === 1 ? '' : 's'} across ${tours.length} tour${tours.length === 1 ? '' : 's'}</h2><p>These are observations, not controlled build comparisons. Track, opponents, and driving all affect the result.</p></div>` : ''}<div class="history-list">${tours.length ? tours.map(t => `<article class="history-row"><div><h2>${esc(t.name || 'Untitled tour')}</h2><p>${esc(t.racer || 'Racer unknown')} · ${(t.races || []).length} race results · ${esc(t.status || 'active')}</p><small>Updated ${date(t.updated_at)} · Revision ${esc(t.revision)}</small></div><div class="buttons">${button('Open tour','open-tour','secondary',`data-id="${esc(t.id)}"`)}${button('Results','open-results','secondary',`data-id="${esc(t.id)}"`)}</div></article>`).join('') : `<div class="empty-history"><h2>Every run has a story.</h2><p>Start a tour, save the build before racing, and record the result. Your decisions and equipment changes will stay connected to the race they led into.</p>${button('Start a tour','new-tour')}</div>`}</div>`;
 }
 function researchHTML() {
   return `<div class="research-layout"><section class="research-intro"><h2>Recommendations, with their limits</h2><p>Build directions connect source-described effects with each racer’s multiplayer traits. The combinations and stat points are editorial recommendations.</p><p>The tour advisor grades supported synergy fit. It does not predict a finishing position or establish the fastest possible legal build.</p><p>Missing effects remain unknown. A good result can inform your notes without proving that a build caused the win.</p></section><section class="screen-panel"><h2>Confirm in game</h2><table class="data-table"><tbody><tr><td>Current offers</td><td>Availability, exact tier, and actual price.</td></tr><tr><td>Legal slots</td><td>Observed equipment limits and replacement choices.</td></tr><tr><td>Runtime behavior</td><td>Status timing, refresh rules, and stacking.</td></tr><tr><td>Current conditions</td><td>Active statuses and available Energy, rather than equipped items alone.</td></tr></tbody></table></section></div><section class="research-sources screen-panel"><h2>Source references</h2><details><summary>Browse ${data.sources.length} retained sources</summary><ul class="source-list">${data.sources.map(s=>`<li>${sourceHTML(s)}<p>${esc(s.trust||s.scope||s.kind||'Source claim; not directly tested on Xbox.')}</p></li>`).join('')}</ul></details><details><summary>Local data & backups</summary><p>Tour history and build plans are saved in this browser. Export a backup to move them to another device. Build plans have their own export in Build tools; tour backups preserve actual run revisions.</p><div class="buttons">${button('Export tour history','export','secondary')}<label class="button secondary file-label">Import tours<input type="file" class="import-secondary" accept="application/json,.json"></label></div></details></section>`;
@@ -185,7 +186,7 @@ document.addEventListener('click', async event => {
     if(action==='library-page'){libraryPage=Math.max(0,libraryPage+Number(b.dataset.delta));render();return;}
     if (action === 'guide-compact') { toggleCompact(); render(); $('[data-action="guide-compact"]').focus(); }
     if (action === 'retry-guides') { b.disabled = true; b.textContent = 'Loading guides…'; await loadGuides(); render(); }
-    if (action === 'new-tour') { resetAssistant(); tour = null; offers = []; analysis = null; localStorage.setItem('paddock.active','new'); view = 'tour'; customTarget = null; render(); }
+    if (action === 'new-tour') { resetAssistant(); tour = null; offers = []; analysis = null; localStorage.setItem('paddock.active','new'); customTarget = null; nav('tour'); }
     if (action === 'suggest-kit') { const kit = data.starting_kits.find(k => k.id === b.dataset.kit); $('#new-racer').value = kit.racer_name || ''; $('#new-kit').value = kit.id; }
     if (action === 'remove-item') { tour.build.installed = installed().filter(id => id !== b.dataset.id); analysis = null; await save('Build updated.'); }
     if (action === 'custom-equipment' || action === 'custom-offer') { customTarget = action === 'custom-offer' ? 'offer' : 'equipment'; render(); }
@@ -208,6 +209,7 @@ document.addEventListener('click', async event => {
     }
     if (action === 'lock-race') { tour.pending_race = {stage:tour.stage,entry_build:clone(tour.build),at:new Date().toISOString()}; await save('Race-entry build saved.'); }
     if (action === 'end-tour') { tour.status = 'completed'; await save('Tour marked complete. History is preserved.'); }
+    if (action === 'open-results') { standingsTourId = b.dataset.id; nav('results'); }
     if (action === 'open-tour') { currentTour(await api(`/api/tours/${b.dataset.id}`)); view = 'tour'; render(); }
     if (action === 'export') await exportBackup();
   } catch(error) { showError(error); render(); } finally { busy = false; }
@@ -216,6 +218,22 @@ document.addEventListener('submit', async event => {
   const form = event.target; event.preventDefault(); if (busy) return; busy = true; clearError(); const f = new FormData(form);
   try {
     if (form.id === 'builder-custom') { builderSubmit(form); return; }
+    if (form.id === 'tour-results') {
+      const standings = readResults(form);
+      if (!standings) return;
+      const selected = tours.find(t => t.id === f.get('tour_id'));
+      const saved = await api(`/api/tours/${selected.id}`, 'PUT', {...selected, standings});
+      tours = tours.map(t => t.id === saved.id ? saved : t);
+      if (tour?.id === saved.id) currentTour(saved);
+      standingsTourId = saved.id;
+      if (view === 'results') {
+        const scrollLeft = form.querySelector('.results-scroll').scrollLeft;
+        render();
+        $('.results-scroll').scrollLeft = scrollLeft;
+        $('#tour-results button[type="submit"]').focus({preventScroll:true});
+      }
+      toast('Results saved in this browser.');
+    }
     if (form.id === 'start-tour') {
       const kit = data.starting_kits.find(k => k.id === f.get('kit'));
       const build = {credits:number(f.get('credits')),installed:kit ? [...kit.abilities,...kit.traits] : [],caps:Object.fromEntries(['parts','abilities','crash_abilities'].map(k => [k,number(f.get(k))])),constraints_observed:f.has('observed'),observations:{},stats:{},custom_items:[],remaining_stages:number(f.get('remaining')),focus:f.get('focus')};
@@ -246,10 +264,27 @@ document.addEventListener('submit', async event => {
 });
 document.addEventListener('input', event => {
   builderInput(event.target);
+  resultInput(event.target);
   if (event.target.id === 'guide-search') { const position = event.target.selectionStart; setGuideQuery(event.target.value); render(); const input = $('#guide-search'); input.focus(); if (position !== null) input.setSelectionRange(position,position); }
   if (event.target.id === 'library-search') { const input = event.target; const position = input.selectionStart; search = input.value; libraryPage=0; render(); const next = $('#library-search'); next.focus(); next.setSelectionRange(position,position); }
 });
-document.addEventListener('change', event => { builderChange(event.target).catch(showError); if (event.target.id === 'guide-character') { location.hash = `#guides/${event.target.value}`; } if (event.target.id === 'library-filter') { filter = event.target.value; libraryPage=0; render(); } if (event.target.id === 'import' || event.target.classList.contains('import-secondary')) importBackup(event.target); });
+document.addEventListener('change', event => {
+  const target = event.target;
+  if (target.id === 'results-tour') {
+    standingsTourId = target.value;
+    render();
+    $('#results-tour').focus();
+    return;
+  }
+  if (target.form?.id === 'tour-results') {
+    if (target.name === 'your_row' || target.name === 'joined_at') updateResults(target.form);
+    return;
+  }
+  builderChange(target).catch(showError);
+  if (target.id === 'guide-character') location.hash = `#guides/${target.value}`;
+  if (target.id === 'library-filter') { filter = target.value; libraryPage = 0; render(); }
+  if (target.id === 'import' || target.classList.contains('import-secondary')) importBackup(target);
+});
 async function exportBackup() {
   const backup = await api('/api/export'); const blob = new Blob([JSON.stringify(backup,null,2)],{type:'application/json'}); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = `paddock-backup-${new Date().toISOString().slice(0,10)}.json`; a.click(); setTimeout(() => URL.revokeObjectURL(url),1000); toast('Backup exported with saved revisions.');
 }
@@ -262,7 +297,7 @@ document.addEventListener('focusout', () => { if (assistantDeferred) setTimeout(
 function routeHash() {
   if(location.hash.startsWith('#builder')){setBuilderRoute(location.hash);view='builder';}
   else if (location.hash.startsWith('#guides')) { selectGuideRoute(location.hash); view = 'guides'; }
-  else if (['#tour','#library','#history','#research'].includes(location.hash)) view = location.hash.slice(1);
+  else if (['#tour','#library','#history','#research','#results'].includes(location.hash)) view = location.hash.slice(1);
 }
 window.addEventListener('hashchange', () => { if (['#workspace','#guide-stat-title'].includes(location.hash)) return; routeHash(); clearError(); render(); window.scrollTo({top:0}); });
 try {
