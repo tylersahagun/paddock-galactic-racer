@@ -1,0 +1,3747 @@
+{
+  "schema_version": 1,
+  "version": "2026-11-02.2",
+  "reviewed_at": "2026-11-02",
+  "mode": "standard_multiplayer_tour",
+  "default_character": "biddy-blas",
+  "recommendation_kind": "editorial_synergy_guides",
+  "performance_validated": false,
+  "intro": "Three builds per racer: two specialized synergy directions and an aggressive combat build. Choose targets and spend toward the engine.",
+  "boundaries": [
+    "Build choices, item order and point allocations are editorial synergy hypotheses, not measured best builds or a racer ranking.",
+    "Parts and extra abilities are targets if offered in your actual standard Multiplayer Tour. Mode availability, unlock conditions, prices, slots and replacements must be checked in game.",
+    "The next-ten-point recipe describes ten future upgrade picks, not starting stats, an equipment cap, a guaranteed budget or a mathematically optimal allocation.",
+    "Cornering is a safety override: improve control before more power if you cannot hold your line. Advanced handling means Drift, Kinetic Burst or Knife Edge for your actual vehicle.",
+    "Listed parts are a priority queue, not an instruction to fit every part together. Confirm legal slots and exact tiers; never assume stacking or combined percentage gains.",
+    "Ability hits, vehicle collisions and credited takedowns are separate triggers. Reloading abilities does not refill Energy. Combat recommendations do not guarantee a crash, takedown or safe contact."
+  ],
+  "sources": [
+    {
+      "title": "Multiplayer racer roster",
+      "url": "https://raiderking.com/star-wars-galactic-racer-all-multiplayer-characters-and-how-to-unlock-them/"
+    },
+    {
+      "title": "Multiplayer kit corroboration and Malis conflict",
+      "url": "https://www.gamepur.com/guides/star-wars-galactic-racer-how-to-survive-multiplayer-mode-unlock-all-racers"
+    },
+    {
+      "title": "Stat names and vehicle maneuver mapping",
+      "url": "https://www.keengamer.com/articles/guides/star-wars-galactic-racer-best-upgrades-which-stats-to-max-first/"
+    },
+    {
+      "title": "Upgrade tracks",
+      "url": "https://galacticracer.gameslantern.com/upgrades"
+    },
+    {
+      "title": "Status definitions",
+      "url": "https://galacticracer.gameslantern.com/glossary"
+    }
+  ],
+  "equipment": {
+    "ability.autopilot": {
+      "name": "Autopilot",
+      "kind": "ability",
+      "effect": "Pilots the vehicle for 10 seconds and reduces Ramjet heating while active. Route reliability is not guaranteed.",
+      "url": "https://galacticracer.gameslantern.com/abilities/autopilot",
+      "evidence": "source_claim",
+      "availability": "unverified"
+    },
+    "ability.concussion_mine": {
+      "name": "Concussion Mine",
+      "kind": "ability",
+      "effect": "Drop a proximity-triggered charge that applies Concussed and System Malfunction to nearby opponents. Confirm the actual offered tier.",
+      "url": "https://galacticracer.gameslantern.com/abilities/concussion-mine",
+      "evidence": "source_claim",
+      "availability": "source_claim",
+      "catalog_id": "ability.concussion_mine"
+    },
+    "ability.flame_vent": {
+      "name": "Flame Vent",
+      "kind": "ability",
+      "effect": "Cools your own Ramjet and applies Burning and System Malfunction to nearby opponents. It does not describe self-ignition.",
+      "url": "https://galacticracer.gameslantern.com/abilities/flame-vent",
+      "evidence": "source_claim",
+      "availability": "unverified"
+    },
+    "ability.ion_bolt": {
+      "name": "Ion Bolt",
+      "kind": "ability",
+      "effect": "Lock on to the closest nearby opponent and apply Disrupted to target.",
+      "url": null,
+      "evidence": "screenshot_description_observation",
+      "availability": "observed_in_user_tour",
+      "catalog_id": "ability.ion_bolt"
+    },
+    "ability.overtaking_surge": {
+      "name": "Overtaking Surge",
+      "kind": "ability",
+      "effect": "Grants Surging; overtakes extend and strengthen it, but impacts remove it.",
+      "url": "https://galacticracer.gameslantern.com/abilities/overtaking-surge",
+      "evidence": "source_claim",
+      "availability": "unverified"
+    },
+    "ability.shield": {
+      "name": "Shield",
+      "kind": "ability",
+      "effect": "Gain Shielded for 10s.",
+      "url": null,
+      "evidence": "screenshot_description_observation",
+      "availability": "observed_in_user_tour",
+      "catalog_id": "ability.shield"
+    },
+    "ability.shockwave": {
+      "name": "Shockwave",
+      "kind": "ability",
+      "effect": "Blast nearby opponents away and apply System Malfunction to affected opponents.",
+      "url": null,
+      "evidence": "screenshot_description_observation",
+      "availability": "observed_in_user_tour",
+      "catalog_id": "ability.shockwave"
+    },
+    "ability.status_scrubber": {
+      "name": "Status Scrubber",
+      "kind": "ability",
+      "effect": "Clear negative status effects. If any are cleared, recover 1 Energy.",
+      "url": "https://galacticracer.gameslantern.com/abilities/status-scrubber",
+      "evidence": "source_claim",
+      "availability": "unverified",
+      "catalog_id": "ability.status_scrubber"
+    },
+    "ability.surge": {
+      "name": "Surge",
+      "kind": "ability",
+      "effect": "Grants 10 seconds of Surging, which is lost on impact; overtakes extend it.",
+      "url": "https://galacticracer.gameslantern.com/abilities/surge",
+      "evidence": "source_claim",
+      "availability": "unverified"
+    },
+    "ability.vectored_shockwave": {
+      "name": "Vectored Shockwave",
+      "kind": "ability",
+      "effect": "Pushes nearby opponents away, propels you forward and applies System Malfunction to affected opponents.",
+      "url": "https://galacticracer.gameslantern.com/abilities/vectored-shockwave",
+      "evidence": "source_claim",
+      "availability": "unverified"
+    },
+    "ability.vent": {
+      "name": "Vent",
+      "kind": "ability",
+      "effect": "Gain Cooled and reduce Ramjet heat.",
+      "url": "https://galacticracer.gameslantern.com/abilities/vent",
+      "evidence": "source_claim",
+      "availability": "unverified",
+      "catalog_id": "ability.vent"
+    },
+    "part.ability_catalyst": {
+      "name": "Ability Catalyst",
+      "kind": "part",
+      "effect": "Each Ability activation, +10% Afterburner refill rate.",
+      "url": "https://galacticracer.gameslantern.com/vehicle-parts/ability-catalyst",
+      "evidence": "source_claim",
+      "availability": "unverified",
+      "catalog_id": "part.ability_catalyst"
+    },
+    "part.afterburner_thermalizer": {
+      "name": "Afterburner Thermalizer",
+      "kind": "part",
+      "effect": "Adds 100% Afterburner power during Burning.",
+      "url": "https://galacticracer.gameslantern.com/vehicle-parts/afterburner-thermalizer",
+      "evidence": "source_claim",
+      "availability": "unverified",
+      "fault": false
+    },
+    "part.burning_ramjet": {
+      "name": "Burning Ramjet",
+      "kind": "part",
+      "effect": "Boosts Ramjet power while Burning; the listed modifier is +200%.",
+      "url": "https://galacticracer.gameslantern.com/vehicle-parts/burning-ramjet",
+      "evidence": "source_claim",
+      "availability": "unverified",
+      "fault": false
+    },
+    "part.calibrating_landings_ii": {
+      "name": "Calibrating Landings II",
+      "kind": "part",
+      "effect": "Perfect Landings grant a moderate Speed increase; duration and stacking are not established here.",
+      "url": "https://galacticracer.gameslantern.com/vehicle-parts/calibrating-landings-ii",
+      "evidence": "source_claim",
+      "availability": "unverified",
+      "fault": false
+    },
+    "part.cooling_actuator_i": {
+      "name": "Cooling Actuator I",
+      "kind": "part",
+      "effect": "On Takedown, gain Cooled for 5s.",
+      "url": null,
+      "evidence": "screenshot_description_observation",
+      "availability": "observed_in_user_tour",
+      "catalog_id": "part.cooling_actuator_i"
+    },
+    "part.cooling_dampers_iii": {
+      "name": "Cooling Dampers III",
+      "kind": "part",
+      "effect": "A Perfect Landing grants 15 seconds of Cooled.",
+      "url": "https://galacticracer.gameslantern.com/vehicle-parts/cooling-dampers-iii",
+      "evidence": "source_claim",
+      "availability": "unverified",
+      "fault": false
+    },
+    "part.cooling_overcharge": {
+      "name": "Cooling Overcharge",
+      "kind": "part",
+      "effect": "While Cooled, gain Overcharged.",
+      "url": "https://galacticracer.gameslantern.com/vehicle-parts/cooling-overcharge",
+      "evidence": "source_claim",
+      "availability": "unverified",
+      "catalog_id": "part.cooling_overcharge"
+    },
+    "part.cooling_surge": {
+      "name": "Cooling Surge",
+      "kind": "part",
+      "effect": "Provides Cooled during Surging.",
+      "url": "https://galacticracer.gameslantern.com/vehicle-parts/cooling-surge",
+      "evidence": "source_claim",
+      "availability": "unverified",
+      "fault": false
+    },
+    "part.dechoking_mechanism": {
+      "name": "Dechoking Mechanism",
+      "kind": "part",
+      "effect": "While Surging, protected from Choked.",
+      "url": null,
+      "evidence": "screenshot_description_observation",
+      "availability": "observed_in_user_tour",
+      "catalog_id": "part.dechoking_mechanism"
+    },
+    "part.depleted_shielding": {
+      "name": "Depleted Shielding",
+      "kind": "part",
+      "effect": "After a full Afterburner use, become Shielded for 5s.",
+      "url": null,
+      "evidence": "screenshot_description_observation",
+      "availability": "observed_in_user_tour",
+      "catalog_id": "part.depleted_shielding"
+    },
+    "part.dissipative_plating_iii": {
+      "name": "Dissipative Plating III",
+      "kind": "part",
+      "effect": "Reduces heat from Burning by 90%; this does not remove ordinary Ramjet heat.",
+      "url": "https://galacticracer.gameslantern.com/vehicle-parts/dissipative-plating-iii",
+      "evidence": "source_claim",
+      "availability": "unverified",
+      "fault": false
+    },
+    "part.enhanced_coolant_i": {
+      "name": "Enhanced Coolant I",
+      "kind": "part",
+      "effect": "Cooled is 10% more potent.",
+      "url": "https://galacticracer.gameslantern.com/vehicle-parts/enhanced-coolant-i",
+      "evidence": "source_claim",
+      "availability": "unverified",
+      "catalog_id": "part.enhanced_coolant_i"
+    },
+    "part.extended_alarm_ii": {
+      "name": "Extended Alarm II",
+      "kind": "part",
+      "effect": "Redlining duration is 100% longer.",
+      "url": null,
+      "evidence": "screenshot_description_observation",
+      "availability": "observed_in_user_tour",
+      "catalog_id": "part.extended_alarm_ii"
+    },
+    "part.faster_attachments_iv": {
+      "name": "Faster Attachments IV",
+      "kind": "part",
+      "effect": "Abilities reload 200% faster.",
+      "url": "https://www.powerpyx.com/star-wars-galactic-racer-trophy-guide-roadmap/",
+      "evidence": "source_claim",
+      "availability": "unverified",
+      "catalog_id": "part.faster_attachments_iv"
+    },
+    "part.fuel_agitator_i": {
+      "name": "Fuel Agitator I",
+      "kind": "part",
+      "effect": "Every Takedown, +5% Afterburner power.",
+      "url": null,
+      "evidence": "screenshot_description_observation",
+      "availability": "observed_in_user_tour",
+      "catalog_id": "part.fuel_agitator_i"
+    },
+    "part.heated_fuel_ii": {
+      "name": "Heated Fuel II",
+      "kind": "part",
+      "effect": "Redlining boosts the next Afterburner use by 50%. Other tiers have different values.",
+      "url": "https://galacticracer.gameslantern.com/vehicle-parts/heated-fuel-ii",
+      "evidence": "source_claim",
+      "availability": "unverified",
+      "fault": false
+    },
+    "part.optimized_fuel_iii": {
+      "name": "Optimized Fuel III",
+      "kind": "part",
+      "effect": "When fully fueled, Afterburner power increased by 100%.",
+      "url": null,
+      "evidence": "screenshot_description_observation",
+      "availability": "observed_in_user_tour",
+      "catalog_id": "part.optimized_fuel_iii"
+    },
+    "part.optimized_surge_i": {
+      "name": "Optimized Surge I",
+      "kind": "part",
+      "effect": "Strengthens Surging by 20%. The source lists II at 50% and III at 100%; use the tier actually offered.",
+      "url": "https://galacticracer.gameslantern.com/vehicle-parts/optimized-surge-i",
+      "evidence": "source_claim",
+      "availability": "unverified",
+      "fault": false
+    },
+    "part.overcharged_supercharger": {
+      "name": "Overcharged Supercharger",
+      "kind": "part",
+      "effect": "Provides Surging during Overcharged.",
+      "url": "https://galacticracer.gameslantern.com/vehicle-parts/overcharged-supercharger",
+      "evidence": "source_claim",
+      "availability": "unverified",
+      "fault": false
+    },
+    "part.overcharging_afterburner": {
+      "name": "Overcharging Afterburner",
+      "kind": "part",
+      "effect": "While Overcharged, Afterburner fuel refills 200% faster.",
+      "url": "https://galacticracer.gameslantern.com/vehicle-parts/overcharging-afterburner",
+      "evidence": "source_claim",
+      "availability": "unverified",
+      "catalog_id": "part.overcharging_afterburner"
+    },
+    "part.overheat_loop_iii": {
+      "name": "Overheat Loop III",
+      "kind": "part",
+      "effect": "+5% Ramjet power while Redlining, stacking until you Crash",
+      "url": "https://allthings.how/star-wars-galactic-racer-best-build-to-beat-champion-difficulty/",
+      "evidence": "source_claim",
+      "availability": "unverified",
+      "catalog_id": "part.overheat_loop_iii"
+    },
+    "part.ramjet_accelerator_i": {
+      "name": "Ramjet Accelerator I",
+      "kind": "part",
+      "effect": "While Cooled, Ramjet is 15% more powerful.",
+      "url": "https://galacticracer.gameslantern.com/vehicle-parts/ramjet-accelerator-i",
+      "evidence": "source_claim",
+      "availability": "unverified",
+      "catalog_id": "part.ramjet_accelerator_i"
+    },
+    "part.ramjet_cooling_i": {
+      "name": "Ramjet Cooling I",
+      "kind": "part",
+      "effect": "Speed-based Ramjet cooling improved by 10%.",
+      "url": "https://galacticracer.gameslantern.com/vehicle-parts/ramjet-cooling-i",
+      "evidence": "source_claim",
+      "availability": "unverified",
+      "catalog_id": "part.ramjet_cooling_i"
+    },
+    "part.recovery_coolant": {
+      "name": "Recovery Coolant",
+      "kind": "part",
+      "effect": "A crash grants 30 seconds of Cooled.",
+      "url": "https://galacticracer.gameslantern.com/vehicle-parts/recovery-coolant",
+      "evidence": "source_claim",
+      "availability": "unverified",
+      "fault": false
+    },
+    "part.redlining_power": {
+      "name": "Redlining Power",
+      "kind": "part",
+      "effect": "+100% Ramjet power while Redlining",
+      "url": "https://allthings.how/star-wars-galactic-racer-best-build-to-beat-champion-difficulty/",
+      "evidence": "source_claim",
+      "availability": "unverified",
+      "catalog_id": "part.redlining_power"
+    },
+    "part.refueling_abilities": {
+      "name": "Refueling Abilities",
+      "kind": "part",
+      "effect": "Upon activating an Ability, fully refill Afterburner.",
+      "url": "https://galacticracer.gameslantern.com/vehicle-parts/refueling-abilities",
+      "evidence": "source_claim",
+      "availability": "unverified",
+      "catalog_id": "part.refueling_abilities"
+    },
+    "part.repulsormod_i": {
+      "name": "Repulsormod I",
+      "kind": "part",
+      "effect": "On Perfect Landing, massively increase Speed for 5s.",
+      "url": null,
+      "evidence": "screenshot_description_observation",
+      "availability": "observed_in_user_tour",
+      "catalog_id": "part.repulsormod_i"
+    },
+    "part.scrap_recycler_iii": {
+      "name": "Scrap Recycler III",
+      "kind": "part",
+      "effect": "On Takedown, recharge 3 Energy",
+      "url": "https://allthings.how/every-vehicle-part-in-star-wars-galactic-racer-rarity-and-price/",
+      "evidence": "source_claim",
+      "availability": "unverified",
+      "catalog_id": "part.scrap_recycler_iii"
+    },
+    "part.scrap_reloader": {
+      "name": "Scrap Reloader",
+      "kind": "part",
+      "effect": "Whenever you score a takedown, you recharge all your Abilities.",
+      "url": "https://www.gamepur.com/guides/dont-miss-out-on-these-epic-parts-in-star-wars-galactic-racer",
+      "evidence": "source_claim",
+      "availability": "unverified",
+      "catalog_id": "part.scrap_reloader"
+    },
+    "part.shielding_fuel": {
+      "name": "Shielding Fuel",
+      "kind": "part",
+      "effect": "Provides Shielded during Afterburner use.",
+      "url": "https://galacticracer.gameslantern.com/vehicle-parts/shielding-fuel",
+      "evidence": "source_claim",
+      "availability": "unverified",
+      "fault": false
+    },
+    "part.slipstream_intakes": {
+      "name": "Slipstream Intakes",
+      "kind": "part",
+      "effect": "Doubles speed-based Ramjet cooling during Slipstreaming.",
+      "url": "https://galacticracer.gameslantern.com/vehicle-parts/slipstream-intakes",
+      "evidence": "source_claim",
+      "availability": "unverified",
+      "fault": false
+    },
+    "part.supercooled_attachments": {
+      "name": "Supercooled Attachments",
+      "kind": "part",
+      "effect": "While Cooled, Abilities reload 200% faster",
+      "url": "https://allthings.how/every-vehicle-part-in-star-wars-galactic-racer-rarity-and-price/",
+      "evidence": "source_claim",
+      "availability": "unverified",
+      "catalog_id": "part.supercooled_attachments"
+    },
+    "part.surging_fuel": {
+      "name": "Surging Fuel",
+      "kind": "part",
+      "effect": "Entering Surging refills the Afterburner tank. Remaining in Surging is not a new entry.",
+      "url": "https://galacticracer.gameslantern.com/vehicle-parts/surging-fuel",
+      "evidence": "source_claim",
+      "availability": "unverified",
+      "fault": false
+    },
+    "part.surging_inlets_iii": {
+      "name": "Surging Inlets III",
+      "kind": "part",
+      "effect": "Upon Slipstreaming for 5s, gain Surging for 20s.",
+      "url": null,
+      "evidence": "screenshot_description_observation",
+      "availability": "observed_in_user_tour",
+      "catalog_id": "part.surging_inlets_iii"
+    },
+    "part.system_degausser_ii": {
+      "name": "System Degausser II",
+      "kind": "part",
+      "effect": "Accelerates System Malfunction recovery; the listed modifier is +200%.",
+      "url": "https://galacticracer.gameslantern.com/vehicle-parts/system-degausser-ii",
+      "evidence": "source_claim",
+      "availability": "unverified",
+      "fault": false
+    },
+    "part.system_surge": {
+      "name": "System Surge",
+      "kind": "part",
+      "effect": "Provides Surging during System Malfunction and for 10 seconds afterward.",
+      "url": "https://galacticracer.gameslantern.com/vehicle-parts/system-surge",
+      "evidence": "source_claim",
+      "availability": "unverified",
+      "fault": false
+    },
+    "part.thermal_inverter": {
+      "name": "Thermal Inverter",
+      "kind": "part",
+      "effect": "Provides Overcharged during Burning.",
+      "url": "https://galacticracer.gameslantern.com/vehicle-parts/thermal-inverter",
+      "evidence": "source_claim",
+      "availability": "unverified",
+      "fault": false
+    },
+    "part.thermoactive_fuel": {
+      "name": "Thermoactive Fuel",
+      "kind": "part",
+      "effect": "While using Afterburner, gain Cooled.",
+      "url": "https://galacticracer.gameslantern.com/vehicle-parts/thermoactive-fuel",
+      "evidence": "source_claim",
+      "availability": "unverified",
+      "catalog_id": "part.thermoactive_fuel"
+    },
+    "part.thermophilic_fuel_i": {
+      "name": "Thermophilic Fuel I",
+      "kind": "part",
+      "effect": "Redlining builds Afterburner power in +3% increments; a crash removes the bonus. Trigger frequency is unverified.",
+      "url": "https://galacticracer.gameslantern.com/vehicle-parts/thermophilic-fuel-i",
+      "evidence": "source_claim",
+      "availability": "unverified",
+      "fault": false
+    },
+    "part.unquenchable_components": {
+      "name": "Unquenchable Components",
+      "kind": "part",
+      "effect": "A Fault: Burning does not expire naturally. Availability, removal and interaction with cooling need checking in game.",
+      "url": "https://galacticracer.gameslantern.com/vehicle-parts/unquenchable-components",
+      "evidence": "source_claim",
+      "availability": "unverified",
+      "fault": true
+    },
+    "part.ramming_jet_i": {
+      "name": "Ramming Jet I",
+      "kind": "part",
+      "effect": "Every Takedown adds 5% Ramjet power. Stacking limits, duration and reset behavior are unverified here.",
+      "url": "https://galacticracer.gameslantern.com/vehicle-parts/ramming-jet-i",
+      "evidence": "source_claim",
+      "availability": "unverified",
+      "fault": false,
+      "reviewed_at": "2026-11-02"
+    },
+    "part.kinetic_refueler_ii": {
+      "name": "Kinetic Refueler II",
+      "kind": "part",
+      "effect": "On collision with another vehicle, refill 60% of Afterburner. A weapon hit alone is not the described trigger.",
+      "url": "https://galacticracer.gameslantern.com/vehicle-parts/kinetic-refueler-ii",
+      "evidence": "source_claim",
+      "availability": "unverified",
+      "fault": false,
+      "reviewed_at": "2026-11-02"
+    },
+    "part.lethal_velocity_iii": {
+      "name": "Lethal Velocity III",
+      "kind": "part",
+      "effect": "Every Takedown considerably increases Speed. Exact amount, duration and reset behavior are not established here.",
+      "url": "https://galacticracer.gameslantern.com/vehicle-parts/lethal-velocity-iii",
+      "evidence": "source_claim",
+      "availability": "unverified",
+      "fault": false,
+      "reviewed_at": "2026-11-02"
+    },
+    "part.robust_surge": {
+      "name": "Robust Surge",
+      "kind": "part",
+      "effect": "While Surging, protected from System Malfunction. This does not state that physical impacts preserve Surging.",
+      "url": "https://galacticracer.gameslantern.com/vehicle-parts/robust-surge",
+      "evidence": "source_claim",
+      "availability": "unverified",
+      "fault": false,
+      "reviewed_at": "2026-11-02"
+    }
+  },
+  "characters": [
+    {
+      "id": "shade",
+      "name": "Shade",
+      "style": "Ramjet Rider",
+      "style_url": "https://galacticracer.gameslantern.com/racer-styles/ramjet-rider",
+      "identity": "Amplify Cooled, then spend that cooling on longer Ramjet windows.",
+      "starting_abilities": [
+        "ability.vent"
+      ],
+      "traits": [
+        {
+          "name": "Exhaust",
+          "effect": "Begins with Vent."
+        },
+        {
+          "name": "Optimal Heatsinks",
+          "effect": "Strengthens Cooled."
+        },
+        {
+          "name": "Clean Air",
+          "effect": "Taking first grants 10 seconds of Cooled."
+        }
+      ],
+      "builds": [
+        {
+          "id": "cooling-engine",
+          "name": "Cooling engine",
+          "summary": "Turn Vent into stronger Ramjet and faster ability reloads.",
+          "tags": [
+            "Cooled",
+            "Ramjet",
+            "Ability cycle"
+          ],
+          "choose_when": "You can hold a clean line and receive cooling payoffs.",
+          "loop": [
+            "Use Vent when cooling is useful.",
+            "Cooled supports Ramjet Accelerator and Supercooled Attachments.",
+            "Use the extra reload opportunities only when Energy permits."
+          ],
+          "abilities": [
+            {
+              "item_id": "ability.surge",
+              "why": "Add a controllable Surging window; Cooling Surge can convert it to Cooled."
+            },
+            {
+              "item_id": "ability.shield",
+              "why": "Protect your line while running Ramjet."
+            }
+          ],
+          "parts": [
+            {
+              "item_id": "part.ramjet_accelerator_i",
+              "why": "Main Cooled-to-Ramjet payoff.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.enhanced_coolant_i",
+              "why": "Amplifies the same cooling that Shade already strengthens.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.supercooled_attachments",
+              "why": "Cooled improves reloads, supporting useful Vent activations.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.cooling_overcharge",
+              "why": "Optional Cooled-to-Overcharged bridge.",
+              "role": "Extension"
+            }
+          ],
+          "stats": {
+            "priority": [
+              "Ramjet",
+              "Cornering",
+              "Battery",
+              "Afterburner",
+              "Advanced handling",
+              "Resilience"
+            ],
+            "next_10_points": {
+              "Ramjet": 4,
+              "Cornering": 3,
+              "Battery": 2,
+              "Resilience": 1
+            },
+            "reason": "Ramjet is the chosen engine; Cornering helps keep it usable. Buy Battery only when useful casts run out."
+          },
+          "pitfalls": [
+            "Vent equipped does not mean Cooled is permanently active.",
+            "Clean Air is a first-place trigger, not top-three uptime."
+          ],
+          "fallback": "Without Supercooled Attachments, use Faster Attachments IV if offered; do not assume its tier is always available.",
+          "evidence": "editorial_inference",
+          "experimental": false
+        },
+        {
+          "id": "dual-boost",
+          "name": "Dual-boost relay",
+          "summary": "Use ability refills and Afterburner to produce cooling for the next Ramjet.",
+          "tags": [
+            "Afterburner",
+            "Cooled",
+            "Relay"
+          ],
+          "choose_when": "You receive fuel and ability-activation parts before dedicated Ramjet pieces.",
+          "loop": [
+            "Use a worthwhile ability to refill Afterburner through Refueling Abilities.",
+            "Spend Afterburner with Thermoactive Fuel to gain Cooled.",
+            "Move into Ramjet while cooling is actually present."
+          ],
+          "abilities": [
+            {
+              "item_id": "ability.surge",
+              "why": "A useful speed activation that also triggers Refueling Abilities."
+            },
+            {
+              "item_id": "ability.shield",
+              "why": "A protective activation before a dangerous straight."
+            }
+          ],
+          "parts": [
+            {
+              "item_id": "part.refueling_abilities",
+              "why": "Turns each legal ability use into fuel.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.thermoactive_fuel",
+              "why": "Produces cooling during Afterburner use.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.ramjet_accelerator_i",
+              "why": "Uses that cooling during the next Ramjet window.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.optimized_fuel_iii",
+              "why": "Rewards the full tank produced by the refill.",
+              "role": "Extension"
+            }
+          ],
+          "stats": {
+            "priority": [
+              "Afterburner",
+              "Ramjet",
+              "Cornering",
+              "Battery",
+              "Advanced handling",
+              "Resilience"
+            ],
+            "next_10_points": {
+              "Afterburner": 3,
+              "Ramjet": 3,
+              "Cornering": 2,
+              "Battery": 1,
+              "Resilience": 1
+            },
+            "reason": "Split offensive points across the two boosts because the rotation uses both."
+          },
+          "pitfalls": [
+            "Refilling a full tank wastes the fuel benefit.",
+            "Do not count Cooled as lasting after Afterburner without observing the status timer."
+          ],
+          "fallback": "Coolant Cycler III supplies a different trigger after a full Afterburner use; it is not identical to Thermoactive Fuel.",
+          "evidence": "editorial_inference",
+          "experimental": false
+        },
+        {
+          "id": "cooled-hunter",
+          "name": "Cooled hunter",
+          "focus": "aggression",
+          "summary": "Use Shade’s stronger Cooled to ready weapons, then turn takedowns into another Ramjet pursuit.",
+          "tags": [
+            "Aggression",
+            "Takedowns",
+            "Cooled"
+          ],
+          "choose_when": "Vent and weapon reload support appear alongside a takedown reward.",
+          "loop": [
+            "Use Vent for Cooled, then fire Shockwave or Ion Bolt when an opponent is in the actual effect area.",
+            "A confirmed takedown triggers Cooling Actuator and Scrap Recycler; Shade strengthens the resulting Cooled.",
+            "Supercooled Attachments speeds reloads during Cooled; spend returned Energy on useful attacks and use Ramjet to reach the next contest."
+          ],
+          "parts": [
+            {
+              "item_id": "part.supercooled_attachments",
+              "why": "Stronger cooling supports shorter weapon reloads, but supplies no Energy.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.scrap_recycler_iii",
+              "why": "A takedown returns 3 Energy for further attacks.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.cooling_actuator_i",
+              "why": "A takedown supplies five seconds of Cooled for Shade’s Optimal Heatsinks.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.ramming_jet_i",
+              "why": "Optional takedown-to-Ramjet power reward for the next pursuit.",
+              "role": "Extension"
+            }
+          ],
+          "abilities": [
+            {
+              "item_id": "ability.shockwave",
+              "why": "Displace nearby opponents and apply System Malfunction to create a takedown opportunity."
+            },
+            {
+              "item_id": "ability.ion_bolt",
+              "why": "Apply Disrupted to the nearest eligible opponent while holding your line."
+            }
+          ],
+          "stats": {
+            "priority": [
+              "Battery",
+              "Cornering",
+              "Ramjet",
+              "Resilience",
+              "Afterburner",
+              "Advanced handling"
+            ],
+            "next_10_points": {
+              "Battery": 3,
+              "Cornering": 3,
+              "Ramjet": 2,
+              "Resilience": 2
+            },
+            "reason": "Fund the weapons and keep control in traffic; Ramjet closes the gap. Neither reload speed nor Battery promises unlimited casts."
+          },
+          "pitfalls": [
+            "A hit or collision is not a credited takedown. Takedown rewards need an actual takedown.",
+            "Cooling Actuator is unavailable until a takedown; use Vent to establish the first cooling window.",
+            "Clean Air triggers on taking first, not on every weapon hit."
+          ],
+          "fallback": "Without takedown parts, keep Vent plus Supercooled Attachments and add Faster Attachments only if offered. Budget starting Energy and take useful attacks rather than waiting for a guaranteed kill.",
+          "evidence": "editorial_inference",
+          "experimental": false
+        }
+      ]
+    },
+    {
+      "id": "katja-mox",
+      "name": "Katja Mox",
+      "style": "Tech Expert",
+      "style_url": "https://galacticracer.gameslantern.com/racer-styles/tech-expert",
+      "identity": "Spend Energy intentionally, then exploit the Overcharged window.",
+      "starting_abilities": [
+        "ability.concussion_mine",
+        "ability.status_scrubber"
+      ],
+      "traits": [
+        {
+          "name": "Trapper",
+          "effect": "Begins with Concussion Mine."
+        },
+        {
+          "name": "Careful",
+          "effect": "Begins with Status Scrubber."
+        },
+        {
+          "name": "Optimized Reserves",
+          "effect": "Full Energy depletion grants 30 seconds of Overcharged."
+        }
+      ],
+      "builds": [
+        {
+          "id": "reserve-overdrive",
+          "name": "Reserve overdrive",
+          "summary": "Convert the depletion trait into Surging and fuel recovery.",
+          "tags": [
+            "Energy depletion",
+            "Overcharged",
+            "Afterburner"
+          ],
+          "choose_when": "You can deliberately reach depletion through useful casts.",
+          "loop": [
+            "Spend Energy on a mine, a needed cleanse or a useful extra ability.",
+            "Depletion grants the trait’s Overcharged window.",
+            "Overcharged Supercharger gives Surging; Overcharging Afterburner supports the tank."
+          ],
+          "abilities": [
+            {
+              "item_id": "ability.surge",
+              "why": "A useful additional speed cast for the depletion plan."
+            },
+            {
+              "item_id": "ability.vent",
+              "why": "Adds heat control when you run Ramjet between Afterburner windows."
+            }
+          ],
+          "parts": [
+            {
+              "item_id": "part.overcharged_supercharger",
+              "why": "Converts the character’s Overcharged into Surging.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.overcharging_afterburner",
+              "why": "Uses Overcharged to accelerate fuel recovery.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.optimized_surge_i",
+              "why": "Amplifies the converted Surging.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.refueling_abilities",
+              "why": "Adds a full fuel refill on useful casts.",
+              "role": "Extension"
+            }
+          ],
+          "stats": {
+            "priority": [
+              "Afterburner",
+              "Cornering",
+              "Battery",
+              "Ramjet",
+              "Advanced handling",
+              "Resilience"
+            ],
+            "next_10_points": {
+              "Afterburner": 4,
+              "Cornering": 3,
+              "Battery": 1,
+              "Ramjet": 1,
+              "Resilience": 1
+            },
+            "reason": "Moderate Battery can fund casts, but more capacity also delays depletion; test that tradeoff."
+          },
+          "pitfalls": [
+            "Surplus Cooling’s high-Energy condition conflicts with deliberately emptying the battery.",
+            "Disrupted can block Overcharged; faster reloads do not remove Energy costs."
+          ],
+          "fallback": "If Overcharged Supercharger never appears, keep Refueling Abilities and use direct Surge for the speed window.",
+          "evidence": "editorial_inference",
+          "experimental": false
+        },
+        {
+          "id": "cooling-cast-relay",
+          "name": "Cooling cast relay",
+          "summary": "Convert the two starting abilities into Afterburner, cooling and reload opportunities.",
+          "tags": [
+            "Ability use",
+            "Cooled",
+            "Ramjet"
+          ],
+          "choose_when": "You see activation-refill pieces and need a route independent of depletion.",
+          "loop": [
+            "Use the starting mine or scrubber only when it has value.",
+            "Refueling Abilities fills Afterburner; Thermoactive Fuel supplies cooling.",
+            "Supercooled Attachments helps ready the next useful activation."
+          ],
+          "abilities": [
+            {
+              "item_id": "ability.vent",
+              "why": "Reliable cooling access when Afterburner cannot bridge the gap."
+            },
+            {
+              "item_id": "ability.shield",
+              "why": "Protects the next high-speed section."
+            }
+          ],
+          "parts": [
+            {
+              "item_id": "part.refueling_abilities",
+              "why": "Core activation-to-fuel conversion.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.thermoactive_fuel",
+              "why": "Core fuel-to-cooling conversion.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.supercooled_attachments",
+              "why": "Cooling supports reloads.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.ramjet_accelerator_i",
+              "why": "Adds a Ramjet payoff if a slot remains.",
+              "role": "Extension"
+            }
+          ],
+          "stats": {
+            "priority": [
+              "Battery",
+              "Afterburner",
+              "Cornering",
+              "Ramjet",
+              "Advanced handling",
+              "Resilience"
+            ],
+            "next_10_points": {
+              "Battery": 3,
+              "Afterburner": 3,
+              "Cornering": 2,
+              "Ramjet": 1,
+              "Resilience": 1
+            },
+            "reason": "Battery supports the intended ability cadence; Afterburner is used throughout the loop."
+          },
+          "pitfalls": [
+            "Status Scrubber only refunds Energy when something is actually cleared.",
+            "Do not borrow the campaign-only Adaptive Systems trait."
+          ],
+          "fallback": "Ability Catalyst can support passive tank recovery, but does not replace the instant refill effect.",
+          "evidence": "editorial_inference",
+          "experimental": false
+        },
+        {
+          "id": "minefield-enforcer",
+          "name": "Minefield enforcer",
+          "focus": "aggression",
+          "summary": "Layer the starting mine with direct weapons; recycle confirmed takedowns into more pressure.",
+          "tags": [
+            "Aggression",
+            "Mines",
+            "Ability reload"
+          ],
+          "choose_when": "You can place mines on an opponent’s likely line and receive reload or Energy recovery parts.",
+          "loop": [
+            "Use Concussion Mine against pursuing traffic, Shockwave against nearby rivals, or Ion Bolt against the nearest eligible target.",
+            "A confirmed takedown readies abilities through Scrap Reloader and restores Energy through Scrap Recycler.",
+            "If useful casts actually deplete Energy, Optimized Reserves grants Overcharged; the Supercharger supplies Surging, while Refueling Abilities converts casts into an exit tank."
+          ],
+          "parts": [
+            {
+              "item_id": "part.scrap_reloader",
+              "why": "Confirmed takedowns instantly reload abilities for another attack.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.scrap_recycler_iii",
+              "why": "Restores 3 Energy on a takedown; a reload alone cannot fund another cast.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.overcharged_supercharger",
+              "why": "Converts Katja’s actual depletion-triggered Overcharged into Surging.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.refueling_abilities",
+              "why": "Optional full Afterburner refill after a worthwhile mine, weapon or cleanse activation.",
+              "role": "Extension"
+            }
+          ],
+          "abilities": [
+            {
+              "item_id": "ability.shockwave",
+              "why": "Immediate area pressure complements a mine laid for pursuers."
+            },
+            {
+              "item_id": "ability.ion_bolt",
+              "why": "A targeted disruption option when a mine or area blast has no good target."
+            }
+          ],
+          "stats": {
+            "priority": [
+              "Battery",
+              "Cornering",
+              "Resilience",
+              "Afterburner",
+              "Ramjet",
+              "Advanced handling"
+            ],
+            "next_10_points": {
+              "Battery": 4,
+              "Cornering": 3,
+              "Resilience": 2,
+              "Afterburner": 1
+            },
+            "reason": "More available Energy supports a mixed weapon kit; control matters while choosing targets. Higher reserves can delay the depletion trigger."
+          },
+          "pitfalls": [
+            "A hit or collision is not a credited takedown. Takedown rewards need an actual takedown.",
+            "Energy refunds can delay full depletion; do not assume permanent Overcharged.",
+            "Status Scrubber refunds Energy only after clearing an actual negative status. Avoid empty cleanses."
+          ],
+          "fallback": "Without Scrap Reloader, use an actually offered Faster Attachments tier. Keep the starting mine as your main pressure tool and spend on Shockwave or Ion Bolt only when a useful offer and legal slot exist.",
+          "evidence": "editorial_inference",
+          "experimental": false
+        }
+      ]
+    },
+    {
+      "id": "griff-halloran",
+      "name": "Griff Halloran",
+      "style": "Afterburner",
+      "style_url": "https://galacticracer.gameslantern.com/racer-styles/afterburner",
+      "identity": "Make stronger, longer Afterburner windows and refill before the next one.",
+      "starting_abilities": [],
+      "traits": [
+        {
+          "name": "Afterburner Superiority",
+          "effect": "Strengthens Afterburner."
+        },
+        {
+          "name": "Afterburner Fuel Tank",
+          "effect": "Extends Afterburner duration."
+        },
+        {
+          "name": "Burn Bright",
+          "effect": "Each overtake refills 10% of the tank."
+        }
+      ],
+      "builds": [
+        {
+          "id": "full-tank-launch",
+          "name": "Full-tank launch",
+          "summary": "Repeated full-tank launches capitalize on Griff’s Afterburner traits.",
+          "tags": [
+            "Full tank",
+            "Afterburner",
+            "Ability use"
+          ],
+          "choose_when": "You see Refueling Abilities and an Optimized Fuel offer.",
+          "loop": [
+            "Spend Afterburner on a safe exit.",
+            "Activate a useful ability to refill through Refueling Abilities.",
+            "Launch the next Afterburner from full fuel for Optimized Fuel."
+          ],
+          "abilities": [
+            {
+              "item_id": "ability.surge",
+              "why": "Adds speed and a useful refill trigger."
+            },
+            {
+              "item_id": "ability.shield",
+              "why": "Adds protection and another purposeful refill trigger."
+            }
+          ],
+          "parts": [
+            {
+              "item_id": "part.refueling_abilities",
+              "why": "Restores the full tank needed by the main payoff.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.optimized_fuel_iii",
+              "why": "Stronger launch when fully fueled; IV is an observed alternative tier.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.ability_catalyst",
+              "why": "Supports refill rate from ability activations.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.faster_attachments_iv",
+              "why": "More ready abilities if Energy supports them.",
+              "role": "Extension"
+            }
+          ],
+          "stats": {
+            "priority": [
+              "Afterburner",
+              "Cornering",
+              "Battery",
+              "Advanced handling",
+              "Ramjet",
+              "Resilience"
+            ],
+            "next_10_points": {
+              "Afterburner": 4,
+              "Cornering": 3,
+              "Battery": 2,
+              "Resilience": 1
+            },
+            "reason": "The engine is Afterburner; Battery matters only when activations are the refill bottleneck."
+          },
+          "pitfalls": [
+            "A partially refilled tank does not meet Optimized Fuel’s full-tank condition.",
+            "Griff has no confirmed starting active ability; the guide’s abilities are additions."
+          ],
+          "fallback": "Without the activation-refill part, Surging Fuel plus a real entry into Surging can refill the tank.",
+          "evidence": "editorial_inference",
+          "experimental": false
+        },
+        {
+          "id": "surging-pursuit",
+          "name": "Surging pursuit",
+          "summary": "Chain overtakes, Surging entries and Afterburner refills.",
+          "tags": [
+            "Overtakes",
+            "Surging",
+            "Afterburner"
+          ],
+          "choose_when": "You can find passes without repeated impacts.",
+          "loop": [
+            "Activate Overtaking Surge before a group of clean passes.",
+            "Passing extends the ability and gives Griff’s 10% tank refills.",
+            "Use Surging Fuel on the next new Surging entry and spend the recovered fuel."
+          ],
+          "abilities": [
+            {
+              "item_id": "ability.overtaking_surge",
+              "why": "Core addition: clean passes extend and strengthen Surging."
+            },
+            {
+              "item_id": "ability.shield",
+              "why": "Protects the passing line from incoming effects."
+            }
+          ],
+          "parts": [
+            {
+              "item_id": "part.surging_fuel",
+              "why": "Turns a new Surging window into a full tank.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.optimized_surge_i",
+              "why": "Makes the maintained status more potent.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.surging_inlets_iii",
+              "why": "Provides another Surging source after five seconds of Slipstreaming.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.optimized_fuel_iii",
+              "why": "Rewards those full-tank entries.",
+              "role": "Extension"
+            }
+          ],
+          "stats": {
+            "priority": [
+              "Afterburner",
+              "Cornering",
+              "Advanced handling",
+              "Battery",
+              "Ramjet",
+              "Resilience"
+            ],
+            "next_10_points": {
+              "Afterburner": 4,
+              "Cornering": 3,
+              "Advanced handling": 1,
+              "Battery": 1,
+              "Resilience": 1
+            },
+            "reason": "Control supports clean overtakes and keeps the surge from being lost on impact."
+          },
+          "pitfalls": [
+            "Extending Surging is not the same as entering it again for Surging Fuel.",
+            "The overtake engine loses opportunities once you lead; preserve fuel for that phase."
+          ],
+          "fallback": "Use base Surge while waiting for Overtaking Surge, with fewer benefits from passing.",
+          "evidence": "editorial_inference",
+          "experimental": false
+        },
+        {
+          "id": "afterburner-enforcer",
+          "name": "Afterburner enforcer",
+          "focus": "aggression",
+          "summary": "Use vehicle contact to refill Griff’s stronger Afterburner, with weapons and takedowns supporting the chase.",
+          "tags": [
+            "Aggression",
+            "Vehicle contact",
+            "Afterburner"
+          ],
+          "choose_when": "Kinetic Refueler is offered and you can make controlled contact without sacrificing your racing line.",
+          "loop": [
+            "Approach a nearby rival under control; use Ion Bolt or Shockwave to create space or a vulnerable passing opportunity.",
+            "An actual vehicle collision triggers Kinetic Refueler II’s 60% tank refill; a weapon hit alone does not.",
+            "Use Griff’s stronger, longer Afterburner to leave the contest. Confirmed takedowns activate Fuel Agitator and Lethal Velocity."
+          ],
+          "parts": [
+            {
+              "item_id": "part.kinetic_refueler_ii",
+              "why": "Refills 60% of Afterburner on vehicle collision, supporting Griff’s chosen engine.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.shielding_fuel",
+              "why": "Provides Shielded during Afterburner use; it does not promise collision immunity.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.fuel_agitator_i",
+              "why": "A credited takedown adds the described Afterburner power reward.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.lethal_velocity_iii",
+              "why": "Optional Speed reward from takedowns; duration and exact gain remain unverified.",
+              "role": "Extension"
+            }
+          ],
+          "abilities": [
+            {
+              "item_id": "ability.ion_bolt",
+              "why": "Disrupt a nearby target before deciding whether to pass or engage."
+            },
+            {
+              "item_id": "ability.shockwave",
+              "why": "Push nearby opponents away when contact becomes crowded."
+            }
+          ],
+          "stats": {
+            "priority": [
+              "Afterburner",
+              "Resilience",
+              "Cornering",
+              "Battery",
+              "Ramjet",
+              "Advanced handling"
+            ],
+            "next_10_points": {
+              "Afterburner": 3,
+              "Resilience": 3,
+              "Cornering": 2,
+              "Battery": 2
+            },
+            "reason": "Afterburner funds pursuit and escape; Resilience and Cornering support deliberate contact. These points do not guarantee survival."
+          },
+          "pitfalls": [
+            "A hit or collision is not a credited takedown. Takedown rewards need an actual takedown.",
+            "Repeated collision farming can lose more race time than the refill gains.",
+            "Burn Bright is an overtake refill, not a takedown or hit trigger."
+          ],
+          "fallback": "If Kinetic Refueler does not appear, Refueling Abilities can refill on useful weapon casts. Use Shield as an alternative target if Shielding Fuel is missing; confirm available slots.",
+          "evidence": "editorial_inference",
+          "experimental": false
+        }
+      ]
+    },
+    {
+      "id": "ary-quill",
+      "name": "Ary Quill",
+      "style": "Redliner",
+      "style_url": "https://galacticracer.gameslantern.com/racer-styles/redliner",
+      "identity": "Exploit the Redlining window, then leave before the engine overheats.",
+      "starting_abilities": [
+        "ability.surge"
+      ],
+      "traits": [
+        {
+          "name": "Extra Fuel",
+          "effect": "Begins with Surge."
+        },
+        {
+          "name": "Critical Ramjet Power",
+          "effect": "Strengthens Ramjet while Redlining."
+        },
+        {
+          "name": "Early Warning",
+          "effect": "Expands the Redlining zone by 100%."
+        }
+      ],
+      "builds": [
+        {
+          "id": "redline-ramp",
+          "name": "Redline ramp",
+          "summary": "Extend the danger window and stack its Ramjet payoffs.",
+          "tags": [
+            "Redlining",
+            "Ramjet",
+            "High risk"
+          ],
+          "choose_when": "You can recognize the heat limit and avoid crashes.",
+          "loop": [
+            "Enter Ramjet on a section you can control.",
+            "Spend time in Redlining for the style, Redlining Power and Overheat Loop.",
+            "Disengage before failure; use Vent to prepare another run."
+          ],
+          "abilities": [
+            {
+              "item_id": "ability.vent",
+              "why": "Manual heat reset between deliberate redline windows."
+            },
+            {
+              "item_id": "ability.shield",
+              "why": "Protects the line while the engine is hot."
+            }
+          ],
+          "parts": [
+            {
+              "item_id": "part.extended_alarm_ii",
+              "why": "Widens the time available for the chosen trigger.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.redlining_power",
+              "why": "Direct Redlining-to-Ramjet payoff.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.overheat_loop_iii",
+              "why": "Redlining builds power that is lost on a crash.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.ramjet_cooling_i",
+              "why": "Helps recovery between windows; monitor how it changes redline access.",
+              "role": "Extension"
+            }
+          ],
+          "stats": {
+            "priority": [
+              "Ramjet",
+              "Cornering",
+              "Resilience",
+              "Battery",
+              "Advanced handling",
+              "Afterburner"
+            ],
+            "next_10_points": {
+              "Ramjet": 4,
+              "Cornering": 3,
+              "Resilience": 1,
+              "Battery": 1,
+              "Advanced handling": 1
+            },
+            "reason": "Ramjet is the engine; control protects the accumulated loop bonus."
+          },
+          "pitfalls": [
+            "Cooling too early can remove the Redlining condition you built around.",
+            "Campaign Safety Bypass is not a multiplayer starting trait."
+          ],
+          "fallback": "An observed Extended Alarm II is enough to start; higher tiers are optional offers, not requirements.",
+          "evidence": "editorial_inference",
+          "experimental": false
+        },
+        {
+          "id": "heat-to-fuel",
+          "name": "Heat-to-fuel relay",
+          "summary": "Use redline triggers to charge the next Afterburner instead of chasing longer redlines.",
+          "tags": [
+            "Redlining",
+            "Afterburner",
+            "Relay"
+          ],
+          "choose_when": "Heated Fuel and full-tank parts appear before the pure Ramjet package.",
+          "loop": [
+            "Reach Redlining briefly to prime Heated Fuel.",
+            "Leave Ramjet safely and launch the empowered Afterburner.",
+            "Use Surge with Surging Fuel to restore fuel for the next cycle."
+          ],
+          "abilities": [
+            {
+              "item_id": "ability.vent",
+              "why": "Recover heat between short redline visits."
+            },
+            {
+              "item_id": "ability.shield",
+              "why": "Protect accumulated bonuses from a crash."
+            }
+          ],
+          "parts": [
+            {
+              "item_id": "part.heated_fuel_ii",
+              "why": "Directly empowers the next Afterburner from Redlining.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.thermophilic_fuel_i",
+              "why": "Additional redline-to-Afterburner growth; crash resets it.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.surging_fuel",
+              "why": "Uses the starting Surge as a refill trigger.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.optimized_fuel_iii",
+              "why": "Rewards launching after a full refill.",
+              "role": "Extension"
+            }
+          ],
+          "stats": {
+            "priority": [
+              "Afterburner",
+              "Ramjet",
+              "Cornering",
+              "Battery",
+              "Advanced handling",
+              "Resilience"
+            ],
+            "next_10_points": {
+              "Afterburner": 4,
+              "Ramjet": 2,
+              "Cornering": 2,
+              "Battery": 1,
+              "Resilience": 1
+            },
+            "reason": "Invest more in Afterburner because it cashes out the heat setup."
+          },
+          "pitfalls": [
+            "Do not hold Ramjet until an explosion just to improve the next boost.",
+            "Exact overlap and stacking between fuel power bonuses remain unmeasured."
+          ],
+          "fallback": "Refueling Abilities can replace the Surging Fuel refill trigger if useful activations are available.",
+          "evidence": "editorial_inference",
+          "experimental": false
+        },
+        {
+          "id": "redline-interceptor",
+          "name": "Redline interceptor",
+          "focus": "aggression",
+          "summary": "Close with Ary’s Redlining power, disrupt a rival, and convert takedowns into Energy and a cooled escape.",
+          "tags": [
+            "Aggression",
+            "Takedowns",
+            "Redlining"
+          ],
+          "choose_when": "Your line is reliable enough to approach in Ramjet, with weapons and a cooling or Energy reward offered.",
+          "loop": [
+            "Use Ary’s Redlining power for a controlled approach, then leave the heat danger before lining up Ion Bolt or Shockwave.",
+            "Take a clean attack opportunity; a credited takedown triggers Scrap Recycler and Cooling Actuator.",
+            "Use the short Cooled window to recover and reposition. Ramming Jet rewards the takedown with Ramjet power for later pursuit."
+          ],
+          "parts": [
+            {
+              "item_id": "part.scrap_recycler_iii",
+              "why": "Funds more offensive casts after a takedown.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.ramming_jet_i",
+              "why": "Converts confirmed takedowns into the described Ramjet power reward.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.cooling_actuator_i",
+              "why": "Five seconds of Cooled after a takedown helps leave the heat-heavy approach.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.redlining_power",
+              "why": "Optional additional Redlining power; combined gains are not established.",
+              "role": "Extension"
+            }
+          ],
+          "abilities": [
+            {
+              "item_id": "ability.ion_bolt",
+              "why": "Disrupt a nearby target while keeping a stable approach."
+            },
+            {
+              "item_id": "ability.shockwave",
+              "why": "Attack nearby traffic or clear room to exit the contest."
+            }
+          ],
+          "stats": {
+            "priority": [
+              "Ramjet",
+              "Cornering",
+              "Resilience",
+              "Battery",
+              "Afterburner",
+              "Advanced handling"
+            ],
+            "next_10_points": {
+              "Ramjet": 3,
+              "Cornering": 3,
+              "Resilience": 2,
+              "Battery": 2
+            },
+            "reason": "Preserve Ary’s pursuit engine while reserving control, contact tolerance and weapon Energy."
+          },
+          "pitfalls": [
+            "A hit or collision is not a credited takedown. Takedown rewards need an actual takedown.",
+            "Missing a takedown means Cooling Actuator gives no rescue; disengage Ramjet before failure.",
+            "Surge can be lost on impact. Redlining is not permission to stay in collision range indefinitely."
+          ],
+          "fallback": "If takedown cooling is unreliable, prioritize a Vent offer over one extra weapon and use Ramjet Cooling when offered. Keep the attack brief instead of overheating for a kill.",
+          "evidence": "editorial_inference",
+          "experimental": false
+        }
+      ]
+    },
+    {
+      "id": "soren-zaks",
+      "name": "Soren Zaks",
+      "style": "Engineer",
+      "style_url": "https://galacticracer.gameslantern.com/racer-styles/engineer",
+      "identity": "Recover from interference and turn that recovery into speed.",
+      "starting_abilities": [
+        "ability.status_scrubber"
+      ],
+      "traits": [
+        {
+          "name": "Careful",
+          "effect": "Begins with Status Scrubber."
+        },
+        {
+          "name": "What Doesn’t Kill You",
+          "effect": "Clearing System Malfunction grants 10 seconds of Surging."
+        },
+        {
+          "name": "Accelerated Recovery",
+          "effect": "Improves malfunction recovery and Critical Malfunction clearing."
+        }
+      ],
+      "builds": [
+        {
+          "id": "recovery-ignition",
+          "name": "Recovery ignition",
+          "summary": "Turn the post-malfunction Surge into fuel and stronger acceleration.",
+          "tags": [
+            "Recovery",
+            "Surging",
+            "Afterburner"
+          ],
+          "choose_when": "The lobby produces malfunctions and you want to capitalize after clearing them.",
+          "loop": [
+            "Clear a real System Malfunction with the starting scrubber.",
+            "The trait grants Surging; a new entry can trigger Surging Fuel.",
+            "Spend the refill on Afterburner and avoid the next hit."
+          ],
+          "abilities": [
+            {
+              "item_id": "ability.shield",
+              "why": "Protects the recovery window after the effect has cleared."
+            },
+            {
+              "item_id": "ability.surge",
+              "why": "Backup Surging access when no malfunction occurs."
+            }
+          ],
+          "parts": [
+            {
+              "item_id": "part.surging_fuel",
+              "why": "Refills fuel when recovery newly enters Surging.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.optimized_surge_i",
+              "why": "Amplifies the recovery speed window.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.system_degausser_ii",
+              "why": "Shortens the period of lost control before recovery.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.optimized_fuel_iii",
+              "why": "Adds a full-tank payoff.",
+              "role": "Extension"
+            }
+          ],
+          "stats": {
+            "priority": [
+              "Afterburner",
+              "Cornering",
+              "Resilience",
+              "Battery",
+              "Advanced handling",
+              "Ramjet"
+            ],
+            "next_10_points": {
+              "Afterburner": 3,
+              "Cornering": 3,
+              "Resilience": 2,
+              "Battery": 1,
+              "Ramjet": 1
+            },
+            "reason": "Afterburner uses the recovery refill; control and resilience limit the original disruption."
+          },
+          "pitfalls": [
+            "Do not deliberately seek a malfunction just to trigger the build.",
+            "If Surging is already active, a refresh may not trigger another Surging Fuel refill."
+          ],
+          "fallback": "Direct Surge can run the fuel loop in a clean race; treat malfunction payoffs as opportunistic.",
+          "evidence": "editorial_inference",
+          "experimental": false
+        },
+        {
+          "id": "malfunction-cooling",
+          "name": "Malfunction cooling",
+          "summary": "Bridge an incoming malfunction into Surging, Cooled and Ramjet.",
+          "tags": [
+            "System Malfunction",
+            "Cooled",
+            "Ramjet"
+          ],
+          "choose_when": "You find System Surge and Cooling Surge together.",
+          "loop": [
+            "A real malfunction activates System Surge.",
+            "Surging provides Cooled through Cooling Surge.",
+            "Once you recover control, use Cooled for Ramjet Accelerator."
+          ],
+          "abilities": [
+            {
+              "item_id": "ability.vent",
+              "why": "Independent cooling when rivals leave you alone."
+            },
+            {
+              "item_id": "ability.shield",
+              "why": "Protect the recovered Ramjet run."
+            }
+          ],
+          "parts": [
+            {
+              "item_id": "part.system_surge",
+              "why": "Bridges malfunction and its aftermath into Surging.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.cooling_surge",
+              "why": "Converts that status into cooling.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.ramjet_accelerator_i",
+              "why": "Turns the cooling into Ramjet power.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.supercooled_attachments",
+              "why": "Supports the next needed cleanse or vent.",
+              "role": "Extension"
+            }
+          ],
+          "stats": {
+            "priority": [
+              "Ramjet",
+              "Cornering",
+              "Battery",
+              "Resilience",
+              "Afterburner",
+              "Advanced handling"
+            ],
+            "next_10_points": {
+              "Ramjet": 3,
+              "Cornering": 3,
+              "Battery": 2,
+              "Resilience": 1,
+              "Afterburner": 1
+            },
+            "reason": "The payoff is a controlled Ramjet run after recovery, not driving aggressively while steering is impaired."
+          },
+          "pitfalls": [
+            "System Malfunction and Disrupted are different; Disrupted may block abilities.",
+            "Shared Surging sources are not proven to stack or refresh identically."
+          ],
+          "fallback": "Use direct Surge as the independent enabler when System Surge is missing.",
+          "evidence": "editorial_inference",
+          "experimental": false
+        },
+        {
+          "id": "retaliation-gunner",
+          "name": "Retaliation gunner",
+          "focus": "aggression",
+          "summary": "Recover from incoming disruption, turn the recovery into cooling and reloads, then retaliate with weapons.",
+          "tags": [
+            "Aggression",
+            "Counterattack",
+            "Ability reload"
+          ],
+          "choose_when": "Contested traffic causes real malfunctions and you can assemble the Surging-to-Cooled bridge.",
+          "loop": [
+            "Attack with Ion Bolt or Shockwave when a rival is in range; preserve the starting Status Scrubber for a real negative status.",
+            "Your own System Malfunction activates System Surge; clearing it can trigger Soren’s Surging trait. Cooling Surge supplies Cooled during Surging.",
+            "Supercooled Attachments supports weapon reloads during Cooled; confirmed takedowns restore Energy through Scrap Recycler."
+          ],
+          "parts": [
+            {
+              "item_id": "part.system_surge",
+              "why": "Provides Surging during your own System Malfunction and ten seconds afterward.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.cooling_surge",
+              "why": "Turns actual Surging into Cooled for the reload engine.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.supercooled_attachments",
+              "why": "Makes abilities reload faster during the resulting Cooled window.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.scrap_recycler_iii",
+              "why": "Optional Energy recovery on confirmed takedowns supports repeated attacks.",
+              "role": "Extension"
+            }
+          ],
+          "abilities": [
+            {
+              "item_id": "ability.ion_bolt",
+              "why": "A disruption tool for a nearby opponent after you regain control."
+            },
+            {
+              "item_id": "ability.shockwave",
+              "why": "Attack nearby rivals or open space while recovering your line."
+            }
+          ],
+          "stats": {
+            "priority": [
+              "Battery",
+              "Cornering",
+              "Resilience",
+              "Afterburner",
+              "Ramjet",
+              "Advanced handling"
+            ],
+            "next_10_points": {
+              "Battery": 3,
+              "Cornering": 3,
+              "Resilience": 3,
+              "Afterburner": 1
+            },
+            "reason": "Weapon and cleanse use need Energy, while control and Resilience help you leave a contested group."
+          },
+          "pitfalls": [
+            "A hit or collision is not a credited takedown. Takedown rewards need an actual takedown.",
+            "Applying System Malfunction to an opponent does not trigger Soren’s own recovery trait.",
+            "Do not deliberately eat mines to start the engine; a crash can erase the passing opportunity."
+          ],
+          "fallback": "Without the full Surging-to-Cooled bridge, use an actually offered Faster Attachments tier and preserve Scrubber for real recovery. Scrap Reloader is a takedown-dependent alternative, not a guaranteed recharge.",
+          "evidence": "editorial_inference",
+          "experimental": false
+        }
+      ]
+    },
+    {
+      "id": "nik-skandaro",
+      "name": "Nik Skandaro",
+      "style": "Survivor",
+      "style_url": "https://galacticracer.gameslantern.com/racer-styles/survivor",
+      "identity": "Preserve Mint Condition, and use shield transitions as a second engine.",
+      "starting_abilities": [
+        "ability.shield"
+      ],
+      "traits": [
+        {
+          "name": "Protected",
+          "effect": "Begins with Shield."
+        },
+        {
+          "name": "Mint Condition",
+          "effect": "Substantial Speed bonus, lost after a crash."
+        },
+        {
+          "name": "Power to Thrusters",
+          "effect": "Losing Shielded grants 10 seconds of Surging."
+        }
+      ],
+      "builds": [
+        {
+          "id": "mint-condition",
+          "name": "Mint-condition runner",
+          "summary": "Maintain protection through Afterburner windows and preserve the no-crash bonus.",
+          "tags": [
+            "Shielded",
+            "Afterburner",
+            "No-crash"
+          ],
+          "choose_when": "You want speed from staying intact rather than trading hits.",
+          "loop": [
+            "Use Shield before an exposed section.",
+            "Shielding Fuel protects Afterburner use.",
+            "Refueling Abilities supplies another full tank when a useful cast is ready."
+          ],
+          "abilities": [
+            {
+              "item_id": "ability.surge",
+              "why": "Useful speed activation and fuel refill trigger."
+            },
+            {
+              "item_id": "ability.vent",
+              "why": "Heat recovery if Ramjet is part of the route."
+            }
+          ],
+          "parts": [
+            {
+              "item_id": "part.shielding_fuel",
+              "why": "Pairs protection with the boost you are using.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.refueling_abilities",
+              "why": "Converts needed Shield or Surge casts into fuel.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.optimized_fuel_iii",
+              "why": "Empowers the full-tank launch.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.depleted_shielding",
+              "why": "Adds a short shield after a full Afterburner use.",
+              "role": "Extension"
+            }
+          ],
+          "stats": {
+            "priority": [
+              "Cornering",
+              "Afterburner",
+              "Resilience",
+              "Battery",
+              "Advanced handling",
+              "Ramjet"
+            ],
+            "next_10_points": {
+              "Cornering": 3,
+              "Afterburner": 3,
+              "Resilience": 2,
+              "Battery": 1,
+              "Advanced handling": 1
+            },
+            "reason": "Keeping the no-crash trait is central, so control and resilience share the budget."
+          },
+          "pitfalls": [
+            "Shielded is protection, not universal immunity to every crash.",
+            "If Mint Condition is lost, it is not restored just by recasting Shield."
+          ],
+          "fallback": "Shielding Lead is an alternative only when you can actually take first; it is not unconditional protection.",
+          "evidence": "editorial_inference",
+          "experimental": false
+        },
+        {
+          "id": "shield-release",
+          "name": "Shield-release Ramjet",
+          "summary": "Use a natural shield ending to trigger Surging and then cooling.",
+          "tags": [
+            "Shield transition",
+            "Surging",
+            "Cooled"
+          ],
+          "choose_when": "You see Cooling Surge and can watch shield timing.",
+          "loop": [
+            "Let Shield end naturally when safe.",
+            "Power to Thrusters grants Surging; Cooling Surge turns it into Cooled.",
+            "Spend the actual cooling window on Ramjet."
+          ],
+          "abilities": [
+            {
+              "item_id": "ability.vent",
+              "why": "Backup cooling when Shield timing does not line up."
+            },
+            {
+              "item_id": "ability.surge",
+              "why": "Independent enabler for Cooling Surge."
+            }
+          ],
+          "parts": [
+            {
+              "item_id": "part.cooling_surge",
+              "why": "Connects Nik’s shield-loss payoff to Cooled.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.ramjet_accelerator_i",
+              "why": "Main payoff during the cooled Ramjet window.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.optimized_surge_i",
+              "why": "Strengthens the trait’s Surging window.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.enhanced_coolant_i",
+              "why": "Amplifies the cooling.",
+              "role": "Extension"
+            }
+          ],
+          "stats": {
+            "priority": [
+              "Ramjet",
+              "Cornering",
+              "Resilience",
+              "Battery",
+              "Afterburner",
+              "Advanced handling"
+            ],
+            "next_10_points": {
+              "Ramjet": 3,
+              "Cornering": 3,
+              "Resilience": 2,
+              "Battery": 1,
+              "Afterburner": 1
+            },
+            "reason": "Build around the post-shield boost without sacrificing control to force a shield loss."
+          },
+          "pitfalls": [
+            "Continuous Shielded sources may postpone the ending trigger.",
+            "Do not crash intentionally to lose Shielded; that also loses Mint Condition."
+          ],
+          "fallback": "When no shield transition is available, direct Surge plus Cooling Surge keeps the cooling path useful.",
+          "evidence": "editorial_inference",
+          "experimental": false
+        },
+        {
+          "id": "shielded-enforcer",
+          "name": "Shielded enforcer",
+          "focus": "aggression",
+          "summary": "Use Nik’s starting Shield for selective close attacks, while contact and takedowns support an Afterburner exit.",
+          "tags": [
+            "Aggression",
+            "Shielded",
+            "Vehicle contact"
+          ],
+          "choose_when": "You can pressure nearby rivals without crashing away Mint Condition.",
+          "loop": [
+            "Use the starting Shield before an exposed attack; Ion Bolt disrupts a nearby target and Shockwave displaces a crowded group.",
+            "If controlled vehicle contact happens, Kinetic Refueler refills the tank. Shielding Fuel supplies Shielded while spending Afterburner.",
+            "A confirmed takedown returns Energy and grants Lethal Velocity’s Speed reward. When Shielded actually ends, Nik can gain Surging for the exit."
+          ],
+          "parts": [
+            {
+              "item_id": "part.kinetic_refueler_ii",
+              "why": "Contact refills 60% of Afterburner for pursuit or escape.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.shielding_fuel",
+              "why": "Provides Shielded during the Afterburner portion of a close encounter.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.scrap_recycler_iii",
+              "why": "A takedown restores Energy for the next worthwhile weapon or Shield use.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.lethal_velocity_iii",
+              "why": "Optional Speed reward for takedowns without claiming permanent uptime.",
+              "role": "Extension"
+            }
+          ],
+          "abilities": [
+            {
+              "item_id": "ability.ion_bolt",
+              "why": "Ranged disruption lets you attack before committing to close contact."
+            },
+            {
+              "item_id": "ability.shockwave",
+              "why": "Displace nearby opponents and create a route out of the group."
+            }
+          ],
+          "stats": {
+            "priority": [
+              "Resilience",
+              "Cornering",
+              "Battery",
+              "Afterburner",
+              "Ramjet",
+              "Advanced handling"
+            ],
+            "next_10_points": {
+              "Resilience": 3,
+              "Cornering": 3,
+              "Battery": 2,
+              "Afterburner": 2
+            },
+            "reason": "Protect the crash-sensitive starting advantage with control and Resilience, then fund useful attacks and an exit tank."
+          },
+          "pitfalls": [
+            "A hit or collision is not a credited takedown. Takedown rewards need an actual takedown.",
+            "Shielded does not promise immunity to crashes; Mint Condition is lost after a crash.",
+            "Repeated Shielded sources can delay losing Shielded. Do not count every activation as a new Surging trigger."
+          ],
+          "fallback": "Without contact-refill parts, use Refueling Abilities for useful casts. If traffic is too risky, keep Shield and attack from range rather than trading away Mint Condition.",
+          "evidence": "editorial_inference",
+          "experimental": false
+        }
+      ]
+    },
+    {
+      "id": "goli-o2-r0",
+      "name": "Goli & O2-R0",
+      "style": "Clean Racer",
+      "style_url": "https://galacticracer.gameslantern.com/racer-styles/clean-racer",
+      "identity": "Pass cleanly and maintain Surging long enough to reach In the Zone.",
+      "starting_abilities": [
+        "ability.overtaking_surge"
+      ],
+      "traits": [
+        {
+          "name": "Overtaker",
+          "effect": "Begins with Overtaking Surge."
+        },
+        {
+          "name": "Victory Charge",
+          "effect": "Five overtakes restore 1 Energy."
+        },
+        {
+          "name": "In the Zone",
+          "effect": "After 10 seconds of Surging, gains top speed until Surging ends or System Malfunction occurs."
+        }
+      ],
+      "builds": [
+        {
+          "id": "zone-preservation",
+          "name": "Zone preservation",
+          "summary": "Protect the continuous Surging window rather than resetting it for a refill.",
+          "tags": [
+            "Surging",
+            "In the Zone",
+            "Protection"
+          ],
+          "choose_when": "You can chain clean passes and protect the line.",
+          "loop": [
+            "Activate the starting Overtaking Surge before safe passes.",
+            "Use Shield to prevent incoming statuses while avoiding physical impacts.",
+            "Keep Surging active long enough for In the Zone and exploit Optimized Surge."
+          ],
+          "abilities": [
+            {
+              "item_id": "ability.shield",
+              "why": "Protects against externally applied statuses that threaten the zone."
+            },
+            {
+              "item_id": "ability.status_scrubber",
+              "why": "Recovery option after a debuff; it does not retroactively preserve a lost zone."
+            }
+          ],
+          "parts": [
+            {
+              "item_id": "part.optimized_surge_i",
+              "why": "Main power amplifier for the maintained status.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.surging_inlets_iii",
+              "why": "Backup source after Slipstreaming; overlap behavior needs checking.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.dechoking_mechanism",
+              "why": "Choked protection during Surging.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.shielding_fuel",
+              "why": "Protects during Afterburner sections.",
+              "role": "Extension"
+            }
+          ],
+          "stats": {
+            "priority": [
+              "Cornering",
+              "Afterburner",
+              "Advanced handling",
+              "Battery",
+              "Resilience",
+              "Ramjet"
+            ],
+            "next_10_points": {
+              "Cornering": 3,
+              "Afterburner": 3,
+              "Advanced handling": 2,
+              "Battery": 1,
+              "Resilience": 1
+            },
+            "reason": "Control supports clean overtakes and the uninterrupted status timer."
+          },
+          "pitfalls": [
+            "An impact can end Overtaking Surge even if a shield limits damage.",
+            "Campaign Feel, Don’t Think is not part of this multiplayer kit."
+          ],
+          "fallback": "Without Optimized Surge, use the starting ability’s own overtake extension and spend on control.",
+          "evidence": "editorial_inference",
+          "experimental": false
+        },
+        {
+          "id": "zone-to-cooling",
+          "name": "Zone-to-cooling engine",
+          "summary": "Use long Surging uptime to power Cooled and Ramjet.",
+          "tags": [
+            "Surging",
+            "Cooled",
+            "Ramjet"
+          ],
+          "choose_when": "Cooling Surge and Ramjet payoffs arrive together.",
+          "loop": [
+            "Build a continuous Surging window with Overtaking Surge.",
+            "Cooling Surge provides Cooled during that window.",
+            "Use Ramjet Accelerator while maintaining the clean line and Surging."
+          ],
+          "abilities": [
+            {
+              "item_id": "ability.vent",
+              "why": "Independent cooling for gaps in the surge chain."
+            },
+            {
+              "item_id": "ability.shield",
+              "why": "Protects the long status window from incoming effects."
+            }
+          ],
+          "parts": [
+            {
+              "item_id": "part.cooling_surge",
+              "why": "The required Surging-to-Cooled bridge.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.ramjet_accelerator_i",
+              "why": "Primary Ramjet payoff.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.enhanced_coolant_i",
+              "why": "Strengthens the cooling source.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.supercooled_attachments",
+              "why": "Helps reload utility abilities while cooled.",
+              "role": "Extension"
+            }
+          ],
+          "stats": {
+            "priority": [
+              "Ramjet",
+              "Cornering",
+              "Battery",
+              "Afterburner",
+              "Advanced handling",
+              "Resilience"
+            ],
+            "next_10_points": {
+              "Ramjet": 4,
+              "Cornering": 3,
+              "Battery": 1,
+              "Afterburner": 1,
+              "Resilience": 1
+            },
+            "reason": "Prioritize Ramjet because the sustained status now supports that boost."
+          },
+          "pitfalls": [
+            "Losing Surging also removes this build’s cooling source.",
+            "Do not treat the trait’s top-speed bonus as a measured percentage."
+          ],
+          "fallback": "Thermoactive Fuel can supply cooling during Afterburner if Cooling Surge is missing, with different timing.",
+          "evidence": "editorial_inference",
+          "experimental": false
+        },
+        {
+          "id": "clean-line-raider",
+          "name": "Clean-line raider",
+          "focus": "aggression",
+          "summary": "Attack with bolts and mines while preserving Goli’s overtakes and continuous Surging.",
+          "tags": [
+            "Aggression",
+            "Ranged pressure",
+            "Takedowns"
+          ],
+          "choose_when": "You want offensive play but can keep your vehicle out of physical collisions.",
+          "loop": [
+            "Use the starting Overtaking Surge before clean passes; attack with Ion Bolt or place a Concussion Mine for pursuers without ramming.",
+            "Robust Surge protects from System Malfunction while Surging. Avoid physical impacts so In the Zone has a chance to activate.",
+            "A confirmed takedown restores Energy and reloads abilities through the two Scrap parts; keep taking clean passes instead of staying in the fight."
+          ],
+          "parts": [
+            {
+              "item_id": "part.robust_surge",
+              "why": "Protects from System Malfunction during Surging; physical impacts remain a separate threat.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.scrap_recycler_iii",
+              "why": "Funds offensive casts after a credited takedown.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.scrap_reloader",
+              "why": "Readies weapons on a takedown without requiring a body-contact playstyle.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.optimized_surge_i",
+              "why": "Optional strength for the Surging window you are trying to preserve.",
+              "role": "Extension"
+            }
+          ],
+          "abilities": [
+            {
+              "item_id": "ability.ion_bolt",
+              "why": "Hit the nearest eligible opponent while preserving a clean line."
+            },
+            {
+              "item_id": "ability.concussion_mine",
+              "why": "Place pressure behind you instead of forcing a damaging collision."
+            }
+          ],
+          "stats": {
+            "priority": [
+              "Cornering",
+              "Battery",
+              "Resilience",
+              "Afterburner",
+              "Ramjet",
+              "Advanced handling"
+            ],
+            "next_10_points": {
+              "Cornering": 4,
+              "Battery": 3,
+              "Resilience": 1,
+              "Afterburner": 1,
+              "Ramjet": 1
+            },
+            "reason": "Control preserves Surging and the character’s speed engine. Battery supports attacks; Resilience does not prevent a Surging reset."
+          },
+          "pitfalls": [
+            "A hit or collision is not a credited takedown. Takedown rewards need an actual takedown.",
+            "Robust Surge does not say that impacts stop removing Surging. This is a weapons build, not a ram-everyone build.",
+            "Five overtakes restore Energy through Victory Charge; five hits do not."
+          ],
+          "fallback": "Without Robust Surge, look for Shield and prioritize avoiding retaliation. If takedown parts are absent, use measured weapon casts and keep the overtake-driven Energy source; do not assume unlimited ammo.",
+          "evidence": "editorial_inference",
+          "experimental": false
+        }
+      ]
+    },
+    {
+      "id": "fola-kanjen",
+      "name": "Fola Kanjen",
+      "style": "Tenacious",
+      "style_url": "https://galacticracer.gameslantern.com/racer-styles/tenacious",
+      "identity": "Convert genuine recovery situations into a useful acceleration or cooling window.",
+      "starting_abilities": [
+        "ability.autopilot"
+      ],
+      "traits": [
+        {
+          "name": "Calculated",
+          "effect": "Begins with Autopilot."
+        },
+        {
+          "name": "Keep Your Cool",
+          "effect": "Ninth place or lower provides Cooled."
+        },
+        {
+          "name": "Bounce Back",
+          "effect": "Resetting after a crash grants 15 seconds of Surging."
+        }
+      ],
+      "builds": [
+        {
+          "id": "rear-pack-ramjet",
+          "name": "Rear-pack Ramjet",
+          "summary": "Use positional cooling and Autopilot’s reduced heating to recover through the field.",
+          "tags": [
+            "Cooled",
+            "Autopilot",
+            "Ramjet"
+          ],
+          "choose_when": "You are actually ninth or lower and receive cooling parts.",
+          "loop": [
+            "Use positional Cooled while genuinely at the back.",
+            "Autopilot reduces Ramjet heating during a suitable section.",
+            "Use Ramjet Accelerator and retain Vent as you climb out of ninth."
+          ],
+          "abilities": [
+            {
+              "item_id": "ability.vent",
+              "why": "Maintains a cooling option after positional Cooled ends."
+            },
+            {
+              "item_id": "ability.shield",
+              "why": "Protects the recovery run."
+            }
+          ],
+          "parts": [
+            {
+              "item_id": "part.ramjet_accelerator_i",
+              "why": "Uses the positional Cooled source.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.enhanced_coolant_i",
+              "why": "Strengthens existing cooling.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.supercooled_attachments",
+              "why": "Supports useful Autopilot and Vent reloads.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.cooling_overcharge",
+              "why": "Optional ability-resource bridge.",
+              "role": "Extension"
+            }
+          ],
+          "stats": {
+            "priority": [
+              "Ramjet",
+              "Cornering",
+              "Battery",
+              "Afterburner",
+              "Resilience",
+              "Advanced handling"
+            ],
+            "next_10_points": {
+              "Ramjet": 4,
+              "Cornering": 2,
+              "Battery": 2,
+              "Afterburner": 1,
+              "Resilience": 1
+            },
+            "reason": "The aim is to turn the temporary catch-up condition into a controlled Ramjet run."
+          },
+          "pitfalls": [
+            "Do not stay ninth on purpose; the positional engine switches off as you climb.",
+            "Autopilot route quality must be checked; it does not guarantee a clean line."
+          ],
+          "fallback": "Vent plus the same payoffs still works once the positional condition disappears.",
+          "evidence": "editorial_inference",
+          "experimental": false
+        },
+        {
+          "id": "bounce-back-boost",
+          "name": "Bounce-back boost",
+          "summary": "Use an unavoidable crash recovery for Surging, a fuel refill and a clean exit.",
+          "tags": [
+            "Crash recovery",
+            "Surging",
+            "Afterburner"
+          ],
+          "choose_when": "You need a recovery plan and have already found the Surging payoffs.",
+          "loop": [
+            "After an unavoidable reset, Bounce Back grants Surging.",
+            "Surging Fuel fills Afterburner on a new Surging entry.",
+            "Use the recovered fuel and Autopilot only where the route is safe."
+          ],
+          "abilities": [
+            {
+              "item_id": "ability.surge",
+              "why": "Runs the fuel loop without requiring a crash."
+            },
+            {
+              "item_id": "ability.shield",
+              "why": "Helps keep the next recovery from becoming another crash."
+            }
+          ],
+          "parts": [
+            {
+              "item_id": "part.surging_fuel",
+              "why": "Converts the trait trigger into fuel.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.optimized_surge_i",
+              "why": "Amplifies recovery acceleration.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.optimized_fuel_iii",
+              "why": "Uses the full tank from Surging Fuel.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.recovery_coolant",
+              "why": "Optional post-crash Ramjet recovery route.",
+              "role": "Extension"
+            }
+          ],
+          "stats": {
+            "priority": [
+              "Afterburner",
+              "Cornering",
+              "Resilience",
+              "Battery",
+              "Ramjet",
+              "Advanced handling"
+            ],
+            "next_10_points": {
+              "Afterburner": 3,
+              "Cornering": 3,
+              "Resilience": 2,
+              "Battery": 1,
+              "Ramjet": 1
+            },
+            "reason": "Spend on escaping the recovery safely; the crash itself is never a target."
+          },
+          "pitfalls": [
+            "Never deliberately crash to activate this build.",
+            "The campaign extra-crash trait is not a multiplayer starting perk."
+          ],
+          "fallback": "Direct Surge runs the refuel plan on a clean race; do not buy extra crash-only pieces without a useful clean-race core.",
+          "evidence": "editorial_inference",
+          "experimental": false
+        },
+        {
+          "id": "rear-pack-gunner",
+          "name": "Rear-pack gunner",
+          "focus": "aggression",
+          "summary": "Use Fola’s conditional rear-pack cooling for weapon reloads, then recycle takedowns while climbing through traffic.",
+          "tags": [
+            "Aggression",
+            "Takedowns",
+            "Rear-pack cooling"
+          ],
+          "choose_when": "You are genuinely ninth or lower with nearby targets, or can obtain a separate cooling source as you climb.",
+          "loop": [
+            "While ninth or lower, Keep Your Cool supplies Cooled for Supercooled Attachments; use Ion Bolt or Shockwave against real targets.",
+            "A confirmed takedown restores Energy and reloads weapons through Scrap Recycler and Scrap Reloader.",
+            "Take the opening and climb. Lethal Velocity rewards takedowns; after an unavoidable crash, Bounce Back’s Surging helps rejoin, but crashing is never the goal."
+          ],
+          "parts": [
+            {
+              "item_id": "part.supercooled_attachments",
+              "why": "Uses actual rear-pack Cooled for faster reloads while the positional condition holds.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.scrap_recycler_iii",
+              "why": "Returns Energy on confirmed takedowns.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.scrap_reloader",
+              "why": "Instantly readies abilities when an attack earns a takedown.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.lethal_velocity_iii",
+              "why": "Optional Speed reward helps turn combat success into forward progress.",
+              "role": "Extension"
+            }
+          ],
+          "abilities": [
+            {
+              "item_id": "ability.ion_bolt",
+              "why": "Disrupt the nearest eligible rival while working through traffic."
+            },
+            {
+              "item_id": "ability.shockwave",
+              "why": "Apply area pressure when several rivals are actually nearby."
+            }
+          ],
+          "stats": {
+            "priority": [
+              "Battery",
+              "Cornering",
+              "Resilience",
+              "Ramjet",
+              "Afterburner",
+              "Advanced handling"
+            ],
+            "next_10_points": {
+              "Battery": 3,
+              "Cornering": 3,
+              "Resilience": 3,
+              "Ramjet": 1
+            },
+            "reason": "Fund attacks while preserving control and resilience in dense traffic. Invest in speed later if targets are out of reach."
+          },
+          "pitfalls": [
+            "A hit or collision is not a credited takedown. Takedown rewards need an actual takedown.",
+            "Fola’s positional Cooled stops being provided above ninth; obtain Vent if you need a new source.",
+            "Autopilot has uncertain route reliability. Regain manual control before planning close attacks; do not crash deliberately for Bounce Back."
+          ],
+          "fallback": "When you leave the rear pack, use an offered Vent or Faster Attachments tier instead of assuming positional cooling persists. If takedowns are scarce, take useful disruption and pass without waiting for a reward.",
+          "evidence": "editorial_inference",
+          "experimental": false
+        }
+      ]
+    },
+    {
+      "id": "sen-fira",
+      "name": "Sen Fira",
+      "style": "Slipstreamer",
+      "style_url": "https://galacticracer.gameslantern.com/racer-styles/slipstreamer",
+      "identity": "Carry the slipstream advantage into a decisive pass.",
+      "starting_abilities": [
+        "ability.surge"
+      ],
+      "traits": [
+        {
+          "name": "Extra Fuel",
+          "effect": "Begins with Surge."
+        },
+        {
+          "name": "Stronger Slipstreaming",
+          "effect": "Strengthens Slipstreaming."
+        },
+        {
+          "name": "Airflow Alignment",
+          "effect": "Extends Slipstreaming after leaving a rival’s wake."
+        }
+      ],
+      "builds": [
+        {
+          "id": "drafted-ramjet",
+          "name": "Drafted Ramjet",
+          "summary": "Turn an extended slipstream into a cooler Ramjet launch.",
+          "tags": [
+            "Slipstreaming",
+            "Ramjet",
+            "Cooled"
+          ],
+          "choose_when": "You can draft safely before a straight.",
+          "loop": [
+            "Build Slipstreaming behind a rival without contact.",
+            "Slipstream Intakes improves speed-based cooling during the status.",
+            "Leave the wake and use the style’s retained status for the passing window."
+          ],
+          "abilities": [
+            {
+              "item_id": "ability.vent",
+              "why": "Cooling that still works when you lead."
+            },
+            {
+              "item_id": "ability.shield",
+              "why": "Protects the pass from externally applied interference."
+            }
+          ],
+          "parts": [
+            {
+              "item_id": "part.slipstream_intakes",
+              "why": "Direct cooling payoff from Sen’s signature status.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.surging_inlets_iii",
+              "why": "Adds Surging after five seconds of Slipstreaming.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.cooling_surge",
+              "why": "Turns the extra Surging into Cooled.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.ramjet_accelerator_i",
+              "why": "Payoff for actual Cooled, not for drafting alone.",
+              "role": "Extension"
+            }
+          ],
+          "stats": {
+            "priority": [
+              "Ramjet",
+              "Cornering",
+              "Advanced handling",
+              "Battery",
+              "Afterburner",
+              "Resilience"
+            ],
+            "next_10_points": {
+              "Ramjet": 4,
+              "Cornering": 3,
+              "Advanced handling": 1,
+              "Battery": 1,
+              "Resilience": 1
+            },
+            "reason": "Ramjet drives the pass; control keeps the draft and exit clean."
+          },
+          "pitfalls": [
+            "Slipstream Intakes improves speed-based cooling; it does not itself claim to grant Cooled.",
+            "Once no one is ahead, the drafting source is absent."
+          ],
+          "fallback": "Use Vent for Cooled when Surging Inlets and Cooling Surge do not appear together.",
+          "evidence": "editorial_inference",
+          "experimental": false
+        },
+        {
+          "id": "slingshot-fuel",
+          "name": "Slingshot fuel",
+          "summary": "Convert drafting and overtakes into Surging and full-tank Afterburner launches.",
+          "tags": [
+            "Slipstreaming",
+            "Surging",
+            "Afterburner"
+          ],
+          "choose_when": "Fuel and Surging pieces arrive before Ramjet parts.",
+          "loop": [
+            "Draft until Surging Inlets can trigger.",
+            "A new Surging entry fills the tank through Surging Fuel.",
+            "Use Afterburner to pass, then extend Overtaking Surge with more clean passes."
+          ],
+          "abilities": [
+            {
+              "item_id": "ability.overtaking_surge",
+              "why": "Upgrade the starting Surge when offered; do not count it as a separate installed slot."
+            },
+            {
+              "item_id": "ability.shield",
+              "why": "Protect the passing window."
+            }
+          ],
+          "parts": [
+            {
+              "item_id": "part.surging_inlets_iii",
+              "why": "Drafting-to-Surging enabler.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.surging_fuel",
+              "why": "Surging entry-to-fuel conversion.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.optimized_fuel_iii",
+              "why": "Main full-tank launch payoff.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.optimized_surge_i",
+              "why": "Amplifies the overlapping Surging window.",
+              "role": "Extension"
+            }
+          ],
+          "stats": {
+            "priority": [
+              "Afterburner",
+              "Cornering",
+              "Advanced handling",
+              "Battery",
+              "Ramjet",
+              "Resilience"
+            ],
+            "next_10_points": {
+              "Afterburner": 4,
+              "Cornering": 3,
+              "Advanced handling": 1,
+              "Battery": 1,
+              "Resilience": 1
+            },
+            "reason": "Afterburner is the cash-out boost; maneuver control matters while entering and leaving a wake."
+          },
+          "pitfalls": [
+            "Extending Surging does not guarantee repeated Surging Fuel refills.",
+            "Do not assume Airflow Alignment extends every buff obtained while drafting."
+          ],
+          "fallback": "Refueling Abilities plus the starting Surge can refill fuel when the slipstream trigger is unavailable.",
+          "evidence": "editorial_inference",
+          "experimental": false
+        },
+        {
+          "id": "draft-and-disrupt",
+          "name": "Draft-and-disrupt",
+          "focus": "aggression",
+          "summary": "Use Sen’s stronger, retained slipstream to reach a target, then attack and convert the opening into a pass.",
+          "tags": [
+            "Aggression",
+            "Slipstreaming",
+            "Takedowns"
+          ],
+          "choose_when": "You can follow a nearby rival safely and have a weapon plus a takedown or collision payoff offered.",
+          "loop": [
+            "Build Slipstreaming behind a nearby rival; Slipstream Intakes improves speed-based Ramjet cooling during the status.",
+            "Move into a controlled attack with Ion Bolt or Shockwave. Airflow Alignment retains Slipstreaming longer after leaving the wake.",
+            "A credited takedown restores Energy and rewards Ramjet power. If actual vehicle contact occurs, Kinetic Refueler supplies Afterburner for the exit."
+          ],
+          "parts": [
+            {
+              "item_id": "part.slipstream_intakes",
+              "why": "Improves speed-based cooling while Slipstreaming; it does not grant the Cooled status.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.scrap_recycler_iii",
+              "why": "Supports the next attack after a confirmed takedown.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.kinetic_refueler_ii",
+              "why": "A vehicle collision refills 60% Afterburner; the ranged attack alone does not trigger it.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.ramming_jet_i",
+              "why": "Optional Ramjet power reward from takedowns supports later pursuit.",
+              "role": "Extension"
+            }
+          ],
+          "abilities": [
+            {
+              "item_id": "ability.ion_bolt",
+              "why": "Disrupt a nearby target before pulling out of the wake."
+            },
+            {
+              "item_id": "ability.shockwave",
+              "why": "Push nearby rivals away when you commit to a passing opportunity."
+            }
+          ],
+          "stats": {
+            "priority": [
+              "Cornering",
+              "Battery",
+              "Resilience",
+              "Ramjet",
+              "Afterburner",
+              "Advanced handling"
+            ],
+            "next_10_points": {
+              "Cornering": 3,
+              "Battery": 3,
+              "Resilience": 2,
+              "Ramjet": 1,
+              "Afterburner": 1
+            },
+            "reason": "Control holds the draft and exit line; Energy supports attacks. Avoid spending everything on combat when speed is needed to reach the wake."
+          },
+          "pitfalls": [
+            "A hit or collision is not a credited takedown. Takedown rewards need an actual takedown.",
+            "Once no opponent is ahead, you cannot start a new slipstream from empty air.",
+            "A collision can remove Surging from the starting Surge. Retained Slipstreaming is not a promise to retain every buff."
+          ],
+          "fallback": "Without Kinetic Refueler, Refueling Abilities can convert useful weapon casts into fuel. Without takedown rewards, keep draft-and-disrupt as a passing tactic and invest in control or pursuit.",
+          "evidence": "editorial_inference",
+          "experimental": false
+        }
+      ]
+    },
+    {
+      "id": "biddy-blas",
+      "name": "Biddy Blas",
+      "style": "Firebug",
+      "style_url": "https://galacticracer.gameslantern.com/racer-styles/firebug",
+      "identity": "Ignite yourself with Ramjet, then choose a heat-managed burst or a Burning Afterburner engine.",
+      "starting_abilities": [
+        "ability.flame_vent"
+      ],
+      "traits": [
+        {
+          "name": "Firestarter",
+          "effect": "Begins with Flame Vent."
+        },
+        {
+          "name": "Heat Recycler",
+          "effect": "Strengthens Afterburner and Ramjet while Burning."
+        },
+        {
+          "name": "Afterfire",
+          "effect": "Engaging Ramjet grants 5 seconds of Burning."
+        }
+      ],
+      "builds": [
+        {
+          "id": "burning-ramjet",
+          "name": "Burning Ramjet bursts",
+          "summary": "Stack Burning power, reduce its heat penalty, and reset deliberately.",
+          "tags": [
+            "Burning",
+            "Ramjet",
+            "Heat management"
+          ],
+          "choose_when": "Burning Ramjet and Dissipative Plating are offered in your actual tour.",
+          "loop": [
+            "Engage Ramjet to trigger Afterfire’s five-second Burning window.",
+            "Burning Ramjet and Heat Recycler reward that same window; Plating reduces Burning heat.",
+            "Disengage before overheating, then use Flame Vent to recover for another burst."
+          ],
+          "abilities": [
+            {
+              "item_id": "ability.autopilot",
+              "why": "Additional reduced-heating window where the route is safe; combined heat reduction is unmeasured."
+            },
+            {
+              "item_id": "ability.surge",
+              "why": "Maintains acceleration between hot Ramjet bursts."
+            }
+          ],
+          "parts": [
+            {
+              "item_id": "part.burning_ramjet",
+              "why": "Primary Burning-to-Ramjet power payoff.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.dissipative_plating_iii",
+              "why": "Core heat control: reduces Burning heat by 90%, not all Ramjet heat.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.ramjet_cooling_i",
+              "why": "Supports speed-based cooling between bursts.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.thermal_inverter",
+              "why": "Turns Burning into Overcharged for an ability-focused extension.",
+              "role": "Extension"
+            }
+          ],
+          "stats": {
+            "priority": [
+              "Ramjet",
+              "Cornering",
+              "Battery",
+              "Resilience",
+              "Afterburner",
+              "Advanced handling"
+            ],
+            "next_10_points": {
+              "Ramjet": 4,
+              "Cornering": 3,
+              "Battery": 1,
+              "Resilience": 1,
+              "Afterburner": 1
+            },
+            "reason": "Ramjet is the primary speed engine; Cornering keeps its short Burning window usable."
+          },
+          "pitfalls": [
+            "Unlimited Power belongs to campaign rank three, not this multiplayer kit.",
+            "Do not confuse Flame Vent’s Burning on opponents with Afterfire’s self-ignition."
+          ],
+          "fallback": "Without Plating, use shorter Burning bursts and extra heat recovery; do not replace the missing mitigation with an assumption of immunity.",
+          "evidence": "editorial_inference",
+          "experimental": false
+        },
+        {
+          "id": "burning-afterburner",
+          "name": "Burning Afterburner relay",
+          "summary": "Use self-ignition to power Afterburner, then bridge Burning into Overcharged and fuel.",
+          "tags": [
+            "Burning",
+            "Afterburner",
+            "Overcharged"
+          ],
+          "choose_when": "Afterburner Thermalizer and Thermal Inverter appear; extended Burning is optional and experimental.",
+          "loop": [
+            "Briefly engage Ramjet to trigger self-Burning, then leave Ramjet safely.",
+            "Spend Afterburner during Burning to use Heat Recycler and Afterburner Thermalizer.",
+            "Thermal Inverter supplies Overcharged for Overcharging Afterburner; re-ignite only when safe."
+          ],
+          "abilities": [
+            {
+              "item_id": "ability.surge",
+              "why": "A speed activation that can trigger Refueling Abilities if that fallback is installed."
+            },
+            {
+              "item_id": "ability.autopilot",
+              "why": "Utility during difficult sections; do not assume it preserves Burning or guarantees safety."
+            }
+          ],
+          "parts": [
+            {
+              "item_id": "part.afterburner_thermalizer",
+              "why": "Main Burning-to-Afterburner power payoff.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.thermal_inverter",
+              "why": "Required Burning-to-Overcharged bridge.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.overcharging_afterburner",
+              "why": "Uses the bridge to improve fuel recovery.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.dissipative_plating_iii",
+              "why": "Reduces the continuing heat hazard if Burning persists.",
+              "role": "Extension"
+            }
+          ],
+          "stats": {
+            "priority": [
+              "Afterburner",
+              "Cornering",
+              "Battery",
+              "Ramjet",
+              "Resilience",
+              "Advanced handling"
+            ],
+            "next_10_points": {
+              "Afterburner": 4,
+              "Cornering": 3,
+              "Battery": 1,
+              "Ramjet": 1,
+              "Resilience": 1
+            },
+            "reason": "Afterburner gets the larger share because extended Burning can keep Ramjet hot even while disengaged."
+          },
+          "pitfalls": [
+            "A long Burning duration is not unlimited Ramjet or unlimited Afterburner fuel.",
+            "Status Scrubber and Burn Protection can remove or prevent the status this build needs; verify any automatic cleansing before taking it."
+          ],
+          "fallback": "Refueling Abilities can supply fuel instead of the Overcharged route. Optional experimental extension: only retain Unquenchable Components if actually present, after verifying heat control and a working cleanse/reset; it is a Fault, not a normal required purchase.",
+          "evidence": "editorial_inference",
+          "experimental": true,
+          "experimental_extension": {
+            "item_id": "part.unquenchable_components",
+            "requires": [
+              "Actual standard-mode observation of this Fault",
+              "Heat control already working; prefer verified Dissipative Plating",
+              "A tested way to clear Burning and reset heat"
+            ],
+            "why": "Published wording makes Burning stop expiring naturally. Whether it is safe and attainable in your multiplayer tour is unverified. Test the base five-second loop first."
+          }
+        },
+        {
+          "id": "flame-vent-raider",
+          "name": "Flame Vent raider",
+          "focus": "aggression",
+          "summary": "Catch rivals with self-Burning Ramjet bursts, then pressure nearby opponents with Flame Vent and recycle takedowns.",
+          "tags": [
+            "Aggression",
+            "Burning",
+            "Takedowns"
+          ],
+          "choose_when": "Flame Vent has nearby targets and Scrap parts appear to support repeated offensive use.",
+          "loop": [
+            "Briefly engage Ramjet to trigger Afterfire’s five seconds of self-Burning and approach under control.",
+            "Use Flame Vent when rivals are nearby: it reduces your heat and applies Burning and System Malfunction to them. Ion Bolt or Shockwave adds a second attack option.",
+            "A confirmed takedown restores Energy and reloads abilities through the Scrap parts. Re-ignite only when the heat and line allow another short pursuit."
+          ],
+          "parts": [
+            {
+              "item_id": "part.scrap_recycler_iii",
+              "why": "Returns 3 Energy after a confirmed takedown to fund more attacks.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.scrap_reloader",
+              "why": "Readies Flame Vent and other abilities when an attack earns a takedown.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.dissipative_plating_iii",
+              "why": "Reduces heat caused by your Burning during the approach; ordinary Ramjet heating remains.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.burning_ramjet",
+              "why": "Optional power for self-Burning approach windows, rather than a damage bonus for weapons.",
+              "role": "Extension"
+            }
+          ],
+          "abilities": [
+            {
+              "item_id": "ability.shockwave",
+              "why": "Push nearby rivals away and apply System Malfunction alongside Flame Vent pressure."
+            },
+            {
+              "item_id": "ability.ion_bolt",
+              "why": "Add targeted Disrupted when the nearest rival is outside a useful vent or blast position."
+            }
+          ],
+          "stats": {
+            "priority": [
+              "Battery",
+              "Cornering",
+              "Resilience",
+              "Ramjet",
+              "Afterburner",
+              "Advanced handling"
+            ],
+            "next_10_points": {
+              "Battery": 3,
+              "Cornering": 3,
+              "Resilience": 2,
+              "Ramjet": 2
+            },
+            "reason": "Energy fuels the offensive kit, control keeps close attacks deliberate, and Ramjet serves short approaches. This is not the sustained-heat build."
+          },
+          "pitfalls": [
+            "A hit or collision is not a credited takedown. Takedown rewards need an actual takedown.",
+            "Burning an opponent does not activate your Heat Recycler. Your self-Burning comes from Afterfire.",
+            "Flame Vent does not guarantee a takedown or self-ignite. Longer Burning and the Unquenchable Components Fault are not required here."
+          ],
+          "fallback": "Without Scrap Reloader, use an offered Faster Attachments tier and ration Energy. Without heat control, use shorter Ramjet approaches; take the weapon hit and pass rather than extending Burning for combat.",
+          "evidence": "editorial_inference",
+          "experimental": false
+        }
+      ]
+    },
+    {
+      "id": "malis-vazosk",
+      "name": "Malis Vazosk",
+      "style": "Brawler",
+      "style_url": "https://galacticracer.gameslantern.com/racer-styles/brawler",
+      "identity": "Convert genuine takedowns into Energy and Surging, then leave the fight.",
+      "starting_abilities": [
+        "ability.ion_bolt"
+      ],
+      "traits": [
+        {
+          "name": "Prepared",
+          "effect": "Ion Bolt starting ability corroborated by the multiplayer guide; database contains a conflicting Flame Vent entry."
+        },
+        {
+          "name": "Energy Hunter",
+          "effect": "A takedown restores 1 Energy."
+        },
+        {
+          "name": "Combat Adrenaline",
+          "effect": "A takedown grants 10 seconds of Surging."
+        }
+      ],
+      "builds": [
+        {
+          "id": "takedown-reloader",
+          "name": "Takedown reloader",
+          "summary": "Make each successful takedown reset the next useful offensive cast.",
+          "tags": [
+            "Takedowns",
+            "Energy",
+            "Ability reload"
+          ],
+          "choose_when": "The lobby offers genuine takedown opportunities without sacrificing your line.",
+          "loop": [
+            "Use the starting Ion Bolt to create a real passing or takedown opportunity.",
+            "A takedown returns Energy through the trait and Scrap Recycler.",
+            "Scrap Reloader readies abilities; use them only when funded and a target is worthwhile."
+          ],
+          "abilities": [
+            {
+              "item_id": "ability.shockwave",
+              "why": "Area pressure when several opponents are actually nearby."
+            },
+            {
+              "item_id": "ability.shield",
+              "why": "Protects your line through a contact-heavy group."
+            }
+          ],
+          "parts": [
+            {
+              "item_id": "part.scrap_reloader",
+              "why": "Resets ability reloads on a takedown.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.scrap_recycler_iii",
+              "why": "Adds takedown Energy to the trait’s refund.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.cooling_actuator_i",
+              "why": "Short Cooled window after a takedown.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.ramjet_accelerator_i",
+              "why": "Optional use for that cooling.",
+              "role": "Extension"
+            }
+          ],
+          "stats": {
+            "priority": [
+              "Battery",
+              "Resilience",
+              "Cornering",
+              "Ramjet",
+              "Afterburner",
+              "Advanced handling"
+            ],
+            "next_10_points": {
+              "Battery": 3,
+              "Resilience": 2,
+              "Cornering": 2,
+              "Ramjet": 2,
+              "Afterburner": 1
+            },
+            "reason": "Battery funds useful attacks; resilience and control help survive traffic."
+          },
+          "pitfalls": [
+            "An ability hit is not automatically a takedown.",
+            "Do not keep fighting behind the leaders just to feed the engine."
+          ],
+          "fallback": "Faster Attachments IV can support normal reloads if Scrap Reloader is absent, but does not create takedown Energy.",
+          "evidence": "editorial_inference",
+          "experimental": false
+        },
+        {
+          "id": "combat-to-boost",
+          "name": "Combat-to-boost exit",
+          "summary": "Cash out the takedown’s Surging window as a full-tank escape.",
+          "tags": [
+            "Takedowns",
+            "Surging",
+            "Afterburner"
+          ],
+          "choose_when": "You find Surging payoffs and want a race-focused exit after the fight.",
+          "loop": [
+            "Secure a safe takedown rather than prolonged contact.",
+            "Combat Adrenaline newly grants Surging, triggering Surging Fuel if the entry qualifies.",
+            "Use the recovered Afterburner to get clear; Fuel Agitator rewards later legitimate takedowns."
+          ],
+          "abilities": [
+            {
+              "item_id": "ability.surge",
+              "why": "Runs the fuel conversion when no takedown occurs."
+            },
+            {
+              "item_id": "ability.shield",
+              "why": "Protects the exit instead of prolonging combat."
+            }
+          ],
+          "parts": [
+            {
+              "item_id": "part.surging_fuel",
+              "why": "Converts new post-takedown Surging into fuel.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.optimized_surge_i",
+              "why": "Amplifies the trait’s existing Surging payoff.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.fuel_agitator_i",
+              "why": "Takedowns build Afterburner power.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.optimized_fuel_iii",
+              "why": "Adds power when the refill reaches full.",
+              "role": "Extension"
+            }
+          ],
+          "stats": {
+            "priority": [
+              "Afterburner",
+              "Cornering",
+              "Resilience",
+              "Battery",
+              "Ramjet",
+              "Advanced handling"
+            ],
+            "next_10_points": {
+              "Afterburner": 4,
+              "Cornering": 2,
+              "Resilience": 2,
+              "Battery": 1,
+              "Ramjet": 1
+            },
+            "reason": "Afterburner and control are the spending focus because the purpose is to escape the pack."
+          },
+          "pitfalls": [
+            "A refresh of already-active Surging may not count as another entry.",
+            "A collision can lose your line even if it creates a takedown."
+          ],
+          "fallback": "Refueling Abilities offers a non-takedown refill path using useful casts.",
+          "evidence": "editorial_inference",
+          "experimental": false
+        },
+        {
+          "id": "impact-fueled-enforcer",
+          "name": "Impact-fueled enforcer",
+          "focus": "aggression",
+          "summary": "Use direct vehicle contact for fuel, with weapons and takedown rewards supporting Malis’s brawling traits.",
+          "tags": [
+            "Aggression",
+            "Vehicle contact",
+            "Takedowns"
+          ],
+          "choose_when": "Kinetic Refueler appears and you can choose brief contact opportunities instead of prolonged shoving.",
+          "loop": [
+            "Use the confirmed starting weapon to disrupt a nearby target; add Flame Vent for nearby pressure or a mine for pursuers.",
+            "An actual vehicle collision refills 60% Afterburner through Kinetic Refueler. A credited takedown triggers Malis’s Energy Hunter and Combat Adrenaline.",
+            "Use the fuel and actual Surging window to exit. Scrap Recycler returns Energy, while Fuel Agitator and Lethal Velocity reward confirmed takedowns."
+          ],
+          "parts": [
+            {
+              "item_id": "part.kinetic_refueler_ii",
+              "why": "Fuel from vehicle contact gives this build a trigger separate from Malis’s existing takedown-reload guide.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.scrap_recycler_iii",
+              "why": "Adds a described Energy reward on takedown without asserting how trait and part refunds combine.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.fuel_agitator_i",
+              "why": "A takedown rewards the Afterburner used to leave the contest.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.lethal_velocity_iii",
+              "why": "Optional Speed reward for credited takedowns; exact gain and persistence remain unverified.",
+              "role": "Extension"
+            }
+          ],
+          "abilities": [
+            {
+              "item_id": "ability.flame_vent",
+              "why": "Cooling plus Burning and System Malfunction against nearby opponents, if offered and not already in the actual kit."
+            },
+            {
+              "item_id": "ability.concussion_mine",
+              "why": "Pressure pursuing traffic after leaving a close fight."
+            }
+          ],
+          "stats": {
+            "priority": [
+              "Resilience",
+              "Cornering",
+              "Battery",
+              "Afterburner",
+              "Ramjet",
+              "Advanced handling"
+            ],
+            "next_10_points": {
+              "Resilience": 3,
+              "Cornering": 3,
+              "Battery": 2,
+              "Afterburner": 2
+            },
+            "reason": "Support controlled contact and offensive casts, with fuel-based acceleration to leave the fight. Stat points do not establish collision-damage coefficients."
+          },
+          "pitfalls": [
+            "A hit or collision is not a credited takedown. Takedown rewards need an actual takedown.",
+            "The Brawler starting ability is source-conflicted; confirm your actual kit and avoid buying a duplicate Flame Vent.",
+            "Energy Hunter and Combat Adrenaline require a takedown; merely bumping someone only supports the collision-triggered part."
+          ],
+          "fallback": "Without Kinetic Refueler, use Refueling Abilities with a worthwhile cast. If Flame Vent is already installed, treat that offer as an upgrade target or pursue Shockwave where legal, not a second assumed slot.",
+          "evidence": "editorial_inference",
+          "experimental": false
+        }
+      ],
+      "kit_note": "Ion Bolt is supported by Gamepur; Gameslantern contains two conflicting multiplayer Brawler entries. Confirm the actual starting ability."
+    },
+    {
+      "id": "lyren-shok",
+      "name": "Lyren Shok",
+      "style": "Stunt Runner",
+      "style_url": "https://galacticracer.gameslantern.com/racer-styles/stunt-runner",
+      "identity": "Use Perfect Landings to refuel and empower the next Afterburner.",
+      "starting_abilities": [
+        "ability.vectored_shockwave"
+      ],
+      "traits": [
+        {
+          "name": "Center of Attention",
+          "effect": "Begins with Vectored Shockwave."
+        },
+        {
+          "name": "Repulsor Fuel Link",
+          "effect": "Perfect Landing refills Afterburner and adds 100% power to its next use."
+        },
+        {
+          "name": "Potential Energy",
+          "effect": "Each airborne second adds +10% to the Repulsor Fuel Link bonus."
+        }
+      ],
+      "builds": [
+        {
+          "id": "perfect-launch",
+          "name": "Perfect-launch Afterburner",
+          "summary": "Multiply the value of each clean landing with full-tank and landing payoffs.",
+          "tags": [
+            "Perfect Landings",
+            "Afterburner",
+            "Full tank"
+          ],
+          "choose_when": "The track provides safe jumps that you can land cleanly.",
+          "loop": [
+            "Take a safe jump; extra airtime improves Potential Energy but detours cost time.",
+            "Land perfectly for Repulsor Fuel Link’s full refill and next-use bonus.",
+            "Use the full-tank Afterburner while taking the landing speed window."
+          ],
+          "abilities": [
+            {
+              "item_id": "ability.shield",
+              "why": "Protects the approach and exit from incoming effects."
+            },
+            {
+              "item_id": "ability.surge",
+              "why": "Adds speed between useful jumps."
+            }
+          ],
+          "parts": [
+            {
+              "item_id": "part.optimized_fuel_iii",
+              "why": "Uses the full tank already created by the trait.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.calibrating_landings_ii",
+              "why": "Adds another payoff to Perfect Landings.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.repulsormod_i",
+              "why": "Adds a short post-landing Speed window.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.surging_fuel",
+              "why": "Backup full-tank trigger with direct Surge.",
+              "role": "Extension"
+            }
+          ],
+          "stats": {
+            "priority": [
+              "Afterburner",
+              "Cornering",
+              "Advanced handling",
+              "Battery",
+              "Resilience",
+              "Ramjet"
+            ],
+            "next_10_points": {
+              "Afterburner": 4,
+              "Cornering": 2,
+              "Advanced handling": 2,
+              "Battery": 1,
+              "Resilience": 1
+            },
+            "reason": "Afterburner cashes out the landing; handling keeps the approach and exit usable."
+          },
+          "pitfalls": [
+            "Do not buy Reconstituted Fuel just to duplicate the trait’s already-full landing refill.",
+            "Campaign Repulsor Alignment does not make every multiplayer landing perfect."
+          ],
+          "fallback": "Without Optimized Fuel, the trait still provides the main launch; keep landing parts only if jumps are reliably perfect.",
+          "evidence": "editorial_inference",
+          "experimental": false
+        },
+        {
+          "id": "landing-cooling",
+          "name": "Landing-to-Ramjet",
+          "summary": "Spend the landing’s Afterburner refill while cooling prepares a Ramjet continuation.",
+          "tags": [
+            "Perfect Landings",
+            "Cooled",
+            "Ramjet relay"
+          ],
+          "choose_when": "You find Cooling Dampers and Ramjet payoffs on a jump-heavy route.",
+          "loop": [
+            "Perfect Landing triggers the trait’s fuel refill and Cooling Dampers.",
+            "Spend the empowered Afterburner on the landing exit.",
+            "Use the remaining Cooled window for Ramjet Accelerator."
+          ],
+          "abilities": [
+            {
+              "item_id": "ability.vent",
+              "why": "Independent cooling when the track has no safe jump."
+            },
+            {
+              "item_id": "ability.shield",
+              "why": "Protects the jump approach and Ramjet continuation."
+            }
+          ],
+          "parts": [
+            {
+              "item_id": "part.cooling_dampers_iii",
+              "why": "Perfect Landing grants 15 seconds of Cooled.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.ramjet_accelerator_i",
+              "why": "Main Ramjet payoff during that real cooling window.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.enhanced_coolant_i",
+              "why": "Strengthens landing-based cooling.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.repulsormod_i",
+              "why": "Short landing Speed bonus while the relay begins.",
+              "role": "Extension"
+            }
+          ],
+          "stats": {
+            "priority": [
+              "Ramjet",
+              "Afterburner",
+              "Cornering",
+              "Advanced handling",
+              "Battery",
+              "Resilience"
+            ],
+            "next_10_points": {
+              "Ramjet": 3,
+              "Afterburner": 3,
+              "Cornering": 2,
+              "Advanced handling": 1,
+              "Resilience": 1
+            },
+            "reason": "Split offensive points because the landing now supports two boosts rather than Afterburner alone."
+          },
+          "pitfalls": [
+            "A rough landing does not meet the parts’ Perfect Landing condition.",
+            "Vectored Shockwave is described as forward propulsion; do not assume it manufactures perfect jumps."
+          ],
+          "fallback": "Use Vent when no landing trigger is available; do not drive a slower detour simply to trigger a part.",
+          "evidence": "editorial_inference",
+          "experimental": false
+        },
+        {
+          "id": "landing-ambush",
+          "name": "Landing ambush",
+          "focus": "aggression",
+          "summary": "Use a Perfect Landing’s empowered Afterburner to reach a target, then strike with Vectored Shockwave and recycle the takedown.",
+          "tags": [
+            "Aggression",
+            "Perfect Landing",
+            "Takedowns"
+          ],
+          "choose_when": "Useful jumps feed into contested sections and weapon recovery parts are offered.",
+          "loop": [
+            "Take a useful jump and land perfectly for Repulsor Fuel Link’s refill and stronger next Afterburner use.",
+            "Use that launch to reach a nearby rival, then activate Vectored Shockwave or Ion Bolt only when the target is eligible.",
+            "A credited takedown restores Energy and reloads abilities through the Scrap parts. Lethal Velocity rewards the takedown; take the next clean landing opportunity."
+          ],
+          "parts": [
+            {
+              "item_id": "part.scrap_recycler_iii",
+              "why": "Funds later attacks after a confirmed takedown.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.scrap_reloader",
+              "why": "Readies Vectored Shockwave and other abilities after a takedown.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.calibrating_landings_ii",
+              "why": "Keeps the approach tied to Lyren’s Perfect Landing engine.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.lethal_velocity_iii",
+              "why": "Optional Speed reward when the landing approach leads to a takedown.",
+              "role": "Extension"
+            }
+          ],
+          "abilities": [
+            {
+              "item_id": "ability.ion_bolt",
+              "why": "A targeted disruption option before committing to the starting area blast."
+            },
+            {
+              "item_id": "ability.shield",
+              "why": "Protection during an exposed landing exit; it does not guarantee a Perfect Landing or safe collision."
+            }
+          ],
+          "stats": {
+            "priority": [
+              "Cornering",
+              "Battery",
+              "Afterburner",
+              "Resilience",
+              "Advanced handling",
+              "Ramjet"
+            ],
+            "next_10_points": {
+              "Cornering": 3,
+              "Battery": 3,
+              "Afterburner": 2,
+              "Resilience": 2
+            },
+            "reason": "Control earns the landing trigger; Energy and Afterburner support the attack. More airtime is useful only when the route cost is justified."
+          },
+          "pitfalls": [
+            "A hit or collision is not a credited takedown. Takedown rewards need an actual takedown.",
+            "An ordinary landing does not trigger Repulsor Fuel Link. Do not force an attack before securing the landing.",
+            "Vectored Shockwave is not a guaranteed kill, and neither Shield nor the launch bonus removes collision risk."
+          ],
+          "fallback": "Without a takedown reload, use an offered Faster Attachments tier and save Vectored Shockwave for a valuable nearby target. Without a useful jump, use ordinary pursuit rather than detouring for airtime.",
+          "evidence": "editorial_inference",
+          "experimental": false
+        }
+      ]
+    },
+    {
+      "id": "kestar-bool",
+      "name": "Kestar Bool",
+      "style": "Weaponized",
+      "style_url": "https://galacticracer.gameslantern.com/racer-styles/weaponized",
+      "identity": "Use the three starting weapons purposefully and spend returned Energy on the next useful window.",
+      "starting_abilities": [
+        "ability.ion_bolt",
+        "ability.shockwave",
+        "ability.concussion_mine"
+      ],
+      "traits": [
+        {
+          "name": "Prepared",
+          "effect": "Begins with Ion Bolt."
+        },
+        {
+          "name": "Energy Leech",
+          "effect": "Hitting two opponents with abilities restores 1 Energy."
+        },
+        {
+          "name": "Tooled Up",
+          "effect": "Begins with Shockwave and Concussion Mine too."
+        }
+      ],
+      "builds": [
+        {
+          "id": "weapon-to-fuel",
+          "name": "Weapon-to-fuel relay",
+          "summary": "The starting arsenal becomes a set of useful fuel-refill triggers.",
+          "tags": [
+            "Ability hits",
+            "Afterburner",
+            "Refills"
+          ],
+          "choose_when": "You find Refueling Abilities and can land meaningful attacks.",
+          "loop": [
+            "Cast a starting weapon when it creates space or a real pass.",
+            "Refueling Abilities restores the tank; qualifying ability hits can return Energy.",
+            "Spend a full-tank Afterburner launch to leave the contested group."
+          ],
+          "abilities": [
+            {
+              "item_id": "ability.shield",
+              "why": "First additional target for protecting the escape, if the game permits a slot."
+            },
+            {
+              "item_id": "ability.vent",
+              "why": "Alternative heat utility if the tour supports more Ramjet use."
+            }
+          ],
+          "parts": [
+            {
+              "item_id": "part.refueling_abilities",
+              "why": "Core weapon-activation-to-fuel conversion.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.optimized_fuel_iii",
+              "why": "Cash-out payoff for the full tank.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.faster_attachments_iv",
+              "why": "Reload support only when casts have Energy and purpose.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.ability_catalyst",
+              "why": "Additional fuel recovery support from activations.",
+              "role": "Extension"
+            }
+          ],
+          "stats": {
+            "priority": [
+              "Afterburner",
+              "Battery",
+              "Cornering",
+              "Resilience",
+              "Ramjet",
+              "Advanced handling"
+            ],
+            "next_10_points": {
+              "Afterburner": 3,
+              "Battery": 3,
+              "Cornering": 2,
+              "Resilience": 1,
+              "Ramjet": 1
+            },
+            "reason": "Afterburner is the exit engine; Battery funds three starting weapons without inventing free casts."
+          },
+          "pitfalls": [
+            "An empty weapon cast can waste Energy even if it refills fuel.",
+            "Three starting weapons do not prove a fourth slot exists; check the current interface."
+          ],
+          "fallback": "Surge with Surging Fuel is an alternative refill route only if an additional ability slot is actually available.",
+          "evidence": "editorial_inference",
+          "experimental": false
+        },
+        {
+          "id": "pack-control",
+          "name": "Pack-control recycler",
+          "summary": "Use multi-opponent hits and real takedowns to fund and ready the next control window.",
+          "tags": [
+            "Ability hits",
+            "Takedowns",
+            "Control"
+          ],
+          "choose_when": "The field stays close enough for area control and genuine takedowns.",
+          "loop": [
+            "Use Shockwave or a mine when multiple opponents are in their actual effect area.",
+            "Qualifying hits support Energy Leech; real takedowns support Scrap Recycler.",
+            "Scrap Reloader readies weapons, then leave the fight on a controlled boost."
+          ],
+          "abilities": [
+            {
+              "item_id": "ability.shield",
+              "why": "Protects your line during close-quarters control, if a slot is permitted."
+            },
+            {
+              "item_id": "ability.surge",
+              "why": "Alternative speed utility for leaving the group."
+            }
+          ],
+          "parts": [
+            {
+              "item_id": "part.scrap_recycler_iii",
+              "why": "Takedown Energy supplements the separate two-hit trait.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.scrap_reloader",
+              "why": "Real takedowns reset ability reloads.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.cooling_actuator_i",
+              "why": "Short cooling after a takedown.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.ramjet_accelerator_i",
+              "why": "Uses the cooling for an escape burst.",
+              "role": "Extension"
+            }
+          ],
+          "stats": {
+            "priority": [
+              "Battery",
+              "Resilience",
+              "Cornering",
+              "Ramjet",
+              "Afterburner",
+              "Advanced handling"
+            ],
+            "next_10_points": {
+              "Battery": 3,
+              "Resilience": 2,
+              "Cornering": 2,
+              "Ramjet": 2,
+              "Afterburner": 1
+            },
+            "reason": "Ability resources lead, with enough control and resilience to survive the group you target."
+          },
+          "pitfalls": [
+            "Two hits, takedowns and ability activations are separate triggers.",
+            "Campaign Flame Vent is not an extra multiplayer starting weapon in the published kit."
+          ],
+          "fallback": "Without takedowns, use normal reload support and Energy Leech opportunistically; do not assume a permanent attack loop.",
+          "evidence": "editorial_inference",
+          "experimental": false
+        },
+        {
+          "id": "weapons-overdrive",
+          "name": "Weapons overdrive",
+          "focus": "aggression",
+          "summary": "Cycle Kestar’s starting weapons through ability-fueled cooling, then use confirmed takedowns to reload the arsenal.",
+          "tags": [
+            "Aggression",
+            "Ability hits",
+            "Takedowns"
+          ],
+          "choose_when": "The cast-to-fuel-to-cooling chain is offered and multiple nearby targets make the starting weapons useful.",
+          "loop": [
+            "Use a starting weapon against a real target. Qualifying hits support Energy Leech; Refueling Abilities refills Afterburner on activation.",
+            "Spend Afterburner with Thermoactive Fuel to gain Cooled, then use Supercooled Attachments for faster weapon reloads while Cooled.",
+            "A credited takedown instantly readies abilities through Scrap Reloader. Repeat only with available Energy, a reloaded ability and a useful target."
+          ],
+          "parts": [
+            {
+              "item_id": "part.refueling_abilities",
+              "why": "Converts a useful weapon activation into a full Afterburner tank.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.thermoactive_fuel",
+              "why": "Afterburner provides Cooled for the weapon reload bridge.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.supercooled_attachments",
+              "why": "Faster reloads during actual Cooled support repeated pressure even before a takedown.",
+              "role": "Core"
+            },
+            {
+              "item_id": "part.scrap_reloader",
+              "why": "Optional instant reload on a takedown, separate from Energy Leech’s hit trigger.",
+              "role": "Extension"
+            }
+          ],
+          "abilities": [
+            {
+              "item_id": "ability.flame_vent",
+              "why": "An offered Vent-family attack adds nearby Burning and System Malfunction while reducing your heat; verify the actual kit first."
+            },
+            {
+              "item_id": "ability.shield",
+              "why": "A defensive activation for an exposed attack or exit; starting weapons already supply the offense."
+            }
+          ],
+          "stats": {
+            "priority": [
+              "Battery",
+              "Cornering",
+              "Resilience",
+              "Afterburner",
+              "Ramjet",
+              "Advanced handling"
+            ],
+            "next_10_points": {
+              "Battery": 4,
+              "Cornering": 3,
+              "Resilience": 2,
+              "Afterburner": 1
+            },
+            "reason": "More Energy supports Kestar’s broad weapon kit, while control and Resilience help you leave contested traffic. Ability readiness is not ammo."
+          },
+          "pitfalls": [
+            "A hit or collision is not a credited takedown. Takedown rewards need an actual takedown.",
+            "Energy Leech needs the described qualifying hits on two opponents; a miss or one arbitrary hit does not guarantee a refund.",
+            "The cooling bridge needs both Refueling Abilities and Thermoactive Fuel; Supercooled Attachments alone supplies no Cooled."
+          ],
+          "fallback": "If the cooling bridge is incomplete, use an offered Faster Attachments tier or the existing takedown recycler direction. Keep useful starting weapons and treat extra abilities as upgrade/replacement targets only when legal.",
+          "evidence": "editorial_inference",
+          "experimental": false
+        }
+      ]
+    }
+  ]
+}

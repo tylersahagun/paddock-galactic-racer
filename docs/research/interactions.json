@@ -1,0 +1,560 @@
+{
+  "schema_version": "0.1.0",
+  "scope": "candidate source-grounded interactions; no Xbox mechanic validation",
+  "status": "product_gate_not_satisfied",
+  "interactions": [
+    {
+      "id": "int.vent-cooled",
+      "from": "ability.vent",
+      "relation": "produces",
+      "to": "status.cooled",
+      "requires": [
+        "ability_activation_is_legal",
+        "energy_and_reload_available"
+      ],
+      "source_ids": [
+        "gl-vent"
+      ],
+      "status": "source_claim",
+      "note": "Activation is an event, not a continuously true effect."
+    },
+    {
+      "id": "int.cooled-ramjet-accelerator",
+      "from": "status.cooled",
+      "relation": "enables",
+      "to": "part.ramjet_accelerator_i",
+      "requires": [
+        "part_equipped",
+        "ramjet_usable"
+      ],
+      "source_ids": [
+        "gl-ramjet-accelerator-i"
+      ],
+      "status": "source_claim",
+      "note": "Listed Ramjet power bonus is conditional on Cooled."
+    },
+    {
+      "id": "int.cooled-enhanced-coolant",
+      "from": "status.cooled",
+      "relation": "enables",
+      "to": "part.enhanced_coolant_i",
+      "requires": [
+        "part_equipped"
+      ],
+      "source_ids": [
+        "gl-enhanced-coolant-i"
+      ],
+      "status": "source_claim",
+      "note": "Amplifies Cooled; does not grant it."
+    },
+    {
+      "id": "int.afterburner-cooled",
+      "from": "part.thermoactive_fuel",
+      "relation": "produces",
+      "to": "status.cooled",
+      "requires": [
+        "action.afterburner_active"
+      ],
+      "source_ids": [
+        "gl-thermoactive-fuel"
+      ],
+      "status": "source_claim",
+      "note": "Needs actual Afterburner use, not just fuel capacity."
+    },
+    {
+      "id": "int.cooled-overcharged",
+      "from": "part.cooling_overcharge",
+      "relation": "produces",
+      "to": "status.overcharged",
+      "requires": [
+        "status.cooled"
+      ],
+      "source_ids": [
+        "gl-cooling-overcharge"
+      ],
+      "status": "source_claim",
+      "note": "Continuous conditional grant; temporary energy refresh semantics remain unknown."
+    },
+    {
+      "id": "int.overcharge-afterburner",
+      "from": "status.overcharged",
+      "relation": "enables",
+      "to": "part.overcharging_afterburner",
+      "requires": [
+        "part_equipped"
+      ],
+      "source_ids": [
+        "gl-overcharging-afterburner"
+      ],
+      "status": "source_claim",
+      "note": "Fuel rate modifier is not equal to realized race speed."
+    },
+    {
+      "id": "int.activation-afterburner",
+      "from": "part.refueling_abilities",
+      "relation": "produces",
+      "to": "resource.current_afterburner",
+      "requires": [
+        "ability_activation_is_legal"
+      ],
+      "source_ids": [
+        "gl-refueling-abilities"
+      ],
+      "status": "source_claim",
+      "note": "Refill benefit is wasted if the tank is already full."
+    },
+    {
+      "id": "int.activation-catalyst",
+      "from": "part.ability_catalyst",
+      "relation": "amplifies",
+      "to": "mechanic.afterburner_refill_rate",
+      "requires": [
+        "ability_activation_is_legal"
+      ],
+      "source_ids": [
+        "gl-ability-catalyst"
+      ],
+      "status": "source_claim",
+      "note": "Accumulation, cap and race reset are unspecified."
+    },
+    {
+      "id": "int.energy-surplus-cooled",
+      "from": "part.surplus_cooling",
+      "relation": "produces",
+      "to": "status.cooled",
+      "requires": [
+        "resource.energy>=8"
+      ],
+      "source_ids": [
+        "gl-surplus-cooling"
+      ],
+      "status": "source_claim",
+      "note": "Use current threshold eligibility, not battery capacity alone."
+    },
+    {
+      "id": "int.zero-overcharge",
+      "from": "trait.optimized_reserves",
+      "relation": "produces",
+      "to": "status.overcharged",
+      "requires": [
+        "energy_fully_depleted_transition"
+      ],
+      "source_ids": [
+        "gl-tech-expert"
+      ],
+      "status": "source_claim",
+      "note": "Temporary state lasts 30 seconds in description; repeated refresh must be tested."
+    },
+    {
+      "id": "int.energy-objective-conflict",
+      "from": "part.surplus_cooling",
+      "relation": "conflicts_with_trigger",
+      "to": "trait.optimized_reserves",
+      "requires": [
+        "simultaneous_energy_state"
+      ],
+      "source_ids": [
+        "gl-surplus-cooling",
+        "gl-tech-expert"
+      ],
+      "status": "semantic_inference_unverified",
+      "note": "Energy cannot be >=8 and 0 simultaneously, but these are trigger/threshold conditions, not enduring buff conditions. The 30-second Overcharged window triggered earlier may overlap later Energy>=8. The equipped pair is not categorically incompatible; model event timing and temporary-energy semantics."
+    },
+    {
+      "id": "int.frozen-superconducting",
+      "from": "status.frozen",
+      "relation": "enables",
+      "to": "part.superconducting_ramjet",
+      "requires": [
+        "part_equipped",
+        "ramjet_usable"
+      ],
+      "source_ids": [
+        "gl-superconducting-ramjet"
+      ],
+      "status": "source_claim",
+      "note": "Requires Frozen, not merely Cooled."
+    },
+    {
+      "id": "int.freeze-protection-superconducting",
+      "from": "part.frost_protection",
+      "relation": "potentially_prevents",
+      "to": "part.superconducting_ramjet",
+      "requires": [
+        "protection_blocks_relevant_freeze_source"
+      ],
+      "source_ids": [
+        "gl-frost-protection",
+        "gl-superconducting-ramjet"
+      ],
+      "status": "semantic_inference_unverified",
+      "note": "Confirm whether protection covers self-applied and environmental Frozen."
+    },
+    {
+      "id": "int.supercooled-frozen",
+      "from": "ability.supercooled_vent",
+      "relation": "gradually_produces",
+      "to": "status.frozen",
+      "requires": [
+        "ability_active",
+        "buildup_not_prevented"
+      ],
+      "source_ids": [
+        "gl-supercooled-vent"
+      ],
+      "status": "source_claim",
+      "note": "On becoming fully Frozen the Vent stops; do not assume continued cooling ability uptime."
+    },
+    {
+      "id": "int.frozen-subzero",
+      "from": "status.frozen",
+      "relation": "conditionally_enables",
+      "to": "part.subzero_cooling",
+      "requires": [
+        "part_equipped",
+        "status.cooled_overlap_or_inheritance_verified"
+      ],
+      "source_ids": [
+        "gl-subzero-cooling",
+        "gl-glossary"
+      ],
+      "status": "semantic_inference_unverified",
+      "note": "The description does not settle whether Frozen supplies the named Cooled state or just similar cooling."
+    },
+    {
+      "id": "int.scrubber-frozen-conflict",
+      "from": "ability.status_scrubber",
+      "relation": "potentially_removes",
+      "to": "status.frozen",
+      "requires": [
+        "successful_clear",
+        "frozen_is_clearable_negative_status"
+      ],
+      "source_ids": [
+        "gl-status-scrubber",
+        "gl-glossary"
+      ],
+      "status": "semantic_inference_unverified",
+      "note": "Clearing a mechanically negative state can also remove a conditional speed-build enabler."
+    },
+    {
+      "id": "int.disrupted-overcharge",
+      "from": "status.disrupted",
+      "relation": "prevents",
+      "to": "status.overcharged",
+      "requires": [],
+      "source_ids": [
+        "gl-glossary"
+      ],
+      "status": "source_claim",
+      "note": "A disruption window can break energy/reload chains."
+    },
+    {
+      "id": "int.shield-external-freeze",
+      "from": "status.shielded",
+      "relation": "potentially_prevents",
+      "to": "status.frozen",
+      "requires": [
+        "freeze_source_is_external"
+      ],
+      "source_ids": [
+        "gl-glossary"
+      ],
+      "status": "semantic_inference_unverified",
+      "note": "Shield wording is external-only; do not infer it blocks self-applied Frozen or grants global freeze immunity."
+    },
+    {
+      "id": "int.ramjet-cooling-no-status",
+      "from": "part.ramjet_cooling_i",
+      "relation": "does_not_establish",
+      "to": "status.cooled",
+      "requires": [],
+      "source_ids": [
+        "gl-ramjet-cooling-i"
+      ],
+      "status": "semantic_inference_unverified",
+      "note": "No named-status grant in inspected text; do not let keyword overlap create an enabler."
+    },
+    {
+      "id": "int.cooled-no-frozen",
+      "from": "status.cooled",
+      "relation": "does_not_establish",
+      "to": "status.frozen",
+      "requires": [],
+      "source_ids": [
+        "gl-glossary"
+      ],
+      "status": "semantic_inference_unverified",
+      "note": "Chilled has gradual freeze buildup; Cooled is a different state. Frozen is not implied by cooling vocabulary."
+    },
+    {
+      "id": "int.depleted-shielded",
+      "from": "part.depleted_shielding",
+      "relation": "conditionally_produces",
+      "to": "status.shielded",
+      "requires": [],
+      "source_ids": [
+        "xbox-20261031-part-reward"
+      ],
+      "status": "description_grounded_semantic_inference",
+      "note": "A full Afterburner use can launch a five-second Shielded window; equipment is not proof of active protection."
+    },
+    {
+      "id": "int.surging-inlets-source",
+      "from": "part.surging_inlets_iii",
+      "relation": "conditionally_produces",
+      "to": "status.surging",
+      "requires": [],
+      "source_ids": [
+        "xbox-20261031-late-shop"
+      ],
+      "status": "description_grounded_semantic_inference",
+      "note": "Requires five seconds of slipstreaming; uptime is not measured."
+    },
+    {
+      "id": "int.surging-dechoking",
+      "from": "status.surging",
+      "relation": "enables",
+      "to": "part.dechoking_mechanism",
+      "requires": [],
+      "source_ids": [
+        "xbox-20261031-late-shop"
+      ],
+      "status": "description_grounded_semantic_inference",
+      "note": "Protection from Choked is conditional on actual Surging."
+    },
+    {
+      "id": "int.mine-no-self-concussed",
+      "from": "ability.freezing_concussion_mine",
+      "relation": "does_not_establish",
+      "to": "part.impact_regulator_ii",
+      "requires": [],
+      "source_ids": [
+        "xbox-20261031-ability-offer"
+      ],
+      "status": "description_grounded_semantic_inference",
+      "note": "The mine affects opponents. It does not establish Concussed on your vehicle."
+    },
+    {
+      "id": "int.shield-impact-opportunity",
+      "from": "status.shielded",
+      "relation": "may_reduce_trigger_opportunities",
+      "to": "part.impact_regulator_ii",
+      "requires": [],
+      "source_ids": [
+        "xbox-20261031-part-reward"
+      ],
+      "status": "description_grounded_semantic_inference",
+      "note": "Shielded blocks externally applied statuses in visible tooltip; incoming Concussed may be prevented during the window. Reduced disruption can still be beneficial."
+    },
+    {
+      "id": "int.burn-bright-full-fuel",
+      "from": "trait.burn_bright",
+      "relation": "may_help_enable",
+      "to": "part.optimized_fuel_iii",
+      "requires": [],
+      "source_ids": [
+        "xbox-20261031-build"
+      ],
+      "status": "description_grounded_semantic_inference",
+      "note": "Overtakes restore some tank fuel; they do not prove that the tank reaches full or how the full-fuel bonus is evaluated."
+    },
+    {
+      "id": "int.full-fuel-refill-iv",
+      "from": "part.refueling_abilities",
+      "relation": "may_help_enable",
+      "to": "part.optimized_fuel_iv",
+      "requires": [],
+      "source_ids": [
+        "xbox-20261031-final-build"
+      ],
+      "status": "description_grounded_semantic_inference",
+      "note": "A legal ability activation can restore fuel according to the existing source claim; full-fuel timing and energy/reload still need validation."
+    }
+  ],
+  "candidate_chains": [
+    {
+      "id": "chain.cooled_ramjet",
+      "name": "Cooled-enabled Ramjet",
+      "components": [
+        "ability.vent",
+        "part.ramjet_accelerator_i",
+        "part.enhanced_coolant_i"
+      ],
+      "optional_starting_style": "style.ramjet_rider.standard",
+      "path": [
+        "ability_activation",
+        "status.cooled",
+        "mechanic.ramjet_power"
+      ],
+      "cost_if_purchased_at_listed_prices": 5000,
+      "cost_scope": "Arithmetic sum of standalone listed prices, not validated multiplayer acquisition cost. Starting equipment may change it.",
+      "evidence_status": "conditional_candidate",
+      "what_is_supported": "Source wording connects a status source to two amplifiers.",
+      "unknowns": [
+        "Cooled duration/strength and ability cost/reload",
+        "Actual standard availability and equipment cap",
+        "Effect stacking and power-to-speed mapping"
+      ],
+      "claim_not_supported": "Universal best build, perpetual Ramjet, exact lap-time gain"
+    },
+    {
+      "id": "chain.afterburner_tech_bridge",
+      "name": "Afterburner, cooling and ability bridge",
+      "components": [
+        "part.thermoactive_fuel",
+        "part.cooling_overcharge",
+        "part.refueling_abilities"
+      ],
+      "path": [
+        "ability_activation",
+        "afterburner_refill",
+        "afterburner_use",
+        "status.cooled",
+        "status.overcharged",
+        "temporary_energy_and_faster_reload"
+      ],
+      "cost_if_purchased_at_listed_prices": 9000,
+      "cost_scope": "Arithmetic sum only.",
+      "evidence_status": "conditional_candidate",
+      "what_is_supported": "Individual descriptions form a plausible resource bridge.",
+      "unknowns": [
+        "Continuous overlap and event update order",
+        "Temporary energy amount/expiry/regrant and energy spend",
+        "Reload floor and fuel behavior while boosts overlap",
+        "Actual multiplayer availability and equipment cap"
+      ],
+      "claim_not_supported": "Self-sustaining or infinite loop"
+    },
+    {
+      "id": "chain.frozen_ramjet",
+      "name": "Frozen-conditioned Ramjet",
+      "components": [
+        "ability.supercooled_vent",
+        "part.superconducting_ramjet"
+      ],
+      "optional_components": [
+        "part.subzero_cooling"
+      ],
+      "path": [
+        "vent_use",
+        "frozen_buildup",
+        "vent_disengages",
+        "frozen_conditioned_power"
+      ],
+      "cost_if_purchased_at_listed_prices": 6500,
+      "cost_scope": "Standalone listed prices; upgrade-tree prerequisite acquisition omitted, not actual assembly budget.",
+      "evidence_status": "conditional_candidate_high_tradeoff",
+      "what_is_supported": "Frozen enables listed Ramjet modifier but has steering cost and stops Supercooled Vent.",
+      "unknowns": [
+        "Frozen uptime and actual power-to-speed mapping",
+        "Need for separate overlapping Cooled for Subzero",
+        "Freeze resistance and self-immunity semantics",
+        "Actual standard-mode availability and kit legality"
+      ],
+      "claim_not_supported": "Cooled alone activates the combination or Frozen is always desirable"
+    },
+    {
+      "id": "chain.high_energy_cooling",
+      "name": "Energy-threshold cooling",
+      "components": [
+        "part.surplus_cooling",
+        "part.cooling_overcharge"
+      ],
+      "path": [
+        "energy>=8",
+        "status.cooled",
+        "status.overcharged"
+      ],
+      "cost_if_purchased_at_listed_prices": 7000,
+      "cost_scope": "Arithmetic sum only.",
+      "evidence_status": "conditional_candidate",
+      "what_is_supported": "An energy threshold can enable two linked states.",
+      "unknowns": [
+        "Initial energy source sufficient to seed the chain",
+        "Temporary energy sustaining threshold after spending",
+        "Update order and decay",
+        "Actual multiplayer availability and limits"
+      ],
+      "claim_not_supported": "Battery capacity >=8 guarantees permanent cooling"
+    }
+  ],
+  "mathematical_models": [
+    {
+      "id": "math.uptime",
+      "expression": "U_s = integral_0^T indicator(status s active at t) dt / T",
+      "meaning": "Status uptime is an observation or simulation output; possession of a source is not uptime=1.",
+      "required_inputs": [
+        "duration",
+        "legal trigger rate",
+        "refresh rule",
+        "removal/conflicts"
+      ],
+      "status": "mathematical_definition"
+    },
+    {
+      "id": "math.energy_balance",
+      "expression": "E(t+dt) = clamp(E(t) + G(t,dt) - C(t,dt), 0, capacity(t)); temporary reserve uses its own expiry rules",
+      "meaning": "Must distinguish current energy, capacity, and temporary energy. No infinite chain without nonnegative long-run balance and legal activation timing.",
+      "required_inputs": [
+        "cost per activation",
+        "grant amounts",
+        "expiry",
+        "capacity",
+        "reload"
+      ],
+      "status": "conservation_model_template_unparameterized"
+    },
+    {
+      "id": "math.refill_marginal",
+      "expression": "fuel_added_per_activation = max(0, capacity - fuel_before_activation)",
+      "meaning": "A full-refill part has zero immediate fuel value at full tank. Benefit depends on actual consumption between activations.",
+      "required_inputs": [
+        "fuel capacity",
+        "fuel state",
+        "activation timing"
+      ],
+      "status": "derived_from_full_refill_claim"
+    },
+    {
+      "id": "math.activation_bound",
+      "expression": "N <= min(N_energy, N_reload, N_opportunities)",
+      "meaning": "Fast reload alone does not give unlimited casts. N_reload must handle per-ability cooldown and first-use availability.",
+      "required_inputs": [
+        "energy ledger",
+        "reload timers",
+        "opportunity windows"
+      ],
+      "status": "resource_bound_not_game_coefficient"
+    },
+    {
+      "id": "math.heat_balance",
+      "expression": "dH/dt = heating(speed,boost,states) - cooling(speed,states)",
+      "meaning": "No numerical sustainable-Ramjet conclusion without heating/cooling functions, heat cap and shutdown semantics.",
+      "required_inputs": [
+        "heating function",
+        "cooling function",
+        "heat cap",
+        "restart rules"
+      ],
+      "status": "model_template_unparameterized"
+    },
+    {
+      "id": "math.conditional_power",
+      "expression": "P(t) = P_base(t) * (1 + b * indicator(prerequisite active)) for one isolated relative bonus, if source wording follows ordinary relative-percent semantics",
+      "meaning": "Power modifier does not establish speed or lap-time modifier; stacking other bonuses requires separate evidence.",
+      "required_inputs": [
+        "base power",
+        "active-state trajectory",
+        "stacking semantics"
+      ],
+      "status": "conditional_interpretation"
+    }
+  ],
+  "global_unknowns": [
+    "Equipment limit and mode availability require rules-matrix validation.",
+    "No measured speed/heat/reload coefficients.",
+    "No verified additive/multiplicative stacking.",
+    "No paid or local extraction model run in this agent; manual annotations only."
+  ]
+}

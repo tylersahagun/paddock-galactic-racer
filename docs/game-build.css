@@ -1,0 +1,172 @@
+@font-face{font-family:PaddockDisplay;src:url('./assets/fonts/Unbounded.ttf') format('truetype');font-weight:200 900;font-display:swap}
+@font-face{font-family:PaddockBody;src:url('./assets/fonts/BarlowCondensed-Regular.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:PaddockBody;src:url('./assets/fonts/BarlowCondensed-Italic.ttf') format('truetype');font-weight:400;font-style:italic;font-display:swap}
+
+/* User-pinned visual authority: the Xbox Build screenshots in assets/game/.
+   Suggested allocations and shopping targets remain distinct from saved state. */
+:root{
+  color-scheme:light;
+  --canvas:#deddd5;--rail:#2f454d;--panel:#30474f;--raised:#40565e;
+  --line:#73847f;--text:#f1ecdf;--secondary:#e7e2d7;--muted:#c1cbbc;
+  --accent:#e4b15b;--accent-ink:#192d33;--amber:#f1c67d;--red:#ffbdac;
+  --game-ink:#202827;--game-red:#a94f37;--game-sage:#c4cfba;
+}
+body{background:var(--canvas)}
+.loading{color:#40524d}
+.rail{position:static;inset:auto;width:auto;min-height:64px;padding:12px 36px;display:flex;flex-direction:row;align-items:center;gap:32px;background:var(--canvas);border:0;border-bottom:1px solid #b7bcb2}
+.brand{color:var(--game-ink);font-family:PaddockDisplay,sans-serif;font-size:18px;gap:9px}
+.brand svg{width:24px;height:28px;stroke:var(--game-red)}
+.brand small{font-family:PaddockBody,sans-serif;font-size:14px;color:#4b5e5b}
+.rail nav{display:flex;flex-wrap:wrap;gap:4px;margin:0}
+.rail .nav{width:auto;min-height:40px;padding:8px 14px;border-radius:7px;color:#344743;font-size:14px;background:transparent}
+.rail .nav:hover{background:#cacec3;color:#192d33}
+.rail .nav.active{background:var(--rail);color:var(--text)}
+.rail .nav svg{width:16px;height:16px}
+.rail-bottom{display:flex;margin:0 0 0 auto;padding:0;gap:0}
+.rail-bottom .text-button,.rail-bottom .file-label,.rail-bottom p{display:none}
+.private-mark{color:#42554f;font-size:12px;white-space:nowrap;margin:0}
+.private-mark:before{background:var(--game-red)}
+main{margin:0;padding:26px 36px 20px;max-width:1800px;min-height:calc(100vh - 64px)}
+.page-header{margin-bottom:22px;align-items:flex-start}
+.page-header h1{font-family:PaddockDisplay,sans-serif;font-size:34px;line-height:1.2;font-weight:900;letter-spacing:-.035em;text-transform:uppercase;color:var(--game-ink)}
+.page-header h1:before{content:'/';color:var(--game-red);padding-right:5px}
+.page-header p{color:#40524d;font-size:14px;margin-top:8px}
+.page-footer{font-size:12px;color:#40524d;border-color:#abb4a8;padding-top:16px}
+.skip{background:var(--rail);color:var(--text)}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline-color:#8d3e2d}
+.game-build-board :focus-visible,.game-guide-notes :focus-visible{outline-color:var(--accent)}
+.guide-view{font-family:PaddockBody,-apple-system,sans-serif;font-size:18px}
+.guide-view h2,.guide-view h3,.guide-view h4{font-family:PaddockDisplay,sans-serif}
+.guide-view #content{padding-bottom:32px}
+body:not(.guide-view) #content{background:var(--panel);padding:24px;border-radius:12px;margin-bottom:24px}
+body:not(.guide-view) .page-header .button{background:var(--rail);color:var(--text)}
+.guide-workspace{display:block}
+.guide-roster{position:static;max-height:none;overflow:visible;display:grid;grid-template-columns:minmax(230px,1fr) minmax(240px,1fr) auto auto;gap:20px;align-items:end;margin-bottom:16px}
+.guide-roster label{font-family:PaddockBody,sans-serif;font-size:16px;color:#40524d}
+.guide-roster input,.guide-roster select{margin-top:5px;min-height:44px;background:#eeeae0;border:1px solid #a8b4a8;border-radius:7px;color:var(--game-ink);font-size:18px;padding:8px 12px}
+.guide-roster input::placeholder{color:#61706a}
+.guide-mobile-picker{display:block}
+.guide-roster-count{font-size:14px;line-height:1.5;color:#4c6057;white-space:nowrap;margin:0;padding-bottom:12px}
+.guide-roster .button{min-height:44px;font-family:PaddockBody,sans-serif;font-size:17px;background:var(--rail);color:var(--text);border:0;border-radius:7px;padding:9px 16px}
+.guide-roster .button:hover{background:#40565e}
+.guide-article{max-width:none;min-width:0}
+.guide-build-picker{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;border:0;margin:0 0 16px}
+.guide-build-picker a{background:#c9cec2;color:#263d40;border:1px solid #a8b6a9;border-radius:10px;padding:12px 16px;min-height:66px}
+.guide-build-picker a+a{border-left:1px solid #a8b6a9}
+.guide-build-picker a:hover{background:#bac6b7}
+.guide-build-picker a[aria-current]{background:var(--rail);border-color:var(--rail);color:var(--text)}
+.guide-build-picker strong{font-family:PaddockDisplay,sans-serif;font-size:13px;font-weight:650;text-transform:uppercase;line-height:1.5;letter-spacing:-.02em}
+.guide-build-picker span{font-family:PaddockBody,sans-serif;font-size:15px;color:#4c6257;margin-top:4px}
+.guide-build-picker a[aria-current] span{color:var(--game-sage)}
+.guide-build-heading{display:flex;justify-content:space-between;gap:20px;align-items:center;color:var(--game-ink)}
+.guide-build-heading h3{font-size:16px;font-weight:700;letter-spacing:-.025em;line-height:1.45}
+.guide-evidence-label{font-family:PaddockBody,sans-serif;font-size:14px;color:#4c6057}
+.guide-build-summary{color:#3a4d47;font-size:19px;font-style:italic;line-height:1.45;margin:5px 0 18px;max-width:100ch}
+.guide-view .guide-build-summary mark{color:#83551d}
+.game-build-board{display:grid;grid-template-columns:minmax(215px,.82fr) minmax(0,1.8fr) minmax(280px,1.18fr);gap:14px;align-items:stretch;padding:8px;background:#bfc6bc;border-radius:18px}
+.game-stats-panel,.game-style-panel,.game-abilities-panel,.game-parts-panel{background:var(--panel);border-radius:12px;padding:18px;min-width:0;color:var(--text)}
+.game-center-panels{display:flex;flex-direction:column;gap:14px;min-width:0}
+.game-abilities-panel{flex:1}
+.game-panel-heading{margin-bottom:12px;min-width:0}
+.game-script{display:block;background-repeat:no-repeat;margin-bottom:3px;opacity:.95}
+.game-panel-heading h3{display:flex;align-items:center;gap:8px;color:var(--game-sage);font-size:13px;font-weight:750;line-height:1.4;letter-spacing:-.025em;text-transform:uppercase;margin:0}
+.game-panel-heading h3:after{content:'';height:2px;min-width:12px;flex:1;background:#a7b7a2}
+.game-glyph{display:inline-block;flex-shrink:0;background-repeat:no-repeat;vertical-align:middle}
+.game-extracted-glyph{filter:grayscale(1) contrast(4);mix-blend-mode:screen}
+.game-racer-identity{display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:14px}
+.game-racer-identity h2{font-size:20px;line-height:1.35;font-weight:800;text-transform:uppercase;letter-spacing:-.025em}
+.game-racer-identity>span{font-family:PaddockDisplay,sans-serif;font-size:12px;font-weight:600;color:var(--game-sage);text-transform:uppercase}
+.game-traits{display:grid;gap:8px;margin:0}
+.game-traits>div{background:var(--raised);border-radius:11px;padding:11px 12px}
+.game-traits dt{font-family:PaddockDisplay,sans-serif;font-size:12px;font-weight:600;line-height:1.5;letter-spacing:.01em;color:var(--game-sage);text-transform:uppercase}
+.game-traits dd{font-size:19px;font-style:italic;line-height:1.3;margin:4px 0 0;color:var(--text)}
+.guide-view mark{background:none;color:var(--accent);font-weight:400}
+.game-source-link{display:inline-block;font-family:PaddockBody,sans-serif;font-size:14px;color:var(--game-sage);margin-top:10px;min-height:26px}
+.game-group-label{font-family:PaddockBody,sans-serif;font-size:15px;font-weight:400;color:var(--game-sage);line-height:1.4;margin:12px 0 8px}
+.game-empty-kit{font-size:18px;font-style:italic;line-height:1.4;background:var(--raised);border-radius:10px;padding:14px}
+.guide-items{list-style:none;padding:0;margin:0}
+.guide-items>li{display:flex;gap:12px;align-items:flex-start;border:0;background:var(--raised);border-radius:11px;padding:13px 12px;margin-bottom:8px}
+.guide-parts>li{padding:14px 12px;margin-bottom:10px;min-height:112px}
+.game-item-copy{min-width:0;flex:1}
+.game-item-copy h4,.guide-item-title h4{font-family:PaddockDisplay,sans-serif;font-size:12px;font-weight:700;line-height:1.5;text-transform:uppercase;letter-spacing:-.02em;overflow-wrap:anywhere;margin:0;color:var(--text)}
+.guide-item-title{display:block}
+.guide-item-title>span.game-optional{display:inline-block;font-family:PaddockBody,sans-serif;font-size:13px;margin-top:2px;color:var(--game-sage)}
+.guide-parts h4:before{content:none}
+.guide-items p{font-family:PaddockBody,sans-serif;font-size:18px;font-style:italic;line-height:1.35;margin:4px 0 0;max-width:65ch;color:var(--text)}
+.guide-item-evidence summary{font-family:PaddockBody,sans-serif;font-size:14px;color:var(--game-sage);min-height:30px;padding:5px 0;cursor:pointer}
+.guide-item-evidence p{font-size:17px;font-style:normal;line-height:1.4}
+.guide-item-evidence .note{font-size:14px;line-height:1.45;color:var(--game-sage)}
+.guide-item-evidence a{font-family:PaddockBody,sans-serif;font-size:14px;color:var(--game-sage);min-height:32px;padding:6px 0}
+.game-part-symbol{position:relative;display:flex;align-items:center;justify-content:center;flex:0 0 51px;width:51px;min-height:58px;background:#1c343d;border:2px solid #dddccd;border-radius:11px;padding:4px 2px 9px;margin-top:2px}
+.game-part-symbol.exact-art{background:none;border:0;padding:0}
+.game-part-order{position:absolute;bottom:-7px;left:50%;transform:translateX(-50%);min-width:20px;padding:0 4px;border-radius:6px;background:#deddd1;color:#263f45;font-family:PaddockDisplay,sans-serif;font-size:12px;font-weight:750;line-height:1.5;text-align:center}
+.game-ability-symbol{display:flex;align-items:center;justify-content:center;flex:0 0 58px;width:58px;height:58px;overflow:hidden;background:#536970;border-radius:50%;margin-top:1px}
+.game-budget-title{font-family:PaddockDisplay,sans-serif;font-size:12px;font-weight:650;line-height:1.5;color:var(--text);margin-top:14px}
+.guide-stat-order{display:flex;flex-wrap:wrap;gap:3px 9px;margin:8px 0 16px;color:var(--game-sage);font-family:PaddockBody,sans-serif;font-size:15px;line-height:1.5}
+.guide-point-recipe{display:grid;grid-template-columns:1fr;gap:8px;margin:0 0 14px}
+.guide-point-recipe>div{background:var(--raised);border-radius:10px;padding:10px 11px}
+.guide-point-recipe dt{display:flex;align-items:center;gap:9px;min-height:26px;color:var(--text);font-family:PaddockBody,sans-serif;font-size:16px;line-height:1.3}
+.guide-point-recipe dd{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:7px 0 0;color:var(--text);font-family:PaddockDisplay,sans-serif;font-size:16px;line-height:1.3}
+.guide-point-recipe dd strong{font-weight:650;font-variant-numeric:tabular-nums;min-width:30px;text-align:right}
+.game-stat-pips{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:3px;flex:1;max-width:185px}
+.game-stat-pips i{display:block;height:11px;min-width:0;background:#60777b;border-radius:3px}
+.game-stat-pips i.filled{background:#ebe5d8}
+.game-stat-caption{font-family:PaddockBody,sans-serif;font-size:14px;font-style:normal;line-height:1.45;color:var(--game-sage);margin:12px 0 0;max-width:65ch}
+.game-stat-reason{margin-top:12px;border-top:1px solid #728681;padding-top:3px}
+.game-stat-reason summary,.game-screen-reference summary{font-family:PaddockBody,sans-serif;font-size:15px;min-height:36px;padding:8px 0;cursor:pointer;color:var(--game-sage)}
+.game-stat-reason p{font-size:17px;line-height:1.5;margin-top:8px}
+.game-screen-reference{margin-top:14px;padding-top:7px;border-top:1px solid #728681}
+.game-screen-reference img{display:block;width:100%;height:auto;border-radius:6px;margin-top:7px}
+.game-screen-reference p{font-size:14px;line-height:1.45;margin-top:8px;color:var(--game-sage)}
+.game-guide-notes{display:grid;grid-template-columns:1.1fr 1fr;gap:16px;margin-top:20px}
+.game-tactics-panel,.guide-pitfalls{padding:22px;background:var(--panel);border-radius:12px;margin:0}
+.game-tactics-panel h3,.guide-pitfalls h3{font-size:14px;font-weight:700;line-height:1.5;text-transform:uppercase;color:var(--game-sage)}
+.guide-choose{font-family:PaddockBody,sans-serif;font-size:18px;line-height:1.45;margin-top:12px;color:var(--text)}
+.guide-mechanism{display:block;list-style:decimal;padding:0 0 0 22px;margin:12px 0;border:0}
+.guide-mechanism li{font-size:18px;line-height:1.5;color:var(--text);padding:5px 0 5px 4px;max-width:70ch}
+.guide-mechanism li::marker{color:var(--game-sage)}
+.guide-swap{font-size:18px;line-height:1.5;border-color:#728681;margin:14px 0 0;padding-top:14px}
+.guide-pitfalls ul{margin:12px 0 0;padding-left:20px}
+.guide-pitfalls li{font-family:PaddockBody,sans-serif;font-size:18px;line-height:1.5;padding:4px 0;color:var(--text)}
+.guide-caution{font-family:PaddockBody,sans-serif;font-size:17px;font-style:normal;line-height:1.5;color:var(--amber);margin:10px 0 14px}
+.guide-experiment{border-color:#728681;margin-top:14px}
+.guide-experiment summary{font-size:18px;line-height:1.5;min-height:44px;color:var(--amber)}
+.guide-experiment p{font-size:18px;line-height:1.5;color:var(--text)}
+.guide-experiment h4{font-size:12px;line-height:1.6;color:var(--game-sage);margin-top:16px}
+.guide-experiment a{color:var(--game-sage)}
+.guide-method{color:#344e49;border-color:#a8b4a8;font-family:PaddockBody,sans-serif;font-size:17px;line-height:1.55;margin-top:22px}
+.guide-method summary{color:#263f42;font-size:18px;min-height:44px;padding:10px 0}
+.guide-method p,.guide-method li{font-size:17px;color:#344e49;line-height:1.55}
+.guide-method a,.guide-method .guide-source-links a{color:#2b514d}
+.guide-method .guide-source-links li{font-size:17px}
+.guide-next{font-size:18px;color:#344e49;border-color:#a8b4a8;margin-top:18px;padding-top:16px}
+.guide-next a{color:#294d47}
+.guide-compact .guide-deep{display:none}
+.guide-compact .game-guide-notes{grid-template-columns:1fr}
+.guide-compact .guide-items>li{padding:12px}
+.guide-compact .guide-pitfalls{margin:0}
+.guide-view .empty-history{padding:24px;background:var(--panel);border-radius:12px}
+@media(min-width:1800px){main{margin:0 auto}.game-build-board{grid-template-columns:minmax(250px,.82fr) minmax(0,1.8fr) minmax(330px,1.18fr)}}
+@media(max-width:1150px){
+  .rail{padding:12px 24px;gap:18px;flex-wrap:wrap}.rail-bottom{display:none}.rail .nav{padding:7px 10px}
+  main{padding:24px}.game-build-board{grid-template-columns:220px minmax(0,1fr)}
+  .game-parts-panel{grid-column:1/-1}.guide-parts{display:grid;grid-template-columns:1fr 1fr;gap:10px}.guide-parts>li{margin:0}
+  .guide-roster{grid-template-columns:1fr 1fr auto;gap:14px}.guide-roster-count{display:none}
+}
+@media(max-width:760px){
+  .rail{padding:14px 16px;display:block}.brand{font-size:17px}.rail nav{margin-top:14px;gap:4px;display:flex;flex-wrap:wrap}.rail .nav{font-size:12px;padding:8px 10px;min-height:40px}
+  main{padding:20px 16px}.page-header{margin-bottom:18px}.page-header h1{font-size:25px}.guide-view .page-header h1:after{width:66px;height:23px;background-size:820px 461.25px;background-position:-170px -16px;margin-left:8px}
+  .page-header p{font-size:13px;line-height:1.6}.guide-roster{grid-template-columns:1fr 1fr;gap:12px;align-items:end}.guide-roster .button{grid-column:2;justify-self:end;min-height:44px}.guide-roster-count{display:block;grid-column:1;grid-row:2;margin:0;padding-bottom:12px;white-space:normal;font-size:14px}
+  .guide-roster select,.guide-roster input{font-size:17px;padding:8px;min-height:44px}.guide-roster label{font-size:15px}.guide-build-picker{grid-template-columns:1fr;gap:8px}.guide-build-picker a{padding:12px;min-height:66px}.guide-build-picker strong{font-size:12px}.guide-build-picker span{font-size:14px;line-height:1.45}
+  .guide-build-heading{display:block}.guide-build-heading h3{font-size:15px}.guide-evidence-label{display:block;text-align:left;margin-top:6px;font-size:14px}.guide-build-summary{font-size:18px}
+  .game-build-board{display:flex;flex-direction:column;padding:7px;gap:10px;border-radius:16px}.game-center-panels{display:contents}.game-style-panel{order:0}.game-stats-panel{order:1}.game-abilities-panel{order:2}.game-parts-panel{order:3}
+  .game-stats-panel,.game-style-panel,.game-abilities-panel,.game-parts-panel{padding:16px}.game-racer-identity{gap:8px}.game-racer-identity h2{font-size:19px}.game-racer-identity>span{font-size:12px}
+  .guide-point-recipe{grid-template-columns:1fr 1fr;gap:8px}.guide-point-recipe>div{padding:10px}.guide-point-recipe dt{min-height:34px;font-size:15px;gap:7px}.guide-point-recipe dt .game-glyph{flex-shrink:0}.guide-point-recipe dd{font-size:15px}.game-stat-pips{gap:2px}.game-stat-pips i{height:9px;border-radius:2px}
+  .guide-parts{display:block}.guide-parts>li{margin-bottom:10px}.game-guide-notes{grid-template-columns:1fr;gap:12px}.game-tactics-panel,.guide-pitfalls{padding:18px}.game-ability-symbol{width:54px;height:54px;flex-basis:54px}
+  .guide-item-evidence summary,.guide-item-evidence a,.game-screen-reference summary,.game-stat-reason summary{min-height:44px;padding:11px 0}.guide-next a{display:inline-block;min-height:44px;padding:8px 0}.game-source-link{min-height:44px;padding:10px 0}
+}
+@media(max-width:420px){
+  .guide-roster{grid-template-columns:1fr}.guide-roster .button{grid-column:1;grid-row:3;justify-self:start}.guide-roster-count{grid-row:4;padding:0}.guide-build-picker a{padding:10px}.guide-build-picker strong{font-size:12px}
+  .page-header h1{font-size:23px}.guide-view .page-header h1:after{display:none}.guide-point-recipe{grid-template-columns:1fr}.guide-point-recipe dt{min-height:25px}.game-stat-pips{max-width:none}.game-racer-identity h2{font-size:18px}.game-item-copy h4,.guide-item-title h4{font-size:12px}.game-part-symbol{flex-basis:45px;width:45px}.game-ability-symbol{flex-basis:46px;width:46px;height:46px}.guide-items>li{gap:10px}
+}
+@media(prefers-reduced-motion:reduce){.guide-view *{scroll-behavior:auto;animation:none;transition:none}}
