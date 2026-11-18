@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#deddd5">
+  <meta name="description" content="Build custom Galactic Racer setups and explore 39 researched multiplayer guides.">
+  <title>Paddock · Galactic Racer builds</title>
+  <link rel="icon" href="./paddock.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./guides.css">
+  <link rel="stylesheet" href="./game-build.css">
+  <link rel="stylesheet" href="./paddock-game.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#workspace">Skip to workspace</a>
+  <aside class="rail">
+    <a class="brand" href="#builder"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 27V5h11a7 7 0 0 1 0 14h-5M13 27V11h5a1 1 0 0 1 0 2h-5"/></svg><span>Paddock<small>Galactic Racer</small></span></a>
+    <nav aria-label="Main navigation">
+      <button data-view="builder" class="nav active">Build</button>
+      <button data-view="guides" class="nav"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h7l1 2 1-2h7v16h-7l-1 1-1-1H4zM12 6v15"/></svg>Guides</button>
+      <button data-view="library" class="nav"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4zM9 5v14m0-9h11m-11 5h11"/></svg>Parts & abilities</button>
+      <button data-view="history" class="nav"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5v5h5M4 10a8 8 0 1 1 1 7m7-12v7l4 2"/></svg>History</button>
+      <button data-view="tour" class="nav"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V4m1 1h14l-3 4 3 4H5"/></svg>Tours</button>
+      <button data-view="research" class="nav"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v16H5zM8 8h8m-8 4h8m-8 4h4"/></svg>Research</button>
+    </nav>
+    <div class="rail-bottom"><span class="private-mark">Unofficial fan companion</span></div>
+  </aside>
+  <main id="workspace" tabindex="-1">
+    <header class="page-header"><div><h1 id="page-title">Build</h1><p id="page-description">Choose your racer. Make the build yours.</p></div><div id="header-actions"></div></header>
+    <div id="error" class="error" role="alert" hidden></div>
+    <div id="content"><div class="loading">Loading Paddock…</div></div>
+    <footer class="page-footer"><span>Standard Multiplayer Tour · Xbox</span><span id="coverage"></span><details class="backup-menu"><summary>Tour backups</summary><button class="text-button" id="export">Export tours</button><label class="text-button file-label">Import tours<input type="file" id="import" accept="application/json,.json"></label></details></footer>
+  </main>
+  <div id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

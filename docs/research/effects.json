@@ -1,0 +1,2043 @@
+{
+  "schema_version": "0.1.0",
+  "scope": "focused candidate subset for standard multiplayer; not audited game truth",
+  "retrieved_at": "2026-10-31",
+  "extraction_method": "manual grounded annotation; NOT LangExtract model output",
+  "mode_validation": "Selected description text observed in one Xbox standard tour; effects are not gameplay measurements.",
+  "collection_policy": "No Gameslantern scraping; limited ordinary research only. Automation requires permission per terms.",
+  "coverage": {
+    "items": 59,
+    "effects": 57,
+    "complete_catalog": false,
+    "independent_effect_corroboration": false
+  },
+  "effects": [
+    {
+      "id": "effect.part.ramjet_cooling_i",
+      "item_id": "part.ramjet_cooling_i",
+      "trigger": {
+        "event": "equipped",
+        "conditions": []
+      },
+      "requires": [],
+      "produces": [
+        {
+          "state": "mechanic.speed_based_ramjet_cooling",
+          "operation": "relative_increase",
+          "value": 0.1,
+          "unit": "fraction"
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "gl-ramjet-cooling-i",
+        "status": "source_claim"
+      },
+      "unknowns": [
+        "Standard multiplayer availability not established by inspected item page.",
+        "Stacking, exact runtime semantics, duration and resource costs not fully specified."
+      ]
+    },
+    {
+      "id": "effect.part.superconducting_ramjet",
+      "item_id": "part.superconducting_ramjet",
+      "trigger": {
+        "event": "equipped",
+        "conditions": []
+      },
+      "requires": [
+        {
+          "state": "status.frozen",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "produces": [
+        {
+          "state": "mechanic.ramjet_power",
+          "operation": "relative_increase",
+          "value": 1,
+          "unit": "fraction"
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "gl-superconducting-ramjet",
+        "status": "source_claim"
+      },
+      "unknowns": [
+        "Standard multiplayer availability not established by inspected item page.",
+        "Stacking, exact runtime semantics, duration and resource costs not fully specified."
+      ]
+    },
+    {
+      "id": "effect.part.subzero_cooling",
+      "item_id": "part.subzero_cooling",
+      "trigger": {
+        "event": "equipped",
+        "conditions": []
+      },
+      "requires": [
+        {
+          "state": "status.frozen",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "state": "status.cooled",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "produces": [
+        {
+          "state": "mechanic.cooled_potency",
+          "operation": "relative_increase",
+          "value": 1,
+          "unit": "fraction"
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "gl-subzero-cooling",
+        "status": "source_claim"
+      },
+      "unknowns": [
+        "Whether Frozen implicitly supplies Cooled, or separate overlapping Cooled is needed.",
+        "Frozen and Cooled overlap duration and stacking.",
+        "Standard availability unverified."
+      ]
+    },
+    {
+      "id": "effect.part.cooling_overcharge",
+      "item_id": "part.cooling_overcharge",
+      "trigger": {
+        "event": "equipped",
+        "conditions": []
+      },
+      "requires": [
+        {
+          "state": "status.cooled",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "produces": [
+        {
+          "state": "status.overcharged",
+          "operation": "grant",
+          "value": true,
+          "unit": null
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "gl-cooling-overcharge",
+        "status": "source_claim"
+      },
+      "unknowns": [
+        "Standard multiplayer availability not established by inspected item page.",
+        "Stacking, exact runtime semantics, duration and resource costs not fully specified."
+      ]
+    },
+    {
+      "id": "effect.part.surplus_cooling",
+      "item_id": "part.surplus_cooling",
+      "trigger": {
+        "event": "equipped",
+        "conditions": []
+      },
+      "requires": [
+        {
+          "state": "resource.energy",
+          "op": "gte",
+          "value": 8
+        }
+      ],
+      "produces": [
+        {
+          "state": "status.cooled",
+          "operation": "grant",
+          "value": true,
+          "unit": null
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "gl-surplus-cooling",
+        "status": "source_claim"
+      },
+      "unknowns": [
+        "Current versus effective temporary energy accounting.",
+        "Update order and temporary energy expiry when coupled to Cooling Overcharge.",
+        "Standard availability unverified."
+      ]
+    },
+    {
+      "id": "effect.part.refueling_abilities",
+      "item_id": "part.refueling_abilities",
+      "trigger": {
+        "event": "ability_activation",
+        "conditions": []
+      },
+      "requires": [],
+      "produces": [
+        {
+          "state": "resource.current_afterburner",
+          "operation": "set_to_capacity",
+          "value": null,
+          "unit": "fuel"
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "gl-refueling-abilities",
+        "status": "source_claim"
+      },
+      "unknowns": [
+        "Standard multiplayer availability not established by inspected item page.",
+        "Stacking, exact runtime semantics, duration and resource costs not fully specified."
+      ]
+    },
+    {
+      "id": "effect.part.ability_catalyst",
+      "item_id": "part.ability_catalyst",
+      "trigger": {
+        "event": "ability_activation",
+        "conditions": []
+      },
+      "requires": [],
+      "produces": [
+        {
+          "state": "mechanic.afterburner_refill_rate",
+          "operation": "relative_increase",
+          "value": 0.1,
+          "unit": "fraction"
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "gl-ability-catalyst",
+        "status": "source_claim"
+      },
+      "unknowns": [
+        "Whether bonuses accumulate, refresh, persist across races or have a cap.",
+        "Additive versus multiplicative accumulation.",
+        "Standard availability unverified."
+      ]
+    },
+    {
+      "id": "effect.part.thermoactive_fuel",
+      "item_id": "part.thermoactive_fuel",
+      "trigger": {
+        "event": "equipped",
+        "conditions": []
+      },
+      "requires": [
+        {
+          "state": "action.afterburner_active",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "produces": [
+        {
+          "state": "status.cooled",
+          "operation": "grant",
+          "value": true,
+          "unit": null
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "gl-thermoactive-fuel",
+        "status": "source_claim"
+      },
+      "unknowns": [
+        "Standard multiplayer availability not established by inspected item page.",
+        "Stacking, exact runtime semantics, duration and resource costs not fully specified."
+      ]
+    },
+    {
+      "id": "effect.part.frost_protection",
+      "item_id": "part.frost_protection",
+      "trigger": {
+        "event": "equipped",
+        "conditions": []
+      },
+      "requires": [],
+      "produces": [
+        {
+          "state": "status.frozen",
+          "operation": "prevent",
+          "value": true,
+          "unit": null
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "gl-frost-protection",
+        "status": "source_claim"
+      },
+      "unknowns": [
+        "Whether protection applies to self-inflicted Frozen and whether existing Frozen is cleared.",
+        "Standard availability unverified."
+      ]
+    },
+    {
+      "id": "effect.part.enhanced_coolant_i",
+      "item_id": "part.enhanced_coolant_i",
+      "trigger": {
+        "event": "equipped",
+        "conditions": []
+      },
+      "requires": [
+        {
+          "state": "status.cooled",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "produces": [
+        {
+          "state": "mechanic.cooled_potency",
+          "operation": "relative_increase",
+          "value": 0.1,
+          "unit": "fraction"
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "gl-enhanced-coolant-i",
+        "status": "source_claim"
+      },
+      "unknowns": [
+        "Standard multiplayer availability not established by inspected item page.",
+        "Stacking, exact runtime semantics, duration and resource costs not fully specified."
+      ]
+    },
+    {
+      "id": "effect.part.ramjet_accelerator_i",
+      "item_id": "part.ramjet_accelerator_i",
+      "trigger": {
+        "event": "equipped",
+        "conditions": []
+      },
+      "requires": [
+        {
+          "state": "status.cooled",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "produces": [
+        {
+          "state": "mechanic.ramjet_power",
+          "operation": "relative_increase",
+          "value": 0.15,
+          "unit": "fraction"
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "gl-ramjet-accelerator-i",
+        "status": "source_claim"
+      },
+      "unknowns": [
+        "Standard multiplayer availability not established by inspected item page.",
+        "Stacking, exact runtime semantics, duration and resource costs not fully specified."
+      ]
+    },
+    {
+      "id": "effect.part.overcharging_afterburner",
+      "item_id": "part.overcharging_afterburner",
+      "trigger": {
+        "event": "equipped",
+        "conditions": []
+      },
+      "requires": [
+        {
+          "state": "status.overcharged",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "produces": [
+        {
+          "state": "mechanic.afterburner_refill_rate",
+          "operation": "relative_increase",
+          "value": 2,
+          "unit": "fraction"
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "gl-overcharging-afterburner",
+        "status": "source_claim"
+      },
+      "unknowns": [
+        "Standard multiplayer availability not established by inspected item page.",
+        "Stacking, exact runtime semantics, duration and resource costs not fully specified."
+      ]
+    },
+    {
+      "id": "effect.ability.vent",
+      "item_id": "ability.vent",
+      "trigger": {
+        "event": "ability_activation",
+        "conditions": []
+      },
+      "requires": [],
+      "produces": [
+        {
+          "state": "status.cooled",
+          "operation": "grant",
+          "value": true,
+          "unit": null
+        },
+        {
+          "state": "resource.ramjet_heat",
+          "operation": "reduce",
+          "value": null,
+          "unit": "heat"
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "gl-vent",
+        "status": "source_claim"
+      },
+      "unknowns": [
+        "Standard multiplayer availability not established by inspected item page.",
+        "Stacking, exact runtime semantics, duration and resource costs not fully specified."
+      ]
+    },
+    {
+      "id": "effect.ability.supercooled_vent",
+      "item_id": "ability.supercooled_vent",
+      "trigger": {
+        "event": "ability_activation",
+        "conditions": []
+      },
+      "requires": [],
+      "produces": [
+        {
+          "state": "status.cooled",
+          "operation": "grant",
+          "value": true,
+          "unit": null
+        },
+        {
+          "state": "resource.ramjet_heat",
+          "operation": "reduce",
+          "value": null,
+          "unit": "heat"
+        },
+        {
+          "state": "status.frozen",
+          "operation": "gradual_buildup",
+          "value": null,
+          "unit": null
+        },
+        {
+          "state": "ability.supercooled_vent_active",
+          "operation": "end_when_fully_frozen",
+          "value": false,
+          "unit": null
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "gl-supercooled-vent",
+        "status": "source_claim"
+      },
+      "unknowns": [
+        "Buildup time, cooling duration and precise disengagement condition.",
+        "Frost Protection interaction; do not infer permanent Vent.",
+        "Standard availability unverified."
+      ]
+    },
+    {
+      "id": "effect.ability.status_scrubber",
+      "item_id": "ability.status_scrubber",
+      "trigger": {
+        "event": "ability_activation",
+        "conditions": []
+      },
+      "requires": [],
+      "produces": [
+        {
+          "state": "status.negative",
+          "operation": "clear",
+          "value": true,
+          "unit": null
+        },
+        {
+          "state": "resource.energy",
+          "operation": "conditional_add_on_successful_clear",
+          "value": 1,
+          "unit": "energy"
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "gl-status-scrubber",
+        "status": "source_claim"
+      },
+      "unknowns": [
+        "Standard multiplayer availability not established by inspected item page.",
+        "Stacking, exact runtime semantics, duration and resource costs not fully specified."
+      ]
+    },
+    {
+      "id": "effect.trait.optimized_reserves",
+      "item_id": "trait.optimized_reserves",
+      "trigger": {
+        "event": "energy_fully_depleted",
+        "conditions": []
+      },
+      "requires": [
+        {
+          "state": "resource.energy",
+          "op": "eq",
+          "value": 0
+        }
+      ],
+      "produces": [
+        {
+          "state": "status.overcharged",
+          "operation": "grant",
+          "value": true,
+          "unit": null
+        }
+      ],
+      "duration_s": 30,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "gl-tech-expert",
+        "status": "source_claim"
+      },
+      "unknowns": [
+        "Depletion transition versus continuous zero-state semantics.",
+        "Temporary energy amount, refresh behavior and re-trigger restrictions."
+      ]
+    },
+    {
+      "id": "effect.trait.adaptive_systems",
+      "item_id": "trait.adaptive_systems",
+      "trigger": {
+        "event": "ability_activation",
+        "conditions": []
+      },
+      "requires": [],
+      "produces": [
+        {
+          "state": "mechanic.ability_reload",
+          "operation": "reduce",
+          "value": null,
+          "unit": "seconds"
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "gl-tech-expert",
+        "status": "source_claim"
+      },
+      "unknowns": [
+        "Listed for campaign rank 3, not listed in multiplayer section; exclude from inferred Tech Expert multiplayer kit.",
+        "Magnitude and stacking."
+      ]
+    },
+    {
+      "id": "effect.trait.optimal_heatsinks",
+      "item_id": "trait.optimal_heatsinks",
+      "trigger": {
+        "event": "equipped",
+        "conditions": []
+      },
+      "requires": [
+        {
+          "state": "status.cooled",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "produces": [
+        {
+          "state": "mechanic.cooled_potency",
+          "operation": "relative_increase",
+          "value": null,
+          "unit": "fraction"
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "gl-ramjet-rider",
+        "status": "source_claim"
+      },
+      "unknowns": [
+        "Potency coefficient and stacking."
+      ]
+    },
+    {
+      "id": "effect.trait.clean_air",
+      "item_id": "trait.clean_air",
+      "trigger": {
+        "event": "taking_first_position",
+        "conditions": []
+      },
+      "requires": [],
+      "produces": [
+        {
+          "state": "status.cooled",
+          "operation": "grant",
+          "value": true,
+          "unit": null
+        }
+      ],
+      "duration_s": 10,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "gl-ramjet-rider",
+        "status": "source_claim"
+      },
+      "unknowns": [
+        "Re-trigger behavior if repeatedly retaking first."
+      ]
+    },
+    {
+      "id": "effect.status.cooled",
+      "item_id": "status.cooled",
+      "trigger": {
+        "event": "status_active",
+        "conditions": []
+      },
+      "requires": [],
+      "produces": [
+        {
+          "state": "mechanic.ramjet_recharge_rate",
+          "operation": "increase",
+          "value": null,
+          "unit": null
+        },
+        {
+          "state": "mechanic.ramjet_heat_gain",
+          "operation": "reduce",
+          "value": null,
+          "unit": null
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "gl-glossary",
+        "status": "source_claim"
+      },
+      "unknowns": [
+        "Definition paraphrased from source; numeric strength and runtime timing unverified."
+      ]
+    },
+    {
+      "id": "effect.status.frozen",
+      "item_id": "status.frozen",
+      "trigger": {
+        "event": "status_active",
+        "conditions": []
+      },
+      "requires": [],
+      "produces": [
+        {
+          "state": "mechanic.ramjet_cooling",
+          "operation": "increase",
+          "value": null,
+          "unit": null
+        },
+        {
+          "state": "mechanic.steering",
+          "operation": "impair",
+          "value": null,
+          "unit": null
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "gl-glossary",
+        "status": "source_claim"
+      },
+      "unknowns": [
+        "Definition paraphrased from source; numeric strength and runtime timing unverified."
+      ]
+    },
+    {
+      "id": "effect.status.chilled",
+      "item_id": "status.chilled",
+      "trigger": {
+        "event": "status_active",
+        "conditions": []
+      },
+      "requires": [],
+      "produces": [
+        {
+          "state": "status.cooled",
+          "operation": "grant",
+          "value": true,
+          "unit": null
+        },
+        {
+          "state": "status.frozen",
+          "operation": "gradual_buildup",
+          "value": null,
+          "unit": null
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "gl-glossary",
+        "status": "source_claim"
+      },
+      "unknowns": [
+        "Definition paraphrased from source; numeric strength and runtime timing unverified."
+      ]
+    },
+    {
+      "id": "effect.status.overcharged",
+      "item_id": "status.overcharged",
+      "trigger": {
+        "event": "status_active",
+        "conditions": []
+      },
+      "requires": [],
+      "produces": [
+        {
+          "state": "resource.energy",
+          "operation": "temporary_add",
+          "value": null,
+          "unit": null
+        },
+        {
+          "state": "mechanic.ability_reload",
+          "operation": "reduce",
+          "value": null,
+          "unit": null
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "gl-glossary",
+        "status": "source_claim"
+      },
+      "unknowns": [
+        "Definition paraphrased from source; numeric strength and runtime timing unverified."
+      ]
+    },
+    {
+      "id": "effect.status.disrupted",
+      "item_id": "status.disrupted",
+      "trigger": {
+        "event": "status_active",
+        "conditions": []
+      },
+      "requires": [],
+      "produces": [
+        {
+          "state": "status.overcharged",
+          "operation": "prevent",
+          "value": true,
+          "unit": null
+        },
+        {
+          "state": "action.ability_activation",
+          "operation": "prevent",
+          "value": true,
+          "unit": null
+        },
+        {
+          "state": "status.choked",
+          "operation": "grant",
+          "value": true,
+          "unit": null
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "gl-glossary",
+        "status": "source_claim"
+      },
+      "unknowns": [
+        "Definition paraphrased from source; numeric strength and runtime timing unverified."
+      ]
+    },
+    {
+      "id": "effect.status.shielded",
+      "item_id": "status.shielded",
+      "trigger": {
+        "event": "status_active",
+        "conditions": []
+      },
+      "requires": [],
+      "produces": [
+        {
+          "state": "status.external",
+          "operation": "prevent",
+          "value": true,
+          "unit": null
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "gl-glossary",
+        "status": "source_claim"
+      },
+      "unknowns": [
+        "Definition paraphrased from source; numeric strength and runtime timing unverified."
+      ]
+    },
+    {
+      "id": "effect.part.coolant_cycler_iii",
+      "item_id": "part.coolant_cycler_iii",
+      "trigger": {
+        "event": "after_full_afterburner_use",
+        "conditions": []
+      },
+      "requires": [],
+      "produces": [
+        {
+          "state": "status.cooled",
+          "operation": "grant",
+          "value": true,
+          "unit": null
+        }
+      ],
+      "duration_s": 15,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "add-powerpyx",
+        "status": "source_claim",
+        "local_extraction_sha256": "d53761b5791f61ae1d0d4935a961e7c9aa639ce079ee8e6a13dc1ed9fde38ec4",
+        "review": "docs/ADDITIONAL_EXTRACTION_REVIEW.md"
+      },
+      "unknowns": [
+        "Standard availability and actual trigger ordering",
+        "Refresh/stacking and stat interactions"
+      ]
+    },
+    {
+      "id": "effect.part.faster_attachments_iv",
+      "item_id": "part.faster_attachments_iv",
+      "trigger": {
+        "event": "equipped",
+        "conditions": []
+      },
+      "requires": [],
+      "produces": [
+        {
+          "state": "mechanic.ability_reload_rate",
+          "operation": "relative_increase",
+          "value": 2,
+          "unit": "fraction"
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "add-powerpyx",
+        "status": "source_claim",
+        "local_extraction_sha256": "d53761b5791f61ae1d0d4935a961e7c9aa639ce079ee8e6a13dc1ed9fde38ec4",
+        "review": "docs/ADDITIONAL_EXTRACTION_REVIEW.md"
+      },
+      "unknowns": [
+        "Faster reload wording does not establish200% time reduction",
+        "Actual rate/time transform and stacking",
+        "Standard availability"
+      ]
+    },
+    {
+      "id": "effect.part.cooling_aerofoils",
+      "item_id": "part.cooling_aerofoils",
+      "trigger": {
+        "event": "equipped",
+        "conditions": []
+      },
+      "requires": [
+        {
+          "state": "action.airborne",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "produces": [
+        {
+          "state": "status.cooled",
+          "operation": "grant",
+          "value": true,
+          "unit": null
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "add-powerpyx",
+        "status": "source_claim",
+        "local_extraction_sha256": "d53761b5791f61ae1d0d4935a961e7c9aa639ce079ee8e6a13dc1ed9fde38ec4",
+        "review": "docs/ADDITIONAL_EXTRACTION_REVIEW.md"
+      },
+      "unknowns": [
+        "Airborne uptime and landing/expiry behavior",
+        "Standard availability"
+      ]
+    },
+    {
+      "id": "effect.part.extended_alarm_iv",
+      "item_id": "part.extended_alarm_iv",
+      "trigger": {
+        "event": "equipped",
+        "conditions": []
+      },
+      "requires": [],
+      "produces": [
+        {
+          "state": "mechanic.redlining_duration",
+          "operation": "relative_increase",
+          "value": 2,
+          "unit": "fraction"
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "add-ath-champion",
+        "status": "source_claim",
+        "local_extraction_sha256": "d53761b5791f61ae1d0d4935a961e7c9aa639ce079ee8e6a13dc1ed9fde38ec4",
+        "review": "docs/ADDITIONAL_EXTRACTION_REVIEW.md"
+      },
+      "unknowns": [
+        "Standard availability",
+        "Base duration and stacking",
+        "This does not prove permanent Ramjet"
+      ]
+    },
+    {
+      "id": "effect.part.overheat_loop_iii",
+      "item_id": "part.overheat_loop_iii",
+      "trigger": {
+        "event": "redlining_trigger_cadence_unknown",
+        "conditions": []
+      },
+      "requires": [
+        {
+          "state": "status.redlining",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "produces": [
+        {
+          "state": "mechanic.ramjet_power",
+          "operation": "relative_increase",
+          "value": 0.05,
+          "unit": "fraction"
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "add-ath-champion",
+        "status": "source_claim",
+        "local_extraction_sha256": "d53761b5791f61ae1d0d4935a961e7c9aa639ce079ee8e6a13dc1ed9fde38ec4",
+        "review": "docs/ADDITIONAL_EXTRACTION_REVIEW.md"
+      },
+      "unknowns": [
+        "Per entry versus continuous accumulation",
+        "Cap and stacking rule",
+        "Standard availability"
+      ]
+    },
+    {
+      "id": "effect.part.redlining_power",
+      "item_id": "part.redlining_power",
+      "trigger": {
+        "event": "equipped",
+        "conditions": []
+      },
+      "requires": [
+        {
+          "state": "status.redlining",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "produces": [
+        {
+          "state": "mechanic.ramjet_power",
+          "operation": "relative_increase",
+          "value": 1,
+          "unit": "fraction"
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "add-ath-champion",
+        "status": "source_claim",
+        "local_extraction_sha256": "d53761b5791f61ae1d0d4935a961e7c9aa639ce079ee8e6a13dc1ed9fde38ec4",
+        "review": "docs/ADDITIONAL_EXTRACTION_REVIEW.md"
+      },
+      "unknowns": [
+        "Power is not speed or lap time",
+        "Standard availability and stacking"
+      ]
+    },
+    {
+      "id": "effect.part.supercooled_attachments",
+      "item_id": "part.supercooled_attachments",
+      "trigger": {
+        "event": "equipped",
+        "conditions": []
+      },
+      "requires": [
+        {
+          "state": "status.cooled",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "produces": [
+        {
+          "state": "mechanic.ability_reload_rate",
+          "operation": "relative_increase",
+          "value": 2,
+          "unit": "fraction"
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "add-ath-parts",
+        "status": "source_claim",
+        "local_extraction_sha256": "d53761b5791f61ae1d0d4935a961e7c9aa639ce079ee8e6a13dc1ed9fde38ec4",
+        "review": "docs/ADDITIONAL_EXTRACTION_REVIEW.md"
+      },
+      "unknowns": [
+        "Standard availability",
+        "Reload-rate/time mapping, stacking, uptime"
+      ]
+    },
+    {
+      "id": "effect.part.scrap_recycler_iii",
+      "item_id": "part.scrap_recycler_iii",
+      "trigger": {
+        "event": "takedown",
+        "conditions": []
+      },
+      "requires": [],
+      "produces": [
+        {
+          "state": "resource.energy",
+          "operation": "add",
+          "value": 3,
+          "unit": "energy"
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "add-ath-parts",
+        "status": "source_claim",
+        "local_extraction_sha256": "d53761b5791f61ae1d0d4935a961e7c9aa639ce079ee8e6a13dc1ed9fde38ec4",
+        "review": "docs/ADDITIONAL_EXTRACTION_REVIEW.md"
+      },
+      "unknowns": [
+        "Energy cap and temporary-energy semantics",
+        "Standard availability"
+      ]
+    },
+    {
+      "id": "effect.part.shield_cycler_i",
+      "item_id": "part.shield_cycler_i",
+      "trigger": {
+        "event": "ability_activation",
+        "conditions": []
+      },
+      "requires": [],
+      "produces": [
+        {
+          "state": "status.shielded",
+          "operation": "grant",
+          "value": true,
+          "unit": null
+        }
+      ],
+      "duration_s": 5,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "add-ath-parts",
+        "status": "source_claim",
+        "local_extraction_sha256": "d53761b5791f61ae1d0d4935a961e7c9aa639ce079ee8e6a13dc1ed9fde38ec4",
+        "review": "docs/ADDITIONAL_EXTRACTION_REVIEW.md"
+      },
+      "unknowns": [
+        "Refresh behavior and externally/self-applied protection scope",
+        "Standard availability"
+      ]
+    },
+    {
+      "id": "effect.part.scrap_reloader",
+      "item_id": "part.scrap_reloader",
+      "trigger": {
+        "event": "takedown",
+        "conditions": []
+      },
+      "requires": [],
+      "produces": [
+        {
+          "state": "mechanic.ability_reload_readiness",
+          "operation": "reset_unspecified",
+          "value": null,
+          "unit": null
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "add-gamepur-epic",
+        "status": "source_claim",
+        "local_extraction_sha256": "d53761b5791f61ae1d0d4935a961e7c9aa639ce079ee8e6a13dc1ed9fde38ec4",
+        "review": "docs/ADDITIONAL_EXTRACTION_REVIEW.md"
+      },
+      "unknowns": [
+        "Recharge means reload readiness here; no Energy refund inferred",
+        "Direct source inaccessible",
+        "Standard availability and trigger ordering"
+      ]
+    },
+    {
+      "id": "effect.trait.afterburner_superiority",
+      "item_id": "trait.afterburner_superiority",
+      "trigger": {
+        "event": "equipped",
+        "conditions": []
+      },
+      "requires": [],
+      "produces": [
+        {
+          "state": "mechanic.afterburner_power",
+          "operation": "increase_unspecified",
+          "value": null,
+          "unit": null
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "xbox-20261031-build",
+        "status": "screenshot_description_observation",
+        "basis": "Visible description, not a measurement of runtime behavior."
+      },
+      "unknowns": [
+        "Trigger timing, resource restrictions, stacking, refresh, and realized race benefit have not been measured."
+      ]
+    },
+    {
+      "id": "effect.trait.afterburner_fuel_tank",
+      "item_id": "trait.afterburner_fuel_tank",
+      "trigger": {
+        "event": "equipped",
+        "conditions": []
+      },
+      "requires": [],
+      "produces": [
+        {
+          "state": "mechanic.afterburner_duration",
+          "operation": "increase_unspecified",
+          "value": null,
+          "unit": null
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "xbox-20261031-build",
+        "status": "screenshot_description_observation",
+        "basis": "Visible description, not a measurement of runtime behavior."
+      },
+      "unknowns": [
+        "Trigger timing, resource restrictions, stacking, refresh, and realized race benefit have not been measured."
+      ]
+    },
+    {
+      "id": "effect.trait.burn_bright",
+      "item_id": "trait.burn_bright",
+      "trigger": {
+        "event": "overtake",
+        "conditions": []
+      },
+      "requires": [],
+      "produces": [
+        {
+          "state": "resource.afterburner_fuel",
+          "operation": "refill_fraction",
+          "value": 0.1,
+          "unit": "tank_fraction"
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "xbox-20261031-build",
+        "status": "screenshot_description_observation",
+        "basis": "Visible description, not a measurement of runtime behavior."
+      },
+      "unknowns": [
+        "Trigger timing, resource restrictions, stacking, refresh, and realized race benefit have not been measured.",
+        "Overflow and interaction with full-fuel or full-use checks are unmeasured."
+      ]
+    },
+    {
+      "id": "effect.part.impact_regulator_ii",
+      "item_id": "part.impact_regulator_ii",
+      "trigger": {
+        "event": "concussed_received_then_cleared",
+        "conditions": []
+      },
+      "requires": [],
+      "produces": [
+        {
+          "state": "mechanic.concussed_clear_rate",
+          "operation": "increase_unspecified",
+          "value": null,
+          "unit": null
+        },
+        {
+          "state": "mechanic.speed",
+          "operation": "increase_unspecified",
+          "value": null,
+          "unit": null
+        }
+      ],
+      "duration_s": 20,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "xbox-20261031-late-shop",
+        "status": "screenshot_description_observation",
+        "basis": "Visible description, not a measurement of runtime behavior."
+      },
+      "unknowns": [
+        "Trigger timing, resource restrictions, stacking, refresh, and realized race benefit have not been measured.",
+        "Your own offensive mine does not establish Concussed on your vehicle. The Speed window follows clearance; this is not permanent speed."
+      ]
+    },
+    {
+      "id": "effect.part.impact_regulator_iii",
+      "item_id": "part.impact_regulator_iii",
+      "trigger": {
+        "event": "concussed_received_then_cleared",
+        "conditions": []
+      },
+      "requires": [],
+      "produces": [
+        {
+          "state": "mechanic.concussed_clear_rate",
+          "operation": "increase_unspecified",
+          "value": null,
+          "unit": null
+        },
+        {
+          "state": "mechanic.speed",
+          "operation": "increase_unspecified",
+          "value": null,
+          "unit": null
+        }
+      ],
+      "duration_s": 30,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "xbox-20261031-part-reward",
+        "status": "screenshot_description_observation",
+        "basis": "Visible description, not a measurement of runtime behavior."
+      },
+      "unknowns": [
+        "Trigger timing, resource restrictions, stacking, refresh, and realized race benefit have not been measured.",
+        "Your own offensive mine does not establish Concussed on your vehicle. The Speed window follows clearance; this is not permanent speed."
+      ]
+    },
+    {
+      "id": "effect.part.surging_inlets_iii",
+      "item_id": "part.surging_inlets_iii",
+      "trigger": {
+        "event": "slipstreaming_for_5s",
+        "conditions": []
+      },
+      "requires": [],
+      "produces": [
+        {
+          "state": "status.surging",
+          "operation": "grant",
+          "value": true,
+          "unit": "boolean"
+        }
+      ],
+      "duration_s": 20,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "xbox-20261031-late-shop",
+        "status": "screenshot_description_observation",
+        "basis": "Visible description, not a measurement of runtime behavior."
+      },
+      "unknowns": [
+        "Trigger timing, resource restrictions, stacking, refresh, and realized race benefit have not been measured.",
+        "Consecutive versus accumulated slipstream timing and refresh behavior are unmeasured."
+      ]
+    },
+    {
+      "id": "effect.part.depleted_shielding",
+      "item_id": "part.depleted_shielding",
+      "trigger": {
+        "event": "full_afterburner_use",
+        "conditions": []
+      },
+      "requires": [],
+      "produces": [
+        {
+          "state": "status.shielded",
+          "operation": "grant",
+          "value": true,
+          "unit": "boolean"
+        }
+      ],
+      "duration_s": 5,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "xbox-20261031-part-reward",
+        "status": "screenshot_description_observation",
+        "basis": "Visible description, not a measurement of runtime behavior."
+      },
+      "unknowns": [
+        "Trigger timing, resource restrictions, stacking, refresh, and realized race benefit have not been measured.",
+        "What qualifies as a full use and how overtaking refills interact with that check are unmeasured. Shielding is not continuously active."
+      ]
+    },
+    {
+      "id": "effect.part.optimized_fuel_iii",
+      "item_id": "part.optimized_fuel_iii",
+      "trigger": {
+        "event": "equipped",
+        "conditions": []
+      },
+      "requires": [
+        {
+          "state": "action.afterburner_fully_fueled",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "produces": [
+        {
+          "state": "mechanic.afterburner_power",
+          "operation": "relative_increase",
+          "value": 1.0,
+          "unit": "fraction"
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "xbox-20261031-late-shop",
+        "status": "screenshot_description_observation",
+        "basis": "Visible description, not a measurement of runtime behavior."
+      },
+      "unknowns": [
+        "Trigger timing, resource restrictions, stacking, refresh, and realized race benefit have not been measured.",
+        "Whether full fuel is checked continuously or at activation is not established. Never assume the bonus lasts for the entire tank or infer speed from power."
+      ]
+    },
+    {
+      "id": "effect.part.optimized_fuel_iv",
+      "item_id": "part.optimized_fuel_iv",
+      "trigger": {
+        "event": "equipped",
+        "conditions": []
+      },
+      "requires": [
+        {
+          "state": "action.afterburner_fully_fueled",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "produces": [
+        {
+          "state": "mechanic.afterburner_power",
+          "operation": "relative_increase",
+          "value": 1.5,
+          "unit": "fraction"
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "xbox-20261031-final-build",
+        "status": "screenshot_description_observation",
+        "basis": "Visible description, not a measurement of runtime behavior."
+      },
+      "unknowns": [
+        "Trigger timing, resource restrictions, stacking, refresh, and realized race benefit have not been measured.",
+        "Whether full fuel is checked continuously or at activation is not established. Never assume the bonus lasts for the entire tank or infer speed from power."
+      ]
+    },
+    {
+      "id": "effect.ability.freezing_concussion_mine",
+      "item_id": "ability.freezing_concussion_mine",
+      "trigger": {
+        "event": "ability_activation",
+        "conditions": []
+      },
+      "requires": [],
+      "produces": [
+        {
+          "state": "opponent.status.concussed",
+          "operation": "apply",
+          "value": true,
+          "unit": "boolean"
+        },
+        {
+          "state": "opponent.status.system_malfunction",
+          "operation": "apply",
+          "value": true,
+          "unit": "boolean"
+        },
+        {
+          "state": "opponent.status.frozen",
+          "operation": "apply",
+          "value": true,
+          "unit": "boolean"
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "xbox-20261031-ability-offer",
+        "status": "screenshot_description_observation",
+        "basis": "Visible description, not a measurement of runtime behavior."
+      },
+      "unknowns": [
+        "Trigger timing, resource restrictions, stacking, refresh, and realized race benefit have not been measured.",
+        "Frozen field targeting, duration, energy cost, and reload are unknown. No self-status source is established."
+      ]
+    },
+    {
+      "id": "effect.crash_ability.charging_blast",
+      "item_id": "crash_ability.charging_blast",
+      "trigger": {
+        "event": "crash_then_reset",
+        "conditions": []
+      },
+      "requires": [],
+      "produces": [
+        {
+          "state": "opponent.status.disrupted",
+          "operation": "apply",
+          "value": true,
+          "unit": "boolean"
+        },
+        {
+          "state": "status.overcharged",
+          "operation": "grant",
+          "value": true,
+          "unit": "boolean"
+        },
+        {
+          "state": "mechanic.speed",
+          "operation": "increase_unspecified",
+          "value": null,
+          "unit": null
+        },
+        {
+          "state": "resource.energy",
+          "operation": "recover_per_affected_opponent",
+          "value": 2,
+          "unit": "energy_per_opponent"
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": 0,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "xbox-20261031-crash-offer",
+        "status": "screenshot_description_observation",
+        "basis": "Visible description, not a measurement of runtime behavior."
+      },
+      "unknowns": [
+        "Trigger timing, resource restrictions, stacking, refresh, and realized race benefit have not been measured.",
+        "Per-target recovery requires affected nearby opponents. Amount/duration of Overcharged and Speed are unspecified; a crash is not a sustainable enabler."
+      ]
+    },
+    {
+      "id": "effect.part.fuel_agitator_i",
+      "item_id": "part.fuel_agitator_i",
+      "trigger": {
+        "event": "takedown",
+        "conditions": []
+      },
+      "requires": [],
+      "produces": [
+        {
+          "state": "mechanic.afterburner_power",
+          "operation": "relative_increase",
+          "value": 0.05,
+          "unit": "fraction_per_takedown"
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "xbox-20261031-opening-shop",
+        "status": "screenshot_description_observation",
+        "basis": "Visible description, not a measurement of runtime behavior."
+      },
+      "unknowns": [
+        "Trigger timing, resource restrictions, stacking, refresh, and realized race benefit have not been measured.",
+        "Takedowns are not overtakes. Accumulation cap and reset/persistence semantics are unknown."
+      ]
+    },
+    {
+      "id": "effect.part.cooling_actuator_i",
+      "item_id": "part.cooling_actuator_i",
+      "trigger": {
+        "event": "takedown",
+        "conditions": []
+      },
+      "requires": [],
+      "produces": [
+        {
+          "state": "status.cooled",
+          "operation": "grant",
+          "value": true,
+          "unit": "boolean"
+        }
+      ],
+      "duration_s": 5,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "xbox-20261031-opening-shop",
+        "status": "screenshot_description_observation",
+        "basis": "Visible description, not a measurement of runtime behavior."
+      },
+      "unknowns": [
+        "Trigger timing, resource restrictions, stacking, refresh, and realized race benefit have not been measured."
+      ]
+    },
+    {
+      "id": "effect.part.freeze_resistance_i",
+      "item_id": "part.freeze_resistance_i",
+      "trigger": {
+        "event": "equipped",
+        "conditions": []
+      },
+      "requires": [],
+      "produces": [
+        {
+          "state": "mechanic.freeze_buildup_duration",
+          "operation": "relative_increase",
+          "value": 1,
+          "unit": "fraction"
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "xbox-20261031-opening-shop",
+        "status": "screenshot_description_observation",
+        "basis": "Visible description, not a measurement of runtime behavior."
+      },
+      "unknowns": [
+        "Trigger timing, resource restrictions, stacking, refresh, and realized race benefit have not been measured.",
+        "This delays Frozen; it is not immunity and does not prove a self-freeze interaction."
+      ]
+    },
+    {
+      "id": "effect.part.freeze_shedding",
+      "item_id": "part.freeze_shedding",
+      "trigger": {
+        "event": "equipped",
+        "conditions": []
+      },
+      "requires": [
+        {
+          "state": "status.frozen",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "produces": [
+        {
+          "state": "mechanic.frozen_clear_rate",
+          "operation": "relative_increase",
+          "value": 2,
+          "unit": "fraction"
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "xbox-20261031-part-reward",
+        "status": "screenshot_description_observation",
+        "basis": "Visible description, not a measurement of runtime behavior."
+      },
+      "unknowns": [
+        "Trigger timing, resource restrictions, stacking, refresh, and realized race benefit have not been measured."
+      ]
+    },
+    {
+      "id": "effect.part.repulsormod_i",
+      "item_id": "part.repulsormod_i",
+      "trigger": {
+        "event": "perfect_landing",
+        "conditions": []
+      },
+      "requires": [],
+      "produces": [
+        {
+          "state": "mechanic.speed",
+          "operation": "increase_unspecified",
+          "value": null,
+          "unit": null
+        }
+      ],
+      "duration_s": 5,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "xbox-20261031-late-shop",
+        "status": "screenshot_description_observation",
+        "basis": "Visible description, not a measurement of runtime behavior."
+      },
+      "unknowns": [
+        "Trigger timing, resource restrictions, stacking, refresh, and realized race benefit have not been measured.",
+        "Requires an available jump and a correctly executed landing; no numerical Speed gain is specified."
+      ]
+    },
+    {
+      "id": "effect.part.shielding_lead",
+      "item_id": "part.shielding_lead",
+      "trigger": {
+        "event": "take_first_position",
+        "conditions": []
+      },
+      "requires": [],
+      "produces": [
+        {
+          "state": "status.shielded",
+          "operation": "grant",
+          "value": true,
+          "unit": "boolean"
+        }
+      ],
+      "duration_s": 30,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "xbox-20261031-late-shop",
+        "status": "screenshot_description_observation",
+        "basis": "Visible description, not a measurement of runtime behavior."
+      },
+      "unknowns": [
+        "Trigger timing, resource restrictions, stacking, refresh, and realized race benefit have not been measured."
+      ]
+    },
+    {
+      "id": "effect.part.extended_alarm_ii",
+      "item_id": "part.extended_alarm_ii",
+      "trigger": {
+        "event": "equipped",
+        "conditions": []
+      },
+      "requires": [],
+      "produces": [
+        {
+          "state": "mechanic.redlining_duration",
+          "operation": "relative_increase",
+          "value": 1,
+          "unit": "fraction"
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "xbox-20261031-late-shop",
+        "status": "screenshot_description_observation",
+        "basis": "Visible description, not a measurement of runtime behavior."
+      },
+      "unknowns": [
+        "Trigger timing, resource restrictions, stacking, refresh, and realized race benefit have not been measured."
+      ]
+    },
+    {
+      "id": "effect.part.dechoking_mechanism",
+      "item_id": "part.dechoking_mechanism",
+      "trigger": {
+        "event": "equipped",
+        "conditions": []
+      },
+      "requires": [
+        {
+          "state": "status.surging",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "produces": [
+        {
+          "state": "status.choked",
+          "operation": "prevent",
+          "value": true,
+          "unit": "boolean"
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "xbox-20261031-late-shop",
+        "status": "screenshot_description_observation",
+        "basis": "Visible description, not a measurement of runtime behavior."
+      },
+      "unknowns": [
+        "Trigger timing, resource restrictions, stacking, refresh, and realized race benefit have not been measured.",
+        "Protection scope and already-active Choked behavior are unmeasured."
+      ]
+    },
+    {
+      "id": "effect.ability.shield",
+      "item_id": "ability.shield",
+      "trigger": {
+        "event": "ability_activation",
+        "conditions": []
+      },
+      "requires": [],
+      "produces": [
+        {
+          "state": "status.shielded",
+          "operation": "grant",
+          "value": true,
+          "unit": "boolean"
+        }
+      ],
+      "duration_s": 10,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "xbox-20261031-ability-offer",
+        "status": "screenshot_description_observation",
+        "basis": "Visible description, not a measurement of runtime behavior."
+      },
+      "unknowns": [
+        "Trigger timing, resource restrictions, stacking, refresh, and realized race benefit have not been measured."
+      ]
+    },
+    {
+      "id": "effect.ability.shockwave",
+      "item_id": "ability.shockwave",
+      "trigger": {
+        "event": "ability_activation",
+        "conditions": []
+      },
+      "requires": [],
+      "produces": [
+        {
+          "state": "opponent.status.system_malfunction",
+          "operation": "apply",
+          "value": true,
+          "unit": "boolean"
+        },
+        {
+          "state": "mechanic.opponent_displacement",
+          "operation": "increase_unspecified",
+          "value": null,
+          "unit": null
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "xbox-20261031-ability-offer",
+        "status": "screenshot_description_observation",
+        "basis": "Visible description, not a measurement of runtime behavior."
+      },
+      "unknowns": [
+        "Trigger timing, resource restrictions, stacking, refresh, and realized race benefit have not been measured."
+      ]
+    },
+    {
+      "id": "effect.ability.ion_bolt",
+      "item_id": "ability.ion_bolt",
+      "trigger": {
+        "event": "ability_activation",
+        "conditions": []
+      },
+      "requires": [],
+      "produces": [
+        {
+          "state": "opponent.status.disrupted",
+          "operation": "apply",
+          "value": true,
+          "unit": "boolean"
+        }
+      ],
+      "duration_s": null,
+      "energy_cost": null,
+      "reload_s": null,
+      "cooldown_s": null,
+      "stacking": "unknown",
+      "cap": null,
+      "evidence": {
+        "source_id": "xbox-20261031-crash-offer",
+        "status": "screenshot_description_observation",
+        "basis": "Visible description, not a measurement of runtime behavior."
+      },
+      "unknowns": [
+        "Trigger timing, resource restrictions, stacking, refresh, and realized race benefit have not been measured."
+      ]
+    }
+  ]
+}
