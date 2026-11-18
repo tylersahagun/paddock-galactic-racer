@@ -34,9 +34,13 @@ function resultRow(driver, index, yourRow, joinedAt) {
     </th>${cells}</tr>`;
 }
 
-export function resultsHTML(tour, tours) {
+export function resultsHTML(tour, tours, defaultTourName) {
+  const startForm = `<form id="results-start-tour" class="results-start-tour">
+    <label>Tour name<input name="name" value="${esc(defaultTourName)}" maxlength="120" required></label>
+    <button type="submit" class="button">Start tour</button>
+  </form>`;
   const selectedTour = tour || tours[0];
-  if (!selectedTour) return '<div class="empty-history"><h2>Start a tour to record standings</h2><p>Each tour gets its own 12-player results grid.</p><button type="button" class="button" data-action="new-tour">Start a tour</button></div>';
+  if (!selectedTour) return startForm;
   const {id, standings} = selectedTour;
   const yourRow = standings?.your_row ?? 0;
   const joinedAt = standings?.joined_at ?? 1;
@@ -63,7 +67,7 @@ export function resultsHTML(tour, tours) {
         <tbody>${rows}</tbody>
       </table>
     </div>
-  </form>`;
+  </form><details class="results-new-tour"><summary>New tour</summary>${startForm}</details>`;
 }
 
 export function updateResults(form) {

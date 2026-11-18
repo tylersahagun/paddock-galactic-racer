@@ -1,5 +1,70 @@
-.results-form {
+.build-results {
   max-width: 1120px;
+  border-top: 1px solid #a8b4a8;
+  padding-block: 20px 28px;
+  scroll-margin-top: 16px;
+}
+
+.build-results-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.build-results-header h2 {
+  font-size: clamp(20px, 3vw, 25px);
+}
+
+.build-results-header h2:focus-visible {
+  outline: 2px solid var(--game-red);
+  outline-offset: 4px;
+}
+
+.build-results-header .button {
+  display: inline-flex;
+  align-items: center;
+  border-color: #a8b4a8;
+  background: transparent;
+  color: var(--game-ink);
+  text-decoration: none;
+}
+
+.build-results-header .button:hover {
+  background: #c4cfba;
+}
+
+.results-start-tour {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 10px 14px;
+}
+
+.results-start-tour label {
+  display: grid;
+  gap: 4px;
+  color: var(--game-ink);
+  width: min(100%, 370px);
+}
+
+.results-start-tour .button {
+  min-height: 44px;
+  background: var(--rail);
+  color: var(--text);
+}
+
+.results-start-tour .button:hover {
+  background: var(--raised);
+}
+
+.results-new-tour {
+  margin-top: 14px;
+}
+
+.results-new-tour summary {
+  color: var(--game-ink);
 }
 
 .results-toolbar {

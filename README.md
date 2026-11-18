@@ -8,7 +8,7 @@ Build plans and tour history are saved in the browser's IndexedDB. Use the in-ap
 
 ## Tour results
 
-Open **Results** to record all 12 drivers across five stages and a separate final race. Choose your row and the stage you joined. The standings are included in tour backups.
+Scroll to **Tour results** at the bottom of **Build**, or use the **Results** shortcut. Start or select a tour there to record all 12 drivers across five stages and a separate final race. Choose your row and the stage you joined. The standings are included in tour backups.
 
 ## Preview
 

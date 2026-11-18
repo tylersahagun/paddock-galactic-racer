@@ -19,15 +19,15 @@ const today = () => new Date().toLocaleDateString('en-US', {month:'short',day:'n
 const date = value => new Date(value).toLocaleString('en-US', {month:'short',day:'numeric',hour:'numeric',minute:'2-digit'});
 const fields = ['Cornering','Afterburner','Resilience','Ramjet','Battery','Advanced handling'];
 let data, tours = [], tour = null, view = 'builder', offers = [], analysis = null, search = '', filter = 'all', busy = false, customTarget = null;
-let toastTimer, libraryPage=0, standingsTourId;
+let toastTimer, libraryPage=0, standingsTourId, renderedResults;
 let watchlist = null, watchlistError = '';
 let assistantGeneration = 0, assistantInFlight = false, watchlistKey = '', assistantDeferred = false;
 const isActiveTour = () => Boolean(tour && tour.status !== 'completed');
 function resetAssistant() { assistantGeneration += 1; watchlist = null; watchlistError = ''; watchlistKey = ''; }
 
 
-function showError(error) { $('#error').hidden = false; $('#error').textContent = error.message || String(error); }
-function clearError() { $('#error').hidden = true; }
+function showError(error, target = $('#error')) { target.hidden = false; target.textContent = error.message || String(error); }
+function clearError() { $('#error').hidden = true; $('#results-error').hidden = true; }
 function toast(message) { clearTimeout(toastTimer); $('#toast').textContent = message; $('#toast').classList.add('visible'); toastTimer = setTimeout(() => $('#toast').classList.remove('visible'), 3500); }
 const button = (text, action, cls = '', extra = '') => `<button type="button" class="button ${cls}" data-action="${action}" ${extra}>${text}</button>`;
 const selected = (a,b) => a === b ? ' selected' : '';
@@ -46,15 +46,32 @@ async function save(message = '', redraw = true) {
   else refreshAssistant();
 }
 function nav(next) { view = next; clearError(); history.replaceState(null, '', next === 'guides' ? guideHash() : next === 'builder' ? builderHash() : `#${next}`); render(); window.scrollTo({top:0}); }
+function renderResults() {
+  const section = $('#results');
+  section.hidden = view !== 'builder';
+  if (section.hidden) return;
+  const selectedTour = tours.find(t => t.id === standingsTourId) || tour;
+  const markup = resultsHTML(selectedTour, tours, `${today()} · Standard tour`);
+  // Build edits can redraw the editor while the standings form has unsaved entries.
+  if (markup !== renderedResults) {
+    $('#results-content').innerHTML = markup;
+    renderedResults = markup;
+  }
+}
+function focusResults() {
+  $('#results-title').focus({preventScroll:true});
+  $('#results').scrollIntoView({block:'start'});
+}
 function render() {
   document.body.classList.toggle('guide-view', view === 'guides');
   document.body.dataset.view=view;
   document.querySelectorAll('button[data-view]').forEach(b => { b.classList.toggle('active', b.dataset.view === view); b.setAttribute('aria-current', b.dataset.view === view ? 'page' : 'false'); });
-  const headings = {builder:['Build','Choose your racer. Make the build yours.'],guides:['Build guides','13 racers. Three distinct directions each.'],tour:['Tour','Your current run, from the first choice to the finish.'],results:['Results','Record stage and final-race finishes for all 12 drivers.'],library:['Parts & abilities','Find the pieces that make your build work.'],history:['Tour history','Your runs, decisions, and race-entry builds.'],research:['Research','The sources behind the recommendations.']};
+  const headings = {builder:['Build','Choose your racer. Make the build yours.'],guides:['Build guides','13 racers. Three distinct directions each.'],tour:['Tour','Your current run, from the first choice to the finish.'],library:['Parts & abilities','Find the pieces that make your build work.'],history:['Tour history','Your runs, decisions, and race-entry builds.'],research:['Research','The sources behind the recommendations.']};
   $('#page-title').textContent = headings[view][0]; $('#page-description').textContent = headings[view][1];
   $('#header-actions').innerHTML = view === 'tour' && tour ? button('New tour','new-tour','secondary') : '';
-  $('#content').innerHTML = view === 'builder' ? builderHTML() : view === 'guides' ? guidesHTML() : view === 'tour' ? (tour ? liveHTML() : startHTML()) : view === 'library' ? libraryHTML() : view === 'history' ? historyHTML() : view === 'results' ? resultsHTML(tours.find(t => t.id === standingsTourId) || tour, tours) : researchHTML();
-  $('#coverage').textContent = ['guides','builder'].includes(view) ? '13 racers · 39 researched directions' : view==='library' ? `${referenceEntries().length} reference entries` : view==='history' ? `${tours.length} saved tour${tours.length===1?'':'s'}` : view==='tour' ? (tour?'Actual tour record':'Fresh tour setup') : view==='results' ? '' : 'Source claims · editorial recommendations';
+  $('#content').innerHTML = view === 'builder' ? builderHTML() : view === 'guides' ? guidesHTML() : view === 'tour' ? (tour ? liveHTML() : startHTML()) : view === 'library' ? libraryHTML() : view === 'history' ? historyHTML() : researchHTML();
+  $('#coverage').textContent = ['guides','builder'].includes(view) ? '13 racers · 39 researched directions' : view==='library' ? `${referenceEntries().length} reference entries` : view==='history' ? `${tours.length} saved tour${tours.length===1?'':'s'}` : view==='tour' ? (tour?'Actual tour record':'Fresh tour setup') : 'Source claims · editorial recommendations';
+  renderResults();
   if (view === 'tour' && tour) queueMicrotask(refreshAssistant);
 }
 function foundationHTML() {
@@ -209,7 +226,12 @@ document.addEventListener('click', async event => {
     }
     if (action === 'lock-race') { tour.pending_race = {stage:tour.stage,entry_build:clone(tour.build),at:new Date().toISOString()}; await save('Race-entry build saved.'); }
     if (action === 'end-tour') { tour.status = 'completed'; await save('Tour marked complete. History is preserved.'); }
-    if (action === 'open-results') { standingsTourId = b.dataset.id; nav('results'); }
+    if (action === 'open-results') {
+      if (b.dataset.id) standingsTourId = b.dataset.id;
+      if (view !== 'builder') { view = 'builder'; render(); }
+      history.replaceState(null, '', '#results');
+      focusResults();
+    }
     if (action === 'open-tour') { currentTour(await api(`/api/tours/${b.dataset.id}`)); view = 'tour'; render(); }
     if (action === 'export') await exportBackup();
   } catch(error) { showError(error); render(); } finally { busy = false; }
@@ -226,19 +248,29 @@ document.addEventListener('submit', async event => {
       tours = tours.map(t => t.id === saved.id ? saved : t);
       if (tour?.id === saved.id) currentTour(saved);
       standingsTourId = saved.id;
-      if (view === 'results') {
+      if (view === 'builder' && form.isConnected) {
         const scrollLeft = form.querySelector('.results-scroll').scrollLeft;
-        render();
+        renderResults();
         $('.results-scroll').scrollLeft = scrollLeft;
         $('#tour-results button[type="submit"]').focus({preventScroll:true});
       }
       toast('Results saved in this browser.');
     }
-    if (form.id === 'start-tour') {
+    if (form.id === 'start-tour' || form.id === 'results-start-tour') {
+      const name = f.get('name').trim();
+      if (!name) throw new Error('Enter a tour name.');
       const kit = data.starting_kits.find(k => k.id === f.get('kit'));
-      const build = {credits:number(f.get('credits')),installed:kit ? [...kit.abilities,...kit.traits] : [],caps:Object.fromEntries(['parts','abilities','crash_abilities'].map(k => [k,number(f.get(k))])),constraints_observed:f.has('observed'),observations:{},stats:{},custom_items:[],remaining_stages:number(f.get('remaining')),focus:f.get('focus')};
-      currentTour(await api('/api/tours','POST',{name:f.get('name').trim(),racer:f.get('racer').trim(),vehicle:f.get('vehicle'),game_version:f.get('version').trim() || null,status:'active',stage:number(f.get('stage')),build,events:[],races:[],starting_kit_source:kit?.source_id || null}));
-      tours.unshift(tour); render(); toast('Fresh tour started.');
+      const build = {credits:number(f.get('credits')),installed:kit ? [...kit.abilities,...kit.traits] : [],caps:Object.fromEntries(['parts','abilities','crash_abilities'].map(k => [k,number(f.get(k))])),constraints_observed:f.has('observed'),observations:{},stats:{},custom_items:[],remaining_stages:number(f.get('remaining')),focus:f.get('focus') || 'synergy'};
+      currentTour(await api('/api/tours','POST',{name,racer:(f.get('racer') || '').trim(),vehicle:f.get('vehicle') || '',game_version:(f.get('version') || '').trim() || null,status:'active',stage:number(f.get('stage')) ?? 1,build,events:[],races:[],starting_kit_source:kit?.source_id || null}));
+      tours.unshift(tour);
+      standingsTourId = tour.id;
+      if (form.id === 'results-start-tour' && view === 'builder') {
+        renderResults();
+        focusResults();
+      } else {
+        render();
+      }
+      toast('Fresh tour started.');
     }
     if (form.id === 'add-equipment') { const id = f.get('item'); if (!installed().includes(id)) tour.build.installed.push(id); analysis = null; await save('Equipment added.'); }
     if (form.id === 'add-offer') { const id = f.get('item'); if (offers.some(o => o.item_id === id)) throw new Error('This item is already an option. Remove it first to change the price or replacement.'); const replaces = f.get('replaces') || null; offers.push({item_id:id,price:f.has('free') ? 0 : number(f.get('price')),replaces,replacement_confirmed:Boolean(replaces),offered_in_game:true}); analysis = null; await save(); }
@@ -260,7 +292,9 @@ document.addEventListener('submit', async event => {
       tour.build.observations = {}; delete tour.build.observed_events; offers = []; analysis = null;
       await save('Result saved. Transient conditions reset to unknown for the next decision.');
     }
-  } catch(error) { showError(error); } finally { busy = false; }
+  } catch(error) {
+    showError(error, form.closest('#results') ? $('#results-error') : $('#error'));
+  } finally { busy = false; }
 });
 document.addEventListener('input', event => {
   builderInput(event.target);
@@ -272,7 +306,8 @@ document.addEventListener('change', event => {
   const target = event.target;
   if (target.id === 'results-tour') {
     standingsTourId = target.value;
-    render();
+    clearError();
+    renderResults();
     $('#results-tour').focus();
     return;
   }
@@ -297,13 +332,22 @@ document.addEventListener('focusout', () => { if (assistantDeferred) setTimeout(
 function routeHash() {
   if(location.hash.startsWith('#builder')){setBuilderRoute(location.hash);view='builder';}
   else if (location.hash.startsWith('#guides')) { selectGuideRoute(location.hash); view = 'guides'; }
-  else if (['#tour','#library','#history','#research','#results'].includes(location.hash)) view = location.hash.slice(1);
+  else if (location.hash === '#results') view = 'builder';
+  else if (['#tour','#library','#history','#research'].includes(location.hash)) view = location.hash.slice(1);
 }
-window.addEventListener('hashchange', () => { if (['#workspace','#guide-stat-title'].includes(location.hash)) return; routeHash(); clearError(); render(); window.scrollTo({top:0}); });
+function renderRoute() {
+  routeHash();
+  clearError();
+  render();
+  if (location.hash === '#results') focusResults();
+  else window.scrollTo({top:0});
+}
+window.addEventListener('hashchange', () => { if (!['#workspace','#guide-stat-title'].includes(location.hash)) renderRoute(); });
 try {
   [data,{tours}] = await Promise.all([api('/api/catalog'),api('/api/tours'),loadGuides()]);
   await initBuilder({catalog:data,guides:guideData(),api,render,notify:toast});
   const savedActive = localStorage.getItem('paddock.active');
   const active = savedActive === 'new' ? null : tours.find(t => t.id === savedActive) || tours.find(t => t.status === 'active');
-  if (active) currentTour(active); routeHash(); render();
+  if (active) currentTour(active);
+  renderRoute();
 } catch(error) { $('#content').innerHTML = '<div class="empty-history"><h2>Paddock could not load.</h2><p>Reload this page to try again.</p></div>'; showError(error); }
